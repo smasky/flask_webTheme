@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'ABC';
+    src: url('./bootstrap-3.3.7-dist/fonts/sourcesanspro-bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont.woff2') format('woff2'), url('iconfont.woff') format('woff'), url('iconfont.ttf') format('truetype'), url('iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 20px!important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color:
+}
+
+.icon-shouye:before {
+    content: "\e605";
+}
+
+.bg-blue {
+    background-color: rgb(133, 179, 212);
+}
+
+.icon-size {
+    font-size: 30px;
+}
+
+.navbar-font {
+    font-size: 25px;
+}
+
+.font-bg-info-white {
+    color: rgb(250, 255, 235)
+}
+
+.middle {
+    float: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.info-font-Source {
+    font-family: ABC;
+    font-style: normal;
+}
+
+.navbar-brand {
+    float: none!important;
+    display: inline-block;
+}
+
+.navbar-header {
+    margin-top: 5px;
+}
+
+.navbar {
+    border-width: 0 0 0 0;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    height: 40px;
+}
+
+.bg-info-mblue {
+    background-color: rgb(19, 141, 182);
+}
+
+.app-container {
+    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+}
+
+.container {
+    padding: 0 0;
+}
+
+.aside {
+    min-height: 100%;
+    position: fixed;
+    width: 195px;
+    top: 50px;
+    bottom: 0px;
+    margin: 0 0 0 0!important;
+    padding: 0px 0px;
+    overflow: hidden;
+}
+
+.sub-aside {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 215px;
+}
+
+.img-size {
+    width: 100px;
+    display: block;
+    margin-left: 20px;
+}
+
+.user-img-wrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.bg-green {
+    background-color: rgba(213, 240, 237, 0.3);
+}
+
+.aside .text-center {
+    padding-top: 5px;
+    display: block;
+    text-align: center;
+    font-family: ABC;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.wrap {
+    padding: 15px;
+}
+
+.thumb-lg {
+    display: inline-block;
+    width: 96px;
+}
+
+.avatar {
+    position: relative;
+    white-space: nowrap;
+    border-radius: 500px;
+    padding-top: 25px;
+}
+
+.avatar img {
+    width: 76px;
+    border-radius: 500px;
+    margin-bottom: 15px;
+}
+
+.describe {
+    font-family: ABC;
+    font-size: 13px;
+    font-style: normal;
+    color: rgba(0, 0, 0, .8);
+}
+
+.main-des {
+    display: block;
+}
+
+.sub-des {
+    margin-top: 5px;
+    display: block;
+    color: #98a6ad;
+}
+
+.line {
+    height: 2px;
+    border-radius: 500px;
+}
+
+.bg-white {
+    background-color: rgba(10, 10, 10, 0.404);
+}
+
+.aside-nav-head {
+    font-family: ABC;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 15px;
+    margin-top: 7px;
+    color: #535b5fb0;
+}
+
+.nav-stacked li>a {
+    float: left;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.787);
+    text-align: left;
+    padding-left: 30px;
+    font-size: 13px;
+}
+
+.nav-stacked li>a:hover {
+    cursor: pointer;
+}
+
+.nav-stacked span {
+    font-family: 'ABC';
+}
+
+.aside-icon {
+    padding-right: 15px;
+}
+
+.aside-footer {
+    z-index: 10000;
+    position: relative;
+}
