@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
+    {% block head %}
+    <title>Smasky's Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename='css/smasky.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/iconfont.css'}}">
-
+    <link rel="stylesheet" href="{{url_for('static',filename='css/smasky/iconfont.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> </script>
+    {% endblock head %}
 </head>
 
 <body>
     <div class="alllayout  app-container container">
-        <div class="container">
-            <nav class="navbar navbar-default bg-blue  col-xs-2" role='navigation'>
+        {% block nav_head %}
+        <div class="app-head container">
+            <nav class="left-header navbar navbar-default bg-blue  col-xs-2" role='navigation'>
                 <div class='navbar-header font-bg-info-white text-center'>
                     <i class='glyphicon glyphicon-heart middle icon-size'> </i>
-                    <span class='info-font-Source hidden-xs navbar-font'>Smasky</span>
+                    <span class='info-font-Source hidden-md hidden-xs  navbar-font'>Smasky</span>
                 </div>
             </nav>
-            <nav class='navbar navbar-default bg-info-mblue col-xs-10'>
+            <nav class='right-header navbar navbar-default bg-info-mblue col-xs-10'>
 
             </nav>
         </div>
-        <div class='aside bg-green col-xs-2'>
+        {% endblock nav_head %}
+
+        {% block app_left_aside %}
+        <div class='app-left-aside aside bg-green col-xs-2'>
             <div class="sub-aside clearfix hidden-xs text-center show ">
                 <div class="dropdown wrap">
                     <div class="ui-avtar">
                         <a href=#>
                             <span class="thumb-lg avatar">
-                                    <img src="{{url_for('static',filename='img/avatar.jpg')}}" class="img-full">
+                                <img src="{{url_for('static',filename='img/avatar.jpg')}}" class="img-full">
                             </span>
                         </a>
                     </div>
@@ -53,44 +60,60 @@
                         <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
                         <li><a><i class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
                         <li><a><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
-
-
                     </ul>
 
                 </div>
                 <div class="line bg-white"></div>
                 <ul class="nav nav-stacked">
                     <li class="aside-nav-head"><span>功能:</span></li>
-                    <li><a><i class="iconfont icon-shouye aside-icon"></i><span href="#">首页</span></a></li>
-                    <li><a><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
-                    <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                    <li><a><i class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
-                    <li><a><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
-                    <li><a><i class="iconfont icon-shouye aside-icon"></i><span href="#">首页</span></a></li>
-                    <li><a><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
-                    <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                    <li><a><i class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
-                    <li><a><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
-                    <li><a><i class="iconfont icon-shouye aside-icon"></i><span href="#">首页</span></a></li>
-                    <li><a><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
-                    <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                    <li><a><i class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
-                    <li><a><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
-                    <li><a><i class="iconfont icon-shouye aside-icon"></i><span href="#">首页</span></a></li>
-                    <li><a><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
-                    <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                    <li><a><i class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
-                    <li><a><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
-
-
+                    <li><a ui-toggle="active" ui-toggle-target="sub-liOne"><i class="iconfont icon-fenlei aside-icon"></i><span
+                                href="#">分类</span></a></li>
+                    <ul id="sub-liOne" class="sub-li nav-sub">
+                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">个人生活</span></a></li>
+                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">水力学</span></a></li>
+                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">代码</span></a></li>
+                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">学习笔记</span></a></li>
+                    </ul>
+                    <li><a ui-toggle='active' ui-toggle-target='sub-liTwo'><i class="iconfont icon-iconset0335 aside-icon"></i><span
+                                href="#">页面</span></a></li>
+                    <ul id="sub-liTwo" class="sub-li nav-sub">
+                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">推荐页</span></a></li>
+                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">文章页</span></a></li>
+                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">留言板</span></a></li>
+                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">关于我</span></a></li>
+                    </ul>
+                    <li><a ui-toggle='active' ui-toggle-target='sub-liThree'><i class="iconfont icon-youlian aside-icon"></i><span
+                                href="#">友链</span></a></li>
+                    <ul id="sub-liThree" class="sub-li nav-sub">
+                        <li><a><i class="iconfont icon-pengyoutuijian aside-icon"></i><span href="#">A</span></a></li>
+                        <li><a><i class="iconfont icon-pengyoutuijian aside-icon"></i><span href="#">B</span></a></li>
+                        <li><a><i class="iconfont icon-pengyoutuijian aside-icon"></i><span href="#">C</span></a></li>
+                        <li><a><i class="iconfont icon-pengyoutuijian aside-icon"></i><span href="#">D</span></a></li>
+                    </ul>
+                    <li><a ui-toggle='active' ui-toggle-target='sub-liFour'><i class="iconfont icon-juanzeng  aside-icon"></i><span
+                                href="#">捐赠</span></a></li>
+                </ul>
             </div>
+        </div>
+        {% endblock app_left_aside %}
+        <div class="app-main info-color-low-white ">
+            {% block main_content %}{% endblock main_content %}
+
+            {% block app_right_aside %}{% endblock app_right_aside %}
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-
+    <script>
+        $(document).ready(function () {
+            $("a[ui-toggle='active']").click(function () {
+                var link = '#' + $(this).attr('ui-toggle-target');
+                $(link).toggleClass('active animated slideInLeft')
+            });
+        });
+    </script>
 </body>
 
 </html>

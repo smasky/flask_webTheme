@@ -1,0 +1,17 @@
+
+{% for post in posts %}
+<div class="panel panel-post panel-default">
+        <div class="index-post-img-wrap panel-heading">
+            <a href="#">
+                <div class='post-img'></div>
+            </a>
+        </div>
+        <div class="panel-body post-meta">
+            <h2 class="index-post-title text-muted">
+               {{ post.title }}
+            </h2>
+            <p class='summary text-muted'>{{ post.body|striptags|truncate }}</p>
+            <div class="post-line bg-white"></div>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pager %}
+{% block main_content %}
+<div class="main-content col-xs-9">
+    <div class="content-header info-color-pure-white boder-bottom">
+        <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
+        <small>不困于情，不畏将来，不念过往。</small>
+    </div>
+    <div class="blog-post boder-around">
+        {% include 'blog/_post.html' %}
+        {% if posts %}
+        <div class="page-footer">{{ render_pager(pagination) }}</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block app_right_aside %}
+<div class="app-right-aside col-xs-3 info-color-high-white">
+        <div class="nav-wrap">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="active" role="presentation">
+                    <a href="#link-nav-One" data-toggle="tabs" role="tabs">
+                        <i class="iconfont icon-icon-test"></i>
+                    </a>
+                </li>
+                <li  role="presentation">
+                    <a href="#link-nav-One" data-toggle="tabs" role="tabs">
+                        <i class="iconfont icon-icon-test"></i>
+                    </a>
+                </li>
+                <li  role="presentation">
+                    <a href="#link-nav-One" data-toggle="tabs" role="tabs">
+                        <i class="iconfont icon-icon-test"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}
