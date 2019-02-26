@@ -21,7 +21,9 @@ def create_app(config_name=None):
     register_commands(app)
     register_blueprints(app)
     register_extensions(app)
+    
     app.config.from_object(config[config_name])
+    print(app.config['SQLALCHEMY_DATABASE_URI'])
     return app
 
 '''

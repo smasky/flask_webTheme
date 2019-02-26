@@ -14,6 +14,7 @@ blog_bp=Blueprint('blog',__name__)
 def index():
     page=request.args.get('page',1,type=int)
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
-    pagination=Post.query.order_by(Post.timestamp.desc()).paginate(page,per_page=per_page)
+    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=per_page)
     posts=pagination.items
+    print(posts)
     return render_template('blog/index.html',Posts=posts,pagination=pagination)

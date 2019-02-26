@@ -4,6 +4,6 @@ import os
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 
 
-from Smablog import create_app  # noqa
+from SmaBlog import create_app  # noqa
 
-app = create_app('testing')
+app = create_app('production')

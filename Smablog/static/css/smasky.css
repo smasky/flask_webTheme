@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ABC';
-    src: url('./bootstrap-3.3.7-dist/fonts/sourcesanspro-bold.woff') format('woff');
+    src: url('../fonts/Source-Sans-Pro-ExtraLight.woff2') format('woff');
 }
 
 @font-face {
@@ -85,7 +85,7 @@
     bottom: 0px;
     margin: 0 0 0 0!important;
     padding: 0px 0px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .sub-aside {
@@ -164,15 +164,18 @@
     height: 2px;
     border-radius: 500px;
 }
-.post-line{
+
+.post-line {
     height: 1px;
     border-radius: 500px;
     border-color: #edf1f2;
     border-bottom: 1px solid #dee5e7;
 }
-.text-muted{
+
+.text-muted {
     color: #a0a0a0;
 }
+
 .bg-white {
     background-color: rgba(10, 10, 10, 0.404);
 }
@@ -213,188 +216,195 @@
     position: relative;
 }
 
-.sub-li{
+.sub-li {
     display: none;
 }
 
-.active{
+.active {
     display: block;
     animation-duration: 0.5s!important;
 }
 
-.active li{
-    list-style-type:none;
+.active li {
+    list-style-type: none;
     display: block;
 }
 
-.active li:hover{
+.active li:hover {
     background-color: rgb(71, 62, 62);
 }
 
-.active li a{
-    padding-top:5px;
+.active li a {
+    padding-top: 5px;
     padding-bottom: 5px;
     float: left;
     text-decoration: none;
-    padding-left:0px;
-    font-size:13px;
-
+    padding-left: 0px;
+    font-size: 13px;
 }
 
-.nav-sub{
+.nav-sub {
     width: 100%;
     padding-left: 0px!important;
 }
 
-.nav-sub li a{
-    width:100%;
-    padding-left:30px;
+.nav-sub li a {
+    width: 100%;
+    padding-left: 30px;
     background-color: rgba(250, 255, 235, 0.5);
 }
 
-.nav-sub li a:hover{
+.nav-sub li a:hover {
     background-color: bisque;
 }
-.app-head{
-    position:fixed!important;
+
+.app-head {
+    position: fixed!important;
     width: 1170px;
     z-index: 10001;
 }
-.app-main{
-    height:900px;
+
+.app-main {
+    height: 900px;
     margin-left: 195px;
     margin-top: 30px;
     width: 83.33%;
     display: table;
 }
-.main-content{
-     height: 100%;
-     padding: 0px 0px;
-     display: table-cell;
-}
 
-.app-right-aside{
+.main-content {
     height: 100%;
     padding: 0px 0px;
     display: table-cell;
 }
-.info-color-low-white{
+
+.app-right-aside {
+    height: 100%;
+    padding: 0px 0px;
+    display: table-cell;
+}
+
+.info-color-low-white {
     background-color: rgba(236, 238, 238, 0.774);
 }
-.info-color-high-white{
+
+.info-color-high-white {
     background-color: rgba(242, 245, 244, 0.89);
 }
-.info-color-pure-white{
+
+.info-color-pure-white {
     background-color: rgba(255, 255, 255, 0.705);
 }
-.content-header{
-    top:0px;
-    padding:20px 20px;
+
+.content-header {
+    top: 0px;
+    padding: 20px 20px;
 }
-.content-header h1{
-    margin-left:5%;
+
+.content-header h1 {
+    margin-left: 5%;
     color: #5c5c5c;
 }
-.blog-post{
-    padding: 20px 20px;
 
+.blog-post {
+    padding: 20px 20px;
 }
-.app-right-aside .nav-wrap{
-    padding-top:20px;
+
+.app-right-aside .nav-wrap {
+    padding-top: 20px;
 }
-.content-header small{
+
+.content-header small {
     margin-left: 10%;
     font-size: 100%;
     font-family: "ABC";
     color: #b6bcbd;
 }
-.boder-bottom{
-    border-bottom:1px solid #dee5e7;
+
+.boder-bottom {
+    border-bottom: 1px solid #dee5e7;
 }
-.boder-around{
+
+.boder-around {
     border: 1px solid #dee5e7;
 }
 
-.index-post-img-wrap{
+.index-post-img-wrap {
     height: 20%;
     overflow: hidden;
 }
-.post-img{
+
+.post-img {
     width: 100%;
     min-height: 250px;
     background-image: url("https://ws1.sinaimg.cn/large/e4e313f5ly1fyjb1t4yhlj21jk19wtt9.jpg");
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-
 }
-.panel-heading{
+
+.panel-heading {
     padding: 5px 5px;
 }
-.panel-body{
+
+.panel-body {
     padding: 30px;
 }
-.panel-body h2{
-    font-size:18px;
-    margin-top:0px!important;
+
+.panel-body h2 {
+    font-size: 18px;
+    margin-top: 0px!important;
 }
 
 @media screen and (max-width:1200px) {
-    .aside{
+    .aside {
         width: 160px;
     }
-    .app-main{
+    .app-main {
         margin-left: 160px;
     }
-
-    .left-head{
+    .left-head {
         width: 160px;
     }
-    .navbar-font{
+    .navbar-font {
         font-size: 17px;
     }
-
-    .wrap{
+    .wrap {
         padding-right: 50px;
     }
-
-    .app-head{
+    .app-head {
         width: 970px;
     }
- }
+}
 
- @media screen and (max-width:992px){
-     .aside{
-         width: 125px;
-     }
-     .app-main{
-         margin-left:125px;
-     }
+@media screen and (max-width:992px) {
+    .aside {
+        width: 125px;
+    }
+    .app-main {
+        margin-left: 125px;
+    }
+    .app-head {
+        width: 750px;
+    }
+    .wrap {
+        padding-left: 0px;
+        padding-right: 70px;
+    }
+    .img-full {
+        width: 57px!important;
+    }
+}
 
-     .app-head{
-         width: 750px;
-     }
-
-     .wrap{
-         padding-left: 0px;
-         padding-right: 70px;
-     }
-     .img-full{
-         width: 57px!important;
-     }
- }
-
- @media screen and (max-width:768px){
-     .aside{
-         display: none;
-     }
-     .app-main{
-         width: 100%;
-         margin-left:0px;
-     }
-
-     .app-head
-     {
-         width: 100%;
-     }
- }
+@media screen and (max-width:768px) {
+    .aside {
+        display: none;
+    }
+    .app-main {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .app-head {
+        width: 100%;
+    }
+}

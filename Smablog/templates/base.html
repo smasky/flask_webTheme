@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename='css/smasky.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/smasky/iconfont.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/iconfont.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> </script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
     {% endblock head %}
 </head>
 
@@ -27,9 +28,7 @@
 
             </nav>
         </div>
-        {% endblock nav_head %}
-
-        {% block app_left_aside %}
+        {% endblock nav_head %} {% block app_left_aside %}
         <div class='app-left-aside aside bg-green col-xs-2'>
             <div class="sub-aside clearfix hidden-xs text-center show ">
                 <div class="dropdown wrap">
@@ -97,9 +96,7 @@
         </div>
         {% endblock app_left_aside %}
         <div class="app-main info-color-low-white ">
-            {% block main_content %}{% endblock main_content %}
-
-            {% block app_right_aside %}{% endblock app_right_aside %}
+            {% block main_content %}{% endblock main_content %} {% block app_right_aside %}{% endblock app_right_aside %}
         </div>
     </div>
 
@@ -107,8 +104,8 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $("a[ui-toggle='active']").click(function () {
+        $(document).ready(function() {
+            $("a[ui-toggle='active']").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft')
             });
