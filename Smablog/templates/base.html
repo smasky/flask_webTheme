@@ -103,14 +103,18 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script>
+    {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
+   <script>
         $(document).ready(function() {
             $("a[ui-toggle='active']").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft')
             });
+
+
         });
     </script>
+    {{ moment.locale('zh-cn') }}
 </body>
 
 </html>

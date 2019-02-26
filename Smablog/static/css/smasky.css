@@ -72,9 +72,50 @@
 .app-container {
     box-shadow: 0 0 30px rgba(0, 0, 0, .3);
 }
-
+.post-meta{
+    font-size: 12px;
+    padding-top:10px;
+}
+.post-meta span{
+    padding-right:10px;
+}
+.post-meta-icon{
+    font-size: 15px!important;
+}
 .container {
     padding: 0 0;
+}
+.nav-tabs li {
+    background-color: rgba(242, 245, 244, 0.89) !important;
+    border-width: 0px 0px!important;
+}
+
+.nav-tabs {
+    background: #eaeaea!important;
+    border: none!important;
+    border-bottom: 1px solid  rgb(187, 181, 181) !important;
+}
+.pull-left{
+    float: left!important;
+}
+.thumb-sm{
+    width:12px;
+}
+.nav-tabs li a {
+    color: rgb(125, 119, 119) !important;
+    background-color: rgba(242, 245, 244, 0.89) !important;
+    border: none!important;
+}
+
+.list-group li{
+    background-color: transparent!important;
+
+}
+.list-group li:hover{
+    background-color: transparent!important;
+}
+.nav-tabs li.active{
+    border-bottom: 1px solid  rgb(125, 119, 119) !important;
 }
 
 .aside {

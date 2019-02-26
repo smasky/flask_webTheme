@@ -15,6 +15,8 @@ def index():
     page=request.args.get('page',1,type=int)
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
     pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=per_page)
+    hot_posts=Post.query.order_by(Post.comments.desc())[:5]
+    rand_posts=Post.query.order_by(Post.views.desc())[:5]
     posts=pagination.items
-    print(posts)
-    return render_template('blog/index.html',Posts=posts,pagination=pagination)
+    print(hot_posts)
+    return render_template('blog/index.html',Posts=posts,pagination=pagination,hot_posts=hot_posts,rand_posts=rand_posts)

@@ -1,0 +1,56 @@
+<div class="app-right-aside col-xs-3 info-color-high-white">
+    <div class="nav-wrap">
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="active" role="presentation">
+                <a href='#link-nav-One' data-toggle='tab'>
+                    <i class="iconfont icon-icon-test"></i>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href='#link-nav-Two' data-toggle='tab'>
+                    <i class="iconfont icon-icon-test"></i>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href='#link-nav-Three' data-toggle='tab'>
+                    <i class="iconfont icon-icon-test"></i>
+                </a>
+            </li>
+        </ul>
+        <div class='tab-content'>
+            <div id='link-nav-One' class="tab-pane active">
+                <h4 style="padding-left:15px;padding-top:15px;color:#707474;">热门文章</h4>
+                <ul class="list-group">
+                    {% if hot_posts %}
+                    {% for post in hot_posts %}
+                    <li class="list-group-item">{{ post.title }}</li>
+                    {% endfor %}
+                    {% else %}
+                    <li class="list-group-item">1223</li>
+                    {% endif %}
+                </ul>
+
+            </div>
+            <div id='link-nav-Two' class="tab-pane ">
+                <h4 style="padding-left:15px;padding-top:15px;color:#707474;">随机文章</h4>
+                <ul class="list-group ">
+                        {% for post in rand_posts %}
+                        <li class="list-group-item">{{ post.title }}</li>
+                        {% endfor %}
+                </ul>
+
+            </div>
+            <div id='link-nav-Three' class="tab-pane ">
+                <h4 style="padding-left:15px;padding-top:15px;color:#707474;">广而告之</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">免费域名注册</li>
+                    <li class="list-group-item">免费 Window 空间托管</li>
+                    <li class="list-group-item">图像的数量</li>
+                    <li class="list-group-item">24*7 支持</li>
+                    <li class="list-group-item">每年更新成本</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@ from flask import Flask,render_template
 
 from .blueprints.blog import blog_bp
 from .settings import config
-from .extensions import db,bootstrap
+from .extensions import db,bootstrap,moment
 '''
 创建app主体文件
 '''
@@ -21,7 +21,7 @@ def create_app(config_name=None):
     register_commands(app)
     register_blueprints(app)
     register_extensions(app)
-    
+
     app.config.from_object(config[config_name])
     print(app.config['SQLALCHEMY_DATABASE_URI'])
     return app
@@ -36,6 +36,7 @@ def register_blueprints(app):
 def register_extensions(app):
     db.init_app(app)
     bootstrap.init_app(app)
+    moment.init_app(app)
 
 
 def register_commands(app):
