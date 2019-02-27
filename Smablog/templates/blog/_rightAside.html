@@ -23,7 +23,8 @@
                 <ul class="list-group">
                     {% if hot_posts %}
                     {% for post in hot_posts %}
-                    <li class="list-group-item">{{ post.title }}</li>
+                    <li class="list-group-item"><a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
+                       <div class="clear" style="display:block;margin-left:60px;"><h4 style='font-size: 14px;'>{{ post.title }}</h4> <small>{{ post.views }}</small></div> </li>
                     {% endfor %}
                     {% else %}
                     <li class="list-group-item">1223</li>
@@ -51,6 +52,16 @@
                 </ul>
 
             </div>
+        </div>
+        <div class="tab-info" style="margin:0px 20px;">
+            <h4 style="padding-left:15px;padding-top:15px;color:#707474;">博客信息</h4>
+                <ul class="list-group">
+                    <li class="list-group-item"><i></i>文章数量<span class="badge">100</span></li>
+                    <li class="list-group-item"><i></i>评论数目<span class="badge">100</span></li>
+                    <li class="list-group-item"><i></i>运行天数<span class="badge">100</span></li>
+                    <li class="list-group-item"><i></i>上次更新<span class="badge">100</span></li>
+                </ul>
+
         </div>
     </div>
 </div>

@@ -99,7 +99,8 @@
     float: left!important;
 }
 .thumb-sm{
-    width:12px;
+    display: inline-block;
+    width:40px;
 }
 .nav-tabs li a {
     color: rgb(125, 119, 119) !important;
@@ -276,7 +277,7 @@
 }
 
 .active li a {
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 5px;
     float: left;
     text-decoration: none;
