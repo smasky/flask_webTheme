@@ -32,10 +32,14 @@
 .navbar-font {
     font-size: 25px;
 }
-
+.app-main img{
+    max-width: 100%
+}
 .font-bg-info-white {
     color: rgb(250, 255, 235);
 }
+
+
 
 .middle {
     float: none;
@@ -315,11 +319,11 @@
 }
 
 .app-main {
-    height: 900px;
     margin-left: 195px;
     margin-top: 30px;
     width: 83.33%;
     display: table;
+    overflow: auto;
 }
 
 .main-content {
@@ -358,6 +362,8 @@
 
 .blog-post {
     padding: 20px 20px;
+    display: block;
+    width: 100%;
 }
 
 .app-right-aside .nav-wrap {
@@ -387,7 +393,6 @@
 .post-img {
     width: 100%;
     min-height: 250px;
-    background-image: url("https://ws1.sinaimg.cn/large/e4e313f5ly1fyjb1t4yhlj21jk19wtt9.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

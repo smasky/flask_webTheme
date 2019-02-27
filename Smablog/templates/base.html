@@ -18,13 +18,13 @@
     <div class="alllayout  app-container container">
         {% block nav_head %}
         <div class="app-head container">
-            <nav class="left-header navbar navbar-default header-bg-blue  col-xs-2" role='navigation'>
+            <nav class="left-header navbar navbar-default header-info-blue  col-xs-2" role='navigation'>
                 <div class='navbar-header font-bg-info-white text-center'>
                     <i class='glyphicon glyphicon-heart middle icon-size'> </i>
                     <span class='font-info-Source hidden-md hidden-xs web-title navbar-font'>Smasky</span>
                 </div>
             </nav>
-            <nav class='right-header navbar navbar-default bg-info-mblue col-xs-10'>
+            <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
 
             </nav>
         </div>
@@ -97,7 +97,9 @@
         {% endblock app_left_aside %}
         <div class="app-main info-color-low-white ">
             {% block main_content %}{% endblock main_content %} {% block app_right_aside %}{% endblock app_right_aside %}
+
         </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>

@@ -50,6 +50,14 @@ def register_commands(app):
             click.echo('Drop tables.')
         db.create_all()
         click.echo('Initialized database.')
+    @app.cli.command()
+    @click.option('--filename',help='add new post into db')
+    def addpost(filename):
+        from .loading_post import loading_post
+        click.echo(filename)
+        loading_post(filename)
+        click.echo('done.')
+
 
     @app.cli.command()
     @click.option('--post', default=50, help='Quantity of posts, default is 50.')
