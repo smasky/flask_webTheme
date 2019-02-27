@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'ABC';
+    font-family: 'font-Sour-Sans';
     src: url('../fonts/Source-Sans-Pro-ExtraLight.woff2') format('woff');
 }
 
@@ -15,14 +15,13 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color:
 }
 
 .icon-shouye:before {
     content: "\e605";
 }
 
-.bg-blue {
+.header-info-blue {
     background-color: rgb(133, 179, 212);
 }
 
@@ -44,8 +43,8 @@
     display: inline-block;
 }
 
-.info-font-Source {
-    font-family: ABC;
+.font-info-Source {
+    font-family: "font-Sour-Sans";
     font-style: normal;
 }
 
@@ -72,19 +71,24 @@
 .app-container {
     box-shadow: 0 0 30px rgba(0, 0, 0, .3);
 }
-.post-meta{
+
+.post-meta {
     font-size: 12px;
-    padding-top:10px;
+    padding-top: 10px;
 }
-.post-meta span{
-    padding-right:10px;
+
+.post-meta span {
+    padding-right: 10px;
 }
-.post-meta-icon{
+
+.post-meta-icon {
     font-size: 15px!important;
 }
+
 .container {
     padding: 0 0;
 }
+
 .nav-tabs li {
     background-color: rgba(242, 245, 244, 0.89) !important;
     border-width: 0px 0px!important;
@@ -93,30 +97,34 @@
 .nav-tabs {
     background: #eaeaea!important;
     border: none!important;
-    border-bottom: 1px solid  rgb(187, 181, 181) !important;
+    border-bottom: 1px solid rgb(187, 181, 181) !important;
 }
-.pull-left{
+
+.pull-left {
     float: left!important;
 }
-.thumb-sm{
+
+.thumb-sm {
     display: inline-block;
-    width:40px;
+    width: 40px;
 }
+
 .nav-tabs li a {
     color: rgb(125, 119, 119) !important;
     background-color: rgba(242, 245, 244, 0.89) !important;
     border: none!important;
 }
 
-.list-group li{
+.list-group li {
     background-color: transparent!important;
+}
 
-}
-.list-group li:hover{
+.list-group li:hover {
     background-color: transparent!important;
 }
-.nav-tabs li.active{
-    border-bottom: 1px solid  rgb(125, 119, 119) !important;
+
+.nav-tabs li.active {
+    border-bottom: 1px solid rgb(125, 119, 119) !important;
 }
 
 .aside {
@@ -156,7 +164,7 @@
     padding-top: 5px;
     display: block;
     text-align: center;
-    font-family: ABC;
+    font-family: "font-Sour-Sans";
 }
 
 .dropdown {
@@ -186,7 +194,7 @@
 }
 
 .describe {
-    font-family: ABC;
+    font-family: font-Sour-Sans;
     font-size: 13px;
     font-style: normal;
     color: rgba(0, 0, 0, .8);
@@ -223,7 +231,7 @@
 }
 
 .aside-nav-head {
-    font-family: ABC;
+    font-family: "font-Sour-Sans";
     font-size: 12px;
     text-align: left;
     padding-left: 20px;
@@ -246,7 +254,7 @@
 }
 
 .nav-stacked span {
-    font-family: 'ABC';
+    font-family: 'font-Sour-Sans';
 }
 
 .aside-icon {
@@ -359,7 +367,7 @@
 .content-header small {
     margin-left: 10%;
     font-size: 100%;
-    font-family: "ABC";
+    font-family: "font-Sour-Sans";
     color: #b6bcbd;
 }
 

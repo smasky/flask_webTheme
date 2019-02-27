@@ -20,3 +20,8 @@ def index():
     posts=pagination.items
     print(hot_posts)
     return render_template('blog/index.html',Posts=posts,pagination=pagination,hot_posts=hot_posts,rand_posts=rand_posts)
+
+@blog_bp.route('/posts/<int:post_id>',methods=['GET','POST'])
+def show_post(post_id):
+    post=Post.query.get_or_404(post_id)
+    return render_template('blog/post.html',Post=post)

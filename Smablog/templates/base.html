@@ -18,10 +18,10 @@
     <div class="alllayout  app-container container">
         {% block nav_head %}
         <div class="app-head container">
-            <nav class="left-header navbar navbar-default bg-blue  col-xs-2" role='navigation'>
+            <nav class="left-header navbar navbar-default header-bg-blue  col-xs-2" role='navigation'>
                 <div class='navbar-header font-bg-info-white text-center'>
                     <i class='glyphicon glyphicon-heart middle icon-size'> </i>
-                    <span class='info-font-Source hidden-md hidden-xs  navbar-font'>Smasky</span>
+                    <span class='font-info-Source hidden-md hidden-xs web-title navbar-font'>Smasky</span>
                 </div>
             </nav>
             <nav class='right-header navbar navbar-default bg-info-mblue col-xs-10'>
@@ -104,7 +104,7 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
-   <script>
+    <script>
         $(document).ready(function() {
             $("a[ui-toggle='active']").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
