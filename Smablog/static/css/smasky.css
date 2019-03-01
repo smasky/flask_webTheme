@@ -31,6 +31,7 @@
 
 .navbar-font {
     font-size: 25px;
+
 }
 .app-main img{
     max-width: 100%
@@ -318,18 +319,19 @@
     z-index: 10001;
 }
 
+
 .app-main {
     margin-left: 195px;
     margin-top: 30px;
     width: 83.33%;
-    display: table;
+    display: block;
     overflow: auto;
 }
 
 .main-content {
     height: 100%;
     padding: 0px 0px;
-    display: table-cell;
+    display: block;
 }
 
 .app-right-aside {
