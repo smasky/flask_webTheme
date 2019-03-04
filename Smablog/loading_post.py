@@ -35,7 +35,7 @@ def loading_post(filename=''):
                     post_img=Info['top_img'],
                     abstract=Info['abstract'],
                     comments=0,
-                    timestamp=fake.date_time_this_year())
+                    timestamp=datetime.datetime.utcnow())
         print('aa')
         db.session.add(post)
         db.session.commit()

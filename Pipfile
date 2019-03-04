@@ -12,6 +12,7 @@ flask-bootstrap = "*"
 flask = "*"
 flask-moment = "*"
 markdown = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.6"

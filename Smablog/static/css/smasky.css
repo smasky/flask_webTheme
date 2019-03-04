@@ -362,11 +362,7 @@
     color: #5c5c5c;
 }
 
-.blog-post {
-    padding: 20px 20px;
-    display: block;
-    width: 100%;
-}
+
 
 .app-right-aside .nav-wrap {
     padding-top: 20px;
@@ -412,7 +408,17 @@
     font-size: 18px;
     margin-top: 0px!important;
 }
+/* blog post的字体 */
+.blog-post p{
+    margin: 1.5em 0;
+    color:#484848;
+}
 
+.blog-post {
+    padding: 30px 30px;
+    display: block;
+    width: 100%;
+}
 @media screen and (max-width:1200px) {
     .aside {
         width: 160px;

@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
 <div class="main-content col-xs-9">
     <div class="content-header info-color-pure-white boder-bottom">
-        <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
-        <small>不困于情，不畏将来，不念过往。</small>
+        <h1 style="font-family:'ABC';font-style: normal;">{{ Post.title }}</h1>
+        <small>{{ Post.abstract }}</small>
     </div>
         {% if Post%}
         <div class='blog-post post-main'>{{ Post.body|safe }}</div>
