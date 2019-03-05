@@ -419,6 +419,10 @@
     display: block;
     width: 100%;
 }
+/* blog comment */
+.comment-body{
+    margin-left: 40px;
+}
 @media screen and (max-width:1200px) {
     .aside {
         width: 160px;

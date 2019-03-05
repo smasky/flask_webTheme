@@ -65,10 +65,17 @@ def register_commands(app):
         """Generate fake data."""
         from .fakes import  fake_posts
 
-        db.drop_all()
-        db.create_all()
-
         click.echo('Generating %d posts...' % post)
         fake_posts(post)
 
         click.echo('Done.')
+
+    @app.cli.command()
+    @click.option('--message',default=50,help='Quantity of message,default is 50.')
+    def forge_m(message):
+        from .fakes import fake_message
+        db.create_all()
+        click.echo('Generatinf %d message...' % message)
+        fake_message(message)
+
+        click.echo('Done')

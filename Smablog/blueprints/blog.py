@@ -35,10 +35,15 @@ def show_post(post_id):
     return render_template('blog/post.html',Post=post,Post_info=post_info)
 
 #留言板视图
-@blog_bp.route('/MessageBoard',method=['GET','POST'])
+@blog_bp.route('/MessageBoard',methods=['GET','POST'])
 def MessageBoard():
     messages=Message.query.order_by(Message.timestamp.desc()).all()
     form=MessageForm()
+    ###############
+    post_info={}
+    post_info['number']=Post.query.count()
+    post_info['days_from_s']=str(cal_days())+'天'
+    ########################
     if form.validate_on_submit():
         name=form.name.data
         body=form.name.data
@@ -47,4 +52,4 @@ def MessageBoard():
         db.session.commit()
         flash('Your message have been sent to the world')
         return redirect(url_for('/MessageBoard'))
-    return render_template('MessageBoard.html',form=form,messages=messages)
+    return render_template('blog/MessageBoard.html',Form=form,Messages=messages,Post_info=post_info)
