@@ -9,7 +9,7 @@ from flask import Flask,render_template
 
 from .blueprints.blog import blog_bp
 from .settings import config
-from .extensions import db,bootstrap,moment
+from .extensions import db,bootstrap,moment,csrf
 '''
 创建app主体文件
 '''
@@ -37,6 +37,7 @@ def register_extensions(app):
     db.init_app(app)
     bootstrap.init_app(app)
     moment.init_app(app)
+    csrf.init_app(app)
 
 
 def register_commands(app):

@@ -5,10 +5,11 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from flask import Blueprint,request,render_template,current_app,redirect
+from flask import Blueprint,request,render_template,current_app,redirect,url_for
 from SmaBlog.models import Post,Message
 from SmaBlog.utils import cal_days
 from SmaBlog.forms import MessageForm
+from SmaBlog.extensions import db
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
 
@@ -45,11 +46,10 @@ def MessageBoard():
     post_info['days_from_s']=str(cal_days())+'天'
     ########################
     if form.validate_on_submit():
-        name=form.name.data
-        body=form.name.data
-        message=Message(name=name,body=body)
+        Name=form.name.data
+        Body=form.body.data
+        message=Message(name=Name,body=Body)
         db.session.add(message)
         db.session.commit()
-        flash('Your message have been sent to the world')
-        return redirect(url_for('/MessageBoard'))
+        return redirect(url_for('blog.MessageBoard'))
     return render_template('blog/MessageBoard.html',Form=form,Messages=messages,Post_info=post_info)
