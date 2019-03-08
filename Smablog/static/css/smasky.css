@@ -31,16 +31,15 @@
 
 .navbar-font {
     font-size: 25px;
-
 }
-.app-main img{
+
+.app-main img {
     max-width: 100%
 }
+
 .font-bg-info-white {
     color: rgb(250, 255, 235);
 }
-
-
 
 .middle {
     float: none;
@@ -319,7 +318,6 @@
     z-index: 10001;
 }
 
-
 .app-main {
     margin-left: 195px;
     margin-top: 30px;
@@ -361,8 +359,6 @@
     margin-left: 5%;
     color: #5c5c5c;
 }
-
-
 
 .app-right-aside .nav-wrap {
     padding-top: 20px;
@@ -408,10 +404,13 @@
     font-size: 18px;
     margin-top: 0px!important;
 }
+
+
 /* blog post的字体 */
-.blog-post p{
+
+.blog-post p {
     margin: 1.5em 0;
-    color:#484848;
+    color: #484848;
 }
 
 .blog-post {
@@ -419,11 +418,23 @@
     display: block;
     width: 100%;
 }
+
+
 /* blog comment */
-.comment-body{
-    margin-left: 40px;
+
+.comment-body {
+    margin-left: 60px;
     margin-bottom: 40px;
 }
+
+textarea {
+    resize: none;
+}
+
+.form-info {
+    margin: 40px 40px;
+}
+
 @media screen and (max-width:1200px) {
     .aside {
         width: 160px;

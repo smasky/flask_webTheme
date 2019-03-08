@@ -1,59 +1,50 @@
-{% extends 'base.html' %}
-
-{% block main_content %}
-<div class="main-content col-xs-9" ">
-<div class=" content-header info-color-pure-white boder-bottom" style="margin-bottom:30px;>
-    <h1 style="
-    font-family:'ABC';font-style: normal;">Smasky</h1>
-    <small>不困于情，不畏将来，不念过往。</small>
-</div>
-<ol class="comment-list">
-    {% for message in Messages %}
-    <li class="comment-parent">
-        <a class='comment-avater' style='float: left;'>
-            <img src="{{ url_for('static',filename='img/comment.png') }}" style="height:40px!important; width: 40px!important;">
-        </a>
-        <div class="comment-body">
-            <div class="comment-name">
-                <span>
+{% extends 'base.html' %} {% block main_content %}
+<div class="main-content col-xs-9">
+    <div class=" content-header info-color-pure-white boder-bottom " style="margin-bottom:30px;">
+        <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
+        <small>不困于情，不畏将来，不念过往。</small>
+    </div>
+    <ol class="comment-list " style="list-style:none; ">
+        {% for message in Messages %}
+        <li class="comment-parent ">
+            <a class='comment-avater' style='float: left; border-radius: 50px;'>
+                <img src="{{ url_for( 'static',filename='img/comment.png' ) }} " style="height:40px!important; width: 40px!important; ">
+            </a>
+            <div class="comment-body ">
+                <div class="comment-name ">
+                    <span>
                     <a style='text-decoration: none;'>
                         {{ message.name }}
                     </a>
                 </span>
-                <div class="comment-meta">
-                    <small data-toggle="tooltip" data-placement="top" data-timestamp="{{ message.timestamp.strftime('%Y-%m-%dT%H:%M:%SZ') }}"
-                        data-delay="500">
+                    <div class="comment-meta ">
+                        <small data-toggle="tooltip " data-placement="top " data-timestamp="{{ message.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} " data-delay="500 ">
                         {{ moment(message.timestamp).fromNow(refresh=True) }}
                     </small>
 
+                    </div>
+                </div>
+                <div class="comment-content ">
+                    <p>
+                        {{message.body}}
+                    </p>
                 </div>
             </div>
-            <div class="comment-content">
-                <p>
-                    {{message.body}}
-                </p>
+        </li>
+        {% endfor %}
+    </ol>
+    <div class='form-info'>
+        <h3>发表评论:</h3>
+        <form method="POST ">
+            {{ Form.csrf_token }}
+            <div class="form-group ">
+                {{ Form.name.label }} {{ Form.name(class='form-control') }}
             </div>
-        </div>
-    </li>
-    {% endfor %}
-</ol>
-<div class='form-info'>
-    <form method="POST">
-        {{ Form.csrf_token }}
-    <div class="form-group">
-        {{ Form.name.label }}
-        {{ Form.name(class='form-control') }}
+            <div class="form-group ">
+                {{ Form.body.label }} {{ Form.body(class='form-control') }}
+            </div>
+            {{ Form.submit(class='btn btn-primary') }}
+        </form>
     </div>
-    <div class="form-group">
-        {{ Form.body.label }}
-        {{ Form.body(class='form-control') }}
-    </div>
-    {{ Form.submit(class='btn btn-primary') }}
-    </form>
 </div>
-</div>
-{% endblock %}
-
-{% block app_right_aside %}
-{% include 'blog/_rightAside.html' %}
-{% endblock %}
+{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
