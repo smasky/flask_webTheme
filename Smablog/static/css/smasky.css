@@ -311,7 +311,18 @@
 .nav-sub li a:hover {
     background-color: bisque;
 }
-
+.nav-right{
+    float:right!important;
+    padding: 5px 0px;
+}
+.nav-right a{
+    color: black;
+}
+.nav-right a:hover{
+    background-color:transparent!important;
+    cursor: pointer;
+    color: black;
+}
 .app-head {
     position: fixed!important;
     width: 1170px;
@@ -429,6 +440,10 @@
 
 textarea {
     resize: none;
+}
+
+.comment-avater img{
+    border-radius: 50px;
 }
 
 .form-info {
