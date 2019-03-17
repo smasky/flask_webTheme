@@ -415,8 +415,32 @@
     font-size: 18px;
     margin-top: 0px!important;
 }
+/* blog 基础大小的css */
+.lg{
+    width:280px;
+}
+/* blog header的css */
+.head-right-nav{
+    float:right!important;
+    margin-right:-15px;
+}
+nav a:hover{
+    background-color: transparent!important;
+}
+nav a:focus{
+    background-color: transparent!important;
+}
+nav a{
+    background-color: transparent!important;
+}
+.dropdown-menu{
+    right:0!important;
+    left:auto;
+}
 
-
+.login-panel{
+    padding: 15px 15px;
+}
 /* blog post的字体 */
 
 .blog-post p {

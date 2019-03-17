@@ -26,13 +26,40 @@
                 </div>
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
-                <ul class="nav nav-right">
+                <ul class="nav nav-right head-right-nav">
                     <li class='dropdown'>
-                        <a class="login">
+                        {% if not current_user.is_authenticated %}
+                        <a data-toggle='dropdown' class="login">
                             <span>登录</span>
                             <b class="caret"></b>
                         </a>
+                        <div class='dropdown-menu animated rubberBand login-panel lg'>
+                            <form method="POST">
+                                {{ adminForm.csrf_token }}
+                                <div class="form-group ">
+                                    {{ adminForm.username.label }} {{ adminForm.username(class='form-control') }}
+                                </div>
+                                <div class="form-group ">
+                                    {{ adminForm.password.label}} {{ adminForm.password(class='form-control') }}
+                                </div>
+                                <div class='row'>
+                                    <div class='col-xs-6'>
+                                        {{ adminForm.submit(class='btn btn-primary') }}
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <button type='button' class="btn btn-primary right" href="{{ url_for('blog.register') }}" style='float:right;'>注册</button>
+                                    </div>
+                                </div>
 
+
+                            </form>
+                        </div>
+                        {% else %}
+                        <a href="{{ url_for('blog.logout') }}" class="login">
+                            <span>登出</span>
+                        </a>
+
+                        {% endif %}
                     </li>
                 </ul>
             </nav>
@@ -63,10 +90,11 @@
                 <div class="navi  navigation">
                     <ul class="nav nav-stacked">
                         <li class='aside-nav-head'><span>导航:</span></li>
-                        <li><a href="{{ url_for('blog.index') }}"><i class="iconfont icon-shouye aside-icon"></i><span >首页</span></a></li>
+                        <li><a href="{{ url_for('blog.index') }}"><i class="iconfont icon-shouye aside-icon"></i><span>首页</span></a></li>
                         <li><a><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
                         <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                        <li><a href="{{ url_for('blog.MessageBoard') }}"><i class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
+                        <li><a href="{{ url_for('blog.MessageBoard') }}"><i class="iconfont icon-liuyanban1 aside-icon"></i><span
+                                    href="#">留言板</span></a></li>
                         <li><a><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
                     </ul>
 
@@ -105,7 +133,8 @@
         </div>
         {% endblock app_left_aside %}
         <div class="app-main info-color-low-white ">
-            {% block main_content %}{% endblock main_content %} {% block app_right_aside %}{% endblock app_right_aside %}
+            {% block main_content %}{% endblock main_content %} {% block app_right_aside %}{% endblock app_right_aside
+            %}
 
         </div>
 
@@ -136,18 +165,18 @@
         });
         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
         </script>
-        <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script>
-            $(document).ready(function() {
-                $("a[ui-toggle='active']").click(function() {
-                    var link = '#' + $(this).attr('ui-toggle-target');
-                    $(link).toggleClass('active animated slideInLeft')
-                });
-
-                $('div.nav-wrap').css('height',$('div.main-content').height()+'px');
-
+    <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        $(document).ready(function () {
+            $("a[ui-toggle='active']").click(function () {
+                var link = '#' + $(this).attr('ui-toggle-target');
+                $(link).toggleClass('active animated slideInLeft')
             });
-        </script>
-    </body>
+
+            $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
+
+        });
+    </script>
+</body>
 
 </html>

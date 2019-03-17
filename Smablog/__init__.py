@@ -6,10 +6,10 @@
 """
 import click
 from flask import Flask,render_template
-
+from .models import Admin,Post
 from .blueprints.blog import blog_bp
 from .settings import config
-from .extensions import db,bootstrap,moment,csrf
+from .extensions import db,bootstrap,moment,csrf,login
 '''
 创建app主体文件
 '''
@@ -21,6 +21,7 @@ def create_app(config_name=None):
     register_commands(app)
     register_blueprints(app)
     register_extensions(app)
+    register_template_context(app)
 
     app.config.from_object(config[config_name])
     print(app.config['SQLALCHEMY_DATABASE_URI'])
@@ -38,6 +39,7 @@ def register_extensions(app):
     bootstrap.init_app(app)
     moment.init_app(app)
     csrf.init_app(app)
+    login.init_app(app)
 
 
 def register_commands(app):
@@ -80,3 +82,36 @@ def register_commands(app):
         fake_message(message)
 
         click.echo('Done')
+
+    @app.cli.command()
+    @click.option('--username',prompt=True,help='The username to login')
+    @click.option('--password',prompt=True,help='login password',hide_input=True,confirmation_prompt=True)
+    @click.option('--right',prompt=True,help='right')
+    def init(username,password,right):
+        """init blog admin"""
+
+        click.echo('create blog admin')
+        db.create_all()
+
+        admin=Admin.query.first()
+
+        if admin:
+            click.echo('admin already exists')
+            admin.username=username
+            admin.set_password(password)
+        else:
+            admin=Admin(username=username,right=right)
+            admin.set_password(password)
+            db.session.add(admin)
+        db.session.commit()
+        click.echo('Done')
+def register_template_context(app):
+    @app.context_processor
+    def inject_right():
+        from SmaBlog.utils import cal_days
+        post_info={}
+        hot_posts=Post.query.order_by(Post.comments.desc())[:5]
+        rand_posts=Post.query.order_by(Post.views.desc())[:5]
+        post_info['number']=Post.query.count()
+        post_info['days_from_s']=str(cal_days())+'天'
+        return dict(Post_info=post_info,hot_posts=hot_posts,rand_posts=rand_posts)

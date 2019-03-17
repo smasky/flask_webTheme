@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block main_content %}
+<div class="main-content col-xs-9">
+    <div class=" content-header info-color-pure-white boder-bottom " >
+        <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
+        <small>不困于情，不畏将来，不念过往。</small>
+    </div>
+    <div class="head-img" >
+        <img src="https://desk-fd.zol-img.com.cn/t_s1680x1050c5/g5/M00/01/04/ChMkJ1g2YQyITaVCAAutCotWG0YAAYB0wCFXlAAC60i793.jpg"
+          style='background-size:contain;'>
+    </div>
+    <div class='form-info'>
+        <h3>用户注册</h3>
+        <form method="POST">
+            {{ Form.csrf_token }}
+            <div class="form-group ">
+                {{ Form.username.label }} {{ Form.username(class='form-control') }}
+            </div>
+            <div class="form-group ">
+                {{ Form.password.label }} {{ Form.password(class='form-control') }}
+            </div>
+            <div class="form-group ">
+                {{ Form.email.label }} {{ Form.email(class='form-control') }}
+            </div>
+            <div class="form-group ">
+                {{ Form.avater.label }} {{ Form.avater(class='form-control') }}
+            </div>
+            <div class="form-group ">
+                {{ Form.auth_code.label }} {{ Form.auth_code(class='form-control') }}
+                {% for message in Form.auth_code.errors %}
+                <small class="error">{{ message }}</small>
+                {% endfor %}
+            </div>
+            {{ Form.submit(class='btn btn-primary') }}
+        </form>
+    </div>
+</div>
+{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
