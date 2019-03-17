@@ -4,11 +4,71 @@
         <h1 style="font-family:'ABC';font-style: normal;">{{ Post.title }}</h1>
         <small>{{ Post.abstract }}</small>
     </div>
-        {% if Post%}
-        <div class='blog-post post-main'>{{ Post.body|safe }}</div>
-        {% endif %}
+    {% if Post%}
+    <div class='blog-post post-main'>{{ Post.body|safe }}</div>
+    {% endif %}
+    <ol class="comment-list " style="list-style:none; ">
+        {% for postcomment in PostCom %}
+        <li class="comment-parent ">
+            <a class='comment-avater' style='float: left; border-radius: 50px;'>
 
+                <img src="{{ postcomment.avater }} " style="height:40px!important; width: 40px!important; ">
 
+            </a>
+            <div class="comment-body ">
+                <div class="comment-name ">
+                    <span>
+                        <a style='text-decoration: none;'>
+                            {{ postcomment.name }}
+                        </a>
+                    </span>
+                    <div class="comment-meta ">
+                        <small data-toggle="tooltip " data-placement="top " data-timestamp="{{ postcomment.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} "
+                            data-delay="500 ">
+                            {{ moment(postcomment.timestamp).fromNow(refresh=True) }}
+                        </small>
+
+                    </div>
+                </div>
+                <div class="comment-content ">
+                    <p>
+                        {{postcomment.body}}
+                    </p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    <div class='form-info'>
+        <h4 class='grey-info-g'>发表评论:</h4>
+        <form method="POST">
+            {{ Form.csrf_token }}
+            <div class="form-group ">
+                {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
+            </div>
+            {% if current_user.can() %}
+            <h5>欢迎{{ current_user.name  }}归来</h5>
+            {% else %}
+                {% if request.cookies.get('name') %}
+                <h5>欢迎{{ request.cookies.get('name')  }}归来</h5>
+                {% else %}
+            <div class='row'>
+                <div class='col-xs-6'>
+                    <div class="form-group ">
+                        {{ Form.username.label(class='grey-info form-font-info')}} {{ Form.username(class='form-control') }}
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group ">
+                        {{ Form.email.label(class='grey-info form-font-info')}} {{ Form.email(class='form-control') }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {{ Form.submit(class='btn btn-primary') }}
+        </form>
+    </div>
 </div>
 
 {% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}

@@ -9,7 +9,7 @@ from flask import Flask,render_template
 from .models import Admin,Post
 from .blueprints.blog import blog_bp
 from .settings import config
-from .extensions import db,bootstrap,moment,csrf,login
+from .extensions import db,bootstrap,moment,csrf,login,Guest
 '''
 创建app主体文件
 '''
@@ -40,6 +40,7 @@ def register_extensions(app):
     moment.init_app(app)
     csrf.init_app(app)
     login.init_app(app)
+    login.anonymous_user=Guest
 
 
 def register_commands(app):

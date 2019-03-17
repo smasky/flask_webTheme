@@ -252,7 +252,9 @@
     padding-left: 30px;
     font-size: 13px;
 }
-
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #337ab7!important;
+}
 .nav-stacked li>a:hover {
     cursor: pointer;
 }
@@ -415,6 +417,56 @@
     font-size: 18px;
     margin-top: 0px!important;
 }
+.main-head-img{
+    background-color: rgba(255, 255, 255, 0.705);
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 30px;
+}
+
+/* 留言板样式*/
+.comment-body a{
+    color :#343333e0;
+    font-family: 'font-Sour-Sans';
+    font-size:15px;
+    font-weight: bold;
+}
+.comment-body p{
+    padding: 5px 0px;
+    color:#7a7876;
+    font-size:17px;
+}
+.comment-parent{
+    margin-left:20px;
+}
+.comment-body {
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+/* blog 表单的css */
+.form-font-info{
+    font-weight: lighter;
+}
+.body-info{
+    background-color: #f2faf985;
+    height: 200px!important;
+}
+/* blog 字体颜色的css */
+.time-font{
+    color:#a0a0a0;
+    font-size:8px;
+}
+.grey-info{
+    color:#a0a0a0;
+}
+
+.grey-info-g{
+    color:#8a8a8a;
+}
+
+/* blog 字体大小的css */
+.time-font{
+    color:#a0a0a0;
+}
 /* blog 基础大小的css */
 .lg{
     width:280px;
@@ -455,12 +507,6 @@ nav a{
 }
 
 
-/* blog comment */
-
-.comment-body {
-    margin-left: 60px;
-    margin-bottom: 40px;
-}
 
 textarea {
     resize: none;

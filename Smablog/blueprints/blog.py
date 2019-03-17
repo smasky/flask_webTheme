@@ -5,12 +5,13 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash
-from SmaBlog.models import Post,Message,Admin
-from SmaBlog.forms import MessageForm,AdminForm,RegisterForm
+from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request
+from SmaBlog.models import Post,Message,Admin,PostComment
+from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm
 from SmaBlog.extensions import db
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required,current_user
 from SmaBlog.utils import redirect_back
+from datetime import datetime
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
 
@@ -20,9 +21,10 @@ def index():
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
     pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=per_page)
     posts=pagination.items
-
+    print('a')
     admin_form=AdminForm()
     login(admin_form)
+
     return render_template('blog/index.html',Posts=posts,pagination=pagination,adminForm=admin_form)
 
 
@@ -30,10 +32,35 @@ def index():
 @blog_bp.route('/posts/<int:post_id>',methods=['GET','POST'])
 def show_post(post_id):
     post=Post.query.get_or_404(post_id)
+    post_coms=post.postcomments
     admin_form=AdminForm()
     login(admin_form)
-
-    return render_template('blog/post.html',Post=post,adminForm=admin_form)
+    if request.cookies.get('name'):
+        username=request.cookies.get('name')
+        email=request.cookies.get('email')
+        form=PostCommentForm(username=username,email=email)
+    elif current_user.can():
+        form=PostCommentForm(username=current_user.name,email=current_user.email)
+    else:
+        form=PostCommentForm()
+    if form.validate_on_submit() :
+        username=form.username.data
+        body=form.body.data
+        email=form.email.data
+        postId=post_id
+        if current_user.can():
+            post_com=PostComment(name=username,body=body,post_id=postId,email=email,avater=current_user.avater)
+        else:
+            post_com=PostComment(name=username,body=body,post_id=postId,email=email)
+        db.session.add(post_com)
+        db.session.commit()
+        if not request.cookies.get('name'):
+            res=make_response(redirect(url_for('blog.show_post',post_id=post_id)))
+            res.set_cookie('name',username,max_age=30*24*3600)
+            res.set_cookie('email',email,max_age=30*24*3600)
+            return res
+        return redirect(url_for('blog.show_post',post_id=post_id))
+    return render_template('blog/post.html',Post=post,adminForm=admin_form,PostCom=post_coms,Form=form)
 #注册视图
 @blog_bp.route('/register',methods=['GET','POST'])
 def register():
@@ -43,10 +70,12 @@ def register():
     if form.validate_on_submit():
         username=form.username.data
         password=form.password.data
+        name=form.name.data
         email=form.email.data
+        avater=form.avater.data
         auth_code=form.auth_code.data
         if(auth_code=='3428'):
-            admin=Admin(username=username,password=password,email=email,right=2)
+            admin=Admin(username=username,name=name,password=password,email=email,right=2,avater=avater)
             db.session.add(admin)
             db.session.commit()
             return redirect(url_for('blog.index'))
@@ -59,15 +88,18 @@ def register():
 @blog_bp.route('/MessageBoard',methods=['GET','POST'])
 def MessageBoard():
     messages=Message.query.order_by(Message.timestamp.desc()).all()
-    form=MessageForm()
+    if current_user.can():
+        form=MessageForm(name=current_user.name)
+        form.name.data=current_user.name
+    else:
+        form=MessageForm()
 
     admin_form=AdminForm()
     login(admin_form)
-
     if form.validate_on_submit():
         Name=form.name.data
         Body=form.body.data
-        message=Message(name=Name,body=Body)
+        message=Message(name=Name,body=Body,admin_id=current_user.id)
         db.session.add(message)
         db.session.commit()
         return redirect(url_for('blog.MessageBoard'))
@@ -82,6 +114,7 @@ def logout():
 def login(admin_form):
     if admin_form.validate_on_submit():
         user_name=admin_form.username.data
+        print(user_name)
         password=admin_form.password.data
         admin=Admin.query.filter(Admin.username==user_name).first()
         if admin:

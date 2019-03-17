@@ -27,9 +27,9 @@
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
                 <ul class="nav nav-right head-right-nav">
-                    <li class='dropdown'>
+                    <li class='dropdown login'>
                         {% if not current_user.is_authenticated %}
-                        <a data-toggle='dropdown' class="login">
+                        <a data-toggle='dropdown' class="login dropdown-toggle">
                             <span>登录</span>
                             <b class="caret"></b>
                         </a>
@@ -37,17 +37,18 @@
                             <form method="POST">
                                 {{ adminForm.csrf_token }}
                                 <div class="form-group ">
-                                    {{ adminForm.username.label }} {{ adminForm.username(class='form-control') }}
+                                    {{ adminForm.username.label(class='grey-info-g form-font-info') }} {{ adminForm.username(class='form-control') }}
                                 </div>
                                 <div class="form-group ">
-                                    {{ adminForm.password.label}} {{ adminForm.password(class='form-control') }}
+                                    {{ adminForm.password.label(class='grey-info-g form-font-info')}} {{ adminForm.password(class='form-control') }}
                                 </div>
                                 <div class='row'>
                                     <div class='col-xs-6'>
                                         {{ adminForm.submit(class='btn btn-primary') }}
                                     </div>
                                     <div class="col-xs-6">
-                                        <button type='button' class="btn btn-primary right" href="{{ url_for('blog.register') }}" style='float:right;'>注册</button>
+                                        <a href="{{ url_for('blog.register') }}" style='float:right;'>
+                                        <button type='button' class="btn btn-primary right" >注册</button></a>
                                     </div>
                                 </div>
 
@@ -139,7 +140,7 @@
         </div>
 
     </div>
-
+    {% block script %}{% endblock script %}
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
@@ -172,7 +173,6 @@
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft')
             });
-
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
 
         });
