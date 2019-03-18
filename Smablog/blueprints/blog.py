@@ -10,7 +10,7 @@ from SmaBlog.models import Post,Message,Admin,PostComment
 from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm
 from SmaBlog.extensions import db
 from flask_login import login_user,logout_user,login_required,current_user
-from SmaBlog.utils import redirect_back
+from SmaBlog.utils import redirect_back,sum_comment
 from datetime import datetime
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
@@ -33,6 +33,8 @@ def index():
 def show_post(post_id):
     post=Post.query.get_or_404(post_id)
     post_coms=post.postcomments
+    post.views=post.views+1
+    print(post.views)
     admin_form=AdminForm()
     login(admin_form)
     if request.cookies.get('name'):
@@ -52,6 +54,7 @@ def show_post(post_id):
             post_com=PostComment(name=username,body=body,post_id=postId,email=email,avater=current_user.avater)
         else:
             post_com=PostComment(name=username,body=body,post_id=postId,email=email)
+        post.comments+=1
         db.session.add(post_com)
         db.session.commit()
         if not request.cookies.get('name'):
@@ -60,6 +63,7 @@ def show_post(post_id):
             res.set_cookie('email',email,max_age=30*24*3600)
             return res
         return redirect(url_for('blog.show_post',post_id=post_id))
+    db.session.commit()
     return render_template('blog/post.html',Post=post,adminForm=admin_form,PostCom=post_coms,Form=form)
 #注册视图
 @blog_bp.route('/register',methods=['GET','POST'])

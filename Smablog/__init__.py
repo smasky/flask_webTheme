@@ -9,6 +9,8 @@ from flask import Flask,render_template
 from .models import Admin,Post
 from .blueprints.blog import blog_bp
 from .settings import config
+from .utils import sum_comment
+from datetime import datetime
 from .extensions import db,bootstrap,moment,csrf,login,Guest
 '''
 创建app主体文件
@@ -114,5 +116,7 @@ def register_template_context(app):
         hot_posts=Post.query.order_by(Post.comments.desc())[:5]
         rand_posts=Post.query.order_by(Post.views.desc())[:5]
         post_info['number']=Post.query.count()
+        post_info['num']=sum_comment(Post.query.all())
         post_info['days_from_s']=str(cal_days())+'天'
+        post_info['modify']=datetime.utcnow()
         return dict(Post_info=post_info,hot_posts=hot_posts,rand_posts=rand_posts)

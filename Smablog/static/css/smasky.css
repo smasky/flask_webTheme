@@ -252,9 +252,16 @@
     padding-left: 30px;
     font-size: 13px;
 }
-.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
     background-color: #337ab7!important;
 }
+
 .nav-stacked li>a:hover {
     cursor: pointer;
 }
@@ -313,18 +320,22 @@
 .nav-sub li a:hover {
     background-color: bisque;
 }
-.nav-right{
-    float:right!important;
+
+.nav-right {
+    float: right!important;
     padding: 5px 0px;
 }
-.nav-right a{
+
+.nav-right a {
     color: black;
 }
-.nav-right a:hover{
-    background-color:transparent!important;
+
+.nav-right a:hover {
+    background-color: transparent!important;
     cursor: pointer;
     color: black;
 }
+
 .app-head {
     position: fixed!important;
     width: 1170px;
@@ -417,82 +428,114 @@
     font-size: 18px;
     margin-top: 0px!important;
 }
-.main-head-img{
+
+.main-head-img {
     background-color: rgba(255, 255, 255, 0.705);
     padding: 15px 15px 15px 15px;
     margin-bottom: 30px;
 }
 
+
 /* 留言板样式*/
-.comment-body a{
-    color :#343333e0;
+
+.comment-body a {
+    color: #343333e0;
     font-family: 'font-Sour-Sans';
-    font-size:15px;
+    font-size: 15px;
     font-weight: bold;
 }
-.comment-body p{
+
+.comment-body p {
     padding: 5px 0px;
-    color:#7a7876;
-    font-size:17px;
+    color: #7a7876;
+    font-size: 17px;
 }
-.comment-parent{
-    margin-left:20px;
+
+.comment-parent {
+    margin-left: 20px;
 }
+
 .comment-body {
     margin-left: 50px;
     margin-bottom: 40px;
 }
+
+
 /* blog 表单的css */
-.form-font-info{
+
+.form-font-info {
     font-weight: lighter;
 }
-.body-info{
+
+.body-info {
     background-color: #f2faf985;
     height: 200px!important;
 }
+
+
 /* blog 字体颜色的css */
-.time-font{
-    color:#a0a0a0;
-    font-size:8px;
-}
-.grey-info{
-    color:#a0a0a0;
+
+.time-font {
+    color: #a0a0a0;
+    font-size: 8px;
 }
 
-.grey-info-g{
-    color:#8a8a8a;
+.grey-info {
+    color: #a0a0a0;
 }
+
+.grey-info-g {
+    color: #8a8a8a;
+}
+
+.white-info {
+    color: white!important;
+}
+
 
 /* blog 字体大小的css */
-.time-font{
-    color:#a0a0a0;
-}
-/* blog 基础大小的css */
-.lg{
-    width:280px;
-}
-/* blog header的css */
-.head-right-nav{
-    float:right!important;
-    margin-right:-15px;
-}
-nav a:hover{
-    background-color: transparent!important;
-}
-nav a:focus{
-    background-color: transparent!important;
-}
-nav a{
-    background-color: transparent!important;
-}
-.dropdown-menu{
-    right:0!important;
-    left:auto;
+
+.time-font {
+    color: #a0a0a0;
 }
 
-.login-panel{
+
+/* blog 基础大小的css */
+
+.lg {
+    width: 280px;
+}
+
+
+/* blog header的css */
+
+.head-right-nav {
+    float: right!important;
+    margin-right: -15px;
+}
+
+nav a:hover {
+    background-color: transparent!important;
+}
+
+nav a:focus {
+    background-color: transparent!important;
+}
+
+nav a {
+    background-color: transparent!important;
+}
+
+.dropdown-menu {
+    right: 0!important;
+    left: auto;
+}
+
+.login-panel {
     padding: 15px 15px;
 }
+
+
 /* blog post的字体 */
 
 .blog-post p {
@@ -506,13 +549,11 @@ nav a{
     width: 100%;
 }
 
-
-
 textarea {
     resize: none;
 }
 
-.comment-avater img{
+.comment-avater img {
     border-radius: 50px;
 }
 

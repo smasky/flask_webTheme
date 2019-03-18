@@ -14,3 +14,9 @@ def redirect_back(default='blog.index', **kwargs):
         if is_safe_url(target):
             return redirect(target)
     return redirect(url_for(default, **kwargs))
+
+def sum_comment(posts):
+    num_comments=0
+    for post in posts:
+        num_comments+=post.comments
+    return num_comments

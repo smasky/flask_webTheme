@@ -10,8 +10,8 @@ class Post(db.Model):
     body=db.Column(db.Text)
     views=db.Column(db.Integer)
     timestamp=db.Column(db.DateTime,default=datetime.utcnow,index=True)
-    comments=db.Column(db.Integer)
-    postcomments=db.relationship('PostComment',back_populates='post')
+    comments=db.Column(db.Integer,default=0)
+    postcomments=db.relationship('PostComment',back_populates='post',cascade='all')
 
 class Message(db.Model):
     id=db.Column(db.Integer,primary_key=True)
