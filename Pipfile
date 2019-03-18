@@ -15,6 +15,7 @@ markdown = "*"
 flask-wtf = "*"
 requests = "*"
 flask-login = "*"
+flask-script = "*"
 
 [requires]
 python_version = "3.6"
