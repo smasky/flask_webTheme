@@ -19,7 +19,7 @@ def create_app(config_name=None):
     if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
 
-    app=Flask('skyBlog')
+    app=Flask('skyBlog',template_folder='SmaBlog/templates',static_floder='SmaBlog/static')
     register_commands(app)
     register_blueprints(app)
     register_extensions(app)
