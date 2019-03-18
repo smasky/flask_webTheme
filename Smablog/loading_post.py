@@ -9,7 +9,7 @@ fake=Faker()
 def loading_post(filename=''):
     print('bb')
     if(filename):
-        Cfilename='static/post/'+filename
+        Cfilename='SmaBlog/static/post/'+filename
         Info={}
         content=[]
         with open(Cfilename,'r',encoding='utf-8') as f:
