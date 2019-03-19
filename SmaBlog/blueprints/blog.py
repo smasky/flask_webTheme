@@ -54,13 +54,13 @@ def show_post(post_id):
             if admin:
                 admin.name=username
                 db.session.add(admin)
-                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id)
             else:
                 addmin=Admin(name=username,email=email,right=3)
                 db.session.add(admin)
                 db.session.commit()
                 admin=Admin.query.filter(Admin.email==email).first()
-                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id)
         else:
             if admin:
                 admin.name=username

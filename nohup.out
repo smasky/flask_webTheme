@@ -1,0 +1,1273 @@
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 10:19:31 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x22dc520
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x22dc520 pid: 21363 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 21363)
+spawned uWSGI worker 1 (pid: 21365, cores: 2)
+spawned uWSGI worker 2 (pid: 21366, cores: 2)
+spawned uWSGI worker 3 (pid: 21367, cores: 2)
+spawned uWSGI worker 4 (pid: 21368, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 21367|app: 0|req: 1/1] 117.136.35.80 () {48 vars in 824 bytes} [Tue Mar 19 10:19:40 2019] GET / => generated 22649 bytes in 118 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 21367|app: 0|req: 2/2] 117.136.35.80 () {50 vars in 1011 bytes} [Tue Mar 19 10:19:43 2019] GET /MessageBoard => generated 21829 bytes in 31 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 21365|app: 0|req: 1/3] 117.136.35.80 () {50 vars in 999 bytes} [Tue Mar 19 10:19:45 2019] GET / => generated 22649 bytes in 114 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 21365|app: 0|req: 2/4] 117.136.35.80 () {50 vars in 1011 bytes} [Tue Mar 19 10:19:50 2019] GET /MessageBoard => generated 21829 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 21365|app: 0|req: 3/5] 117.136.35.80 () {50 vars in 999 bytes} [Tue Mar 19 10:19:53 2019] GET / => generated 22649 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 21365|app: 0|req: 4/6] 117.136.35.80 () {50 vars in 978 bytes} [Tue Mar 19 10:20:11 2019] GET / => generated 22649 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 21365|app: 0|req: 5/7] 117.136.35.80 () {50 vars in 1011 bytes} [Tue Mar 19 10:20:14 2019] GET /MessageBoard => generated 21829 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 21365|app: 0|req: 6/8] 117.136.35.80 () {50 vars in 999 bytes} [Tue Mar 19 10:20:16 2019] GET / => generated 22649 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 21365|app: 0|req: 7/9] 117.136.35.80 () {50 vars in 1011 bytes} [Tue Mar 19 10:20:17 2019] GET /MessageBoard => generated 21829 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 21365|app: 0|req: 8/10] 117.136.35.80 () {50 vars in 999 bytes} [Tue Mar 19 10:20:19 2019] GET / => generated 22649 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 21365|app: 0|req: 9/11] 117.136.35.80 () {50 vars in 1011 bytes} [Tue Mar 19 10:20:46 2019] GET /MessageBoard => generated 21829 bytes in 13 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 21365|app: 0|req: 10/12] 117.136.35.80 () {50 vars in 1023 bytes} [Tue Mar 19 10:21:00 2019] GET /MessageBoard => generated 21829 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 21365|app: 0|req: 11/13] 117.136.35.80 () {50 vars in 1023 bytes} [Tue Mar 19 10:21:01 2019] GET /MessageBoard => generated 21829 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+Gracefully killing worker 4 (pid: 21368)...
+Gracefully killing worker 3 (pid: 21367)...
+Gracefully killing worker 2 (pid: 21366)...
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 21365)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/flask/flask_webTheme
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /root/.virtualenvs/wflask/bin/uwsgi
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 10:21:26 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x16d7ff0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x16d7ff0 pid: 21363 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 21363)
+spawned uWSGI worker 1 (pid: 21397, cores: 2)
+spawned uWSGI worker 2 (pid: 21398, cores: 2)
+spawned uWSGI worker 3 (pid: 21399, cores: 2)
+spawned uWSGI worker 4 (pid: 21400, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+[pid: 21400|app: 0|req: 1/1] 117.136.35.80 () {50 vars in 1002 bytes} [Tue Mar 19 10:21:27 2019] GET /MessageBoard => generated 21829 bytes in 106 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 21400|app: 0|req: 2/2] 117.136.35.80 () {50 vars in 978 bytes} [Tue Mar 19 10:31:49 2019] GET / => generated 22649 bytes in 44 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+9
+[pid: 21397|app: 0|req: 1/3] 117.136.35.80 () {50 vars in 1001 bytes} [Tue Mar 19 10:32:35 2019] GET /posts/4 => generated 42324 bytes in 133 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 21397|app: 0|req: 2/4] 117.136.35.80 () {44 vars in 896 bytes} [Tue Mar 19 11:18:48 2019] GET /static/css/bootstrap.min.css.map => generated 542194 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 8 headers in 312 bytes (0 switches on core 1)
+a
+[pid: 21397|app: 0|req: 3/5] 52.53.201.78 () {40 vars in 605 bytes} [Tue Mar 19 11:33:51 2019] GET / => generated 22649 bytes in 23 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+Tue Mar 19 12:14:45 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 12:14:45 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 12:18:18 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1e8f520
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1e8f520 pid: 23313 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 23313)
+spawned uWSGI worker 1 (pid: 23315, cores: 2)
+spawned uWSGI worker 2 (pid: 23316, cores: 2)
+spawned uWSGI worker 3 (pid: 23317, cores: 2)
+spawned uWSGI worker 4 (pid: 23318, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+4
+[pid: 23318|app: 0|req: 1/1] 112.25.185.146 () {48 vars in 859 bytes} [Tue Mar 19 12:18:24 2019] GET /posts/4 => generated 42238 bytes in 132 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 23318|app: 0|req: 2/2] 112.25.185.146 () {48 vars in 969 bytes} [Tue Mar 19 12:18:25 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 12 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 23315|app: 0|req: 1/3] 112.25.185.146 () {48 vars in 955 bytes} [Tue Mar 19 12:18:25 2019] GET /static/css/smasky.css => generated 9191 bytes in 11 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23315|app: 0|req: 2/4] 112.25.185.146 () {48 vars in 959 bytes} [Tue Mar 19 12:18:25 2019] GET /static/css/iconfont.css => generated 9474 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 1)
+[pid: 23317|app: 0|req: 1/5] 112.25.185.146 () {48 vars in 976 bytes} [Tue Mar 19 12:18:25 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 7 msecs via sendfile() (HTTP/1.1 200) 8 headers in 298 bytes (0 switches on core 0)
+[pid: 23315|app: 0|req: 3/6] 112.25.185.146 () {44 vars in 897 bytes} [Tue Mar 19 12:18:25 2019] GET /static/css/bootstrap.min.css.map => generated 542194 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 312 bytes (0 switches on core 1)
+[pid: 23318|app: 0|req: 3/7] 112.25.185.146 () {48 vars in 970 bytes} [Tue Mar 19 12:18:25 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 23318|app: 0|req: 4/8] 112.25.185.146 () {50 vars in 1051 bytes} [Tue Mar 19 12:18:25 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 23316|app: 0|req: 1/9] 112.25.185.146 () {50 vars in 1039 bytes} [Tue Mar 19 12:18:25 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+5
+[pid: 23317|app: 0|req: 2/10] 112.25.185.146 () {50 vars in 993 bytes} [Tue Mar 19 12:18:29 2019] GET /posts/4 => generated 42238 bytes in 133 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+6
+[pid: 23316|app: 0|req: 2/11] 112.25.185.146 () {52 vars in 1015 bytes} [Tue Mar 19 12:18:31 2019] GET /posts/4 => generated 42238 bytes in 127 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 23315|app: 0|req: 4/14] 112.25.185.146 () {52 vars in 1009 bytes} [Tue Mar 19 12:18:31 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 298 bytes (0 switches on core 0)
+[pid: 23316|app: 0|req: 3/14] 112.25.185.146 () {52 vars in 988 bytes} [Tue Mar 19 12:18:31 2019] GET /static/css/smasky.css => generated 9191 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23317|app: 0|req: 3/14] 112.25.185.146 () {52 vars in 991 bytes} [Tue Mar 19 12:18:31 2019] GET /static/css/iconfont.css => generated 9474 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23318|app: 0|req: 5/15] 112.25.185.146 () {52 vars in 1002 bytes} [Tue Mar 19 12:18:31 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 23317|app: 0|req: 4/16] 112.25.185.146 () {52 vars in 1003 bytes} [Tue Mar 19 12:18:33 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+7
+[pid: 23315|app: 0|req: 5/17] 112.25.185.146 () {52 vars in 1015 bytes} [Tue Mar 19 12:18:34 2019] GET /posts/4 => generated 42238 bytes in 127 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 23316|app: 0|req: 4/18] 112.25.185.146 () {52 vars in 988 bytes} [Tue Mar 19 12:18:34 2019] GET /static/css/smasky.css => generated 9191 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23315|app: 0|req: 6/20] 112.25.185.146 () {52 vars in 991 bytes} [Tue Mar 19 12:18:34 2019] GET /static/css/iconfont.css => generated 9474 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23317|app: 0|req: 5/20] 112.25.185.146 () {52 vars in 1002 bytes} [Tue Mar 19 12:18:34 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 23316|app: 0|req: 5/21] 112.25.185.146 () {52 vars in 1008 bytes} [Tue Mar 19 12:18:34 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 298 bytes (0 switches on core 1)
+[pid: 23318|app: 0|req: 6/22] 112.25.185.146 () {52 vars in 1003 bytes} [Tue Mar 19 12:18:34 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 23318|app: 0|req: 7/23] 112.25.185.146 () {54 vars in 1084 bytes} [Tue Mar 19 12:18:36 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 23317|app: 0|req: 6/24] 112.25.185.146 () {54 vars in 1072 bytes} [Tue Mar 19 12:18:36 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 23317|app: 0|req: 7/25] 112.25.185.146 () {52 vars in 991 bytes} [Tue Mar 19 12:18:41 2019] GET /static/css/iconfont.css => generated 9474 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23316|app: 0|req: 6/26] 112.25.185.146 () {52 vars in 1002 bytes} [Tue Mar 19 12:18:41 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 0)
+[pid: 23315|app: 0|req: 7/27] 112.25.185.146 () {52 vars in 987 bytes} [Tue Mar 19 12:18:41 2019] GET /static/css/smasky.css => generated 9191 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23318|app: 0|req: 8/28] 112.25.185.146 () {48 vars in 976 bytes} [Tue Mar 19 12:18:42 2019] GET /static/css/bootstrap.min.css.map => generated 1 bytes in 2 msecs (HTTP/1.1 206) 9 headers in 361 bytes (1 switches on core 1)
+[pid: 23316|app: 0|req: 7/29] 112.25.185.146 () {48 vars in 977 bytes} [Tue Mar 19 12:18:42 2019] GET /static/css/bootstrap.min.css.map => generated 482042 bytes in 3 msecs (HTTP/1.1 206) 9 headers in 367 bytes (1 switches on core 1)
+8
+[pid: 23316|app: 0|req: 8/30] 112.25.185.146 () {48 vars in 859 bytes} [Tue Mar 19 12:19:00 2019] GET /posts/4 => generated 42238 bytes in 23 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 23316|app: 0|req: 9/31] 112.25.185.146 () {48 vars in 969 bytes} [Tue Mar 19 12:19:00 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 23318|app: 0|req: 9/32] 112.25.185.146 () {48 vars in 955 bytes} [Tue Mar 19 12:19:00 2019] GET /static/css/smasky.css => generated 9191 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 1)
+[pid: 23318|app: 0|req: 10/33] 112.25.185.146 () {48 vars in 976 bytes} [Tue Mar 19 12:19:00 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 298 bytes (0 switches on core 0)
+[pid: 23317|app: 0|req: 8/34] 112.25.185.146 () {48 vars in 959 bytes} [Tue Mar 19 12:19:00 2019] GET /static/css/iconfont.css => generated 9474 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23315|app: 0|req: 8/35] 112.25.185.146 () {48 vars in 970 bytes} [Tue Mar 19 12:19:01 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 23317|app: 0|req: 9/36] 112.25.185.146 () {50 vars in 1051 bytes} [Tue Mar 19 12:19:02 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 23316|app: 0|req: 10/37] 112.25.185.146 () {50 vars in 1040 bytes} [Tue Mar 19 12:19:02 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 23318|app: 0|req: 11/38] 112.25.185.146 () {44 vars in 897 bytes} [Tue Mar 19 12:19:02 2019] GET /static/css/bootstrap.min.css.map => generated 542194 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 312 bytes (0 switches on core 0)
+Gracefully killing worker 3 (pid: 23317)...
+Gracefully killing worker 1 (pid: 23315)...
+...gracefully killing workers...
+Gracefully killing worker 2 (pid: 23316)...
+Gracefully killing worker 4 (pid: 23318)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/flask/flask_webTheme
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /root/.virtualenvs/wflask/bin/uwsgi
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 12:19:58 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1e1bff0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1e1bff0 pid: 23313 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 23313)
+spawned uWSGI worker 1 (pid: 23352, cores: 2)
+spawned uWSGI worker 2 (pid: 23353, cores: 2)
+spawned uWSGI worker 3 (pid: 23354, cores: 2)
+spawned uWSGI worker 4 (pid: 23355, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 23352|app: 0|req: 1/1] 117.136.35.80 () {48 vars in 795 bytes} [Tue Mar 19 12:25:38 2019] GET / => generated 24946 bytes in 117 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 23352|app: 0|req: 2/2] 117.136.35.80 () {50 vars in 965 bytes} [Tue Mar 19 12:25:38 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 23355|app: 0|req: 2/3] 117.136.35.80 () {50 vars in 994 bytes} [Tue Mar 19 12:25:39 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 14 msecs via sendfile() (HTTP/1.1 200) 8 headers in 298 bytes (0 switches on core 1)
+[pid: 23355|app: 0|req: 2/4] 117.136.35.80 () {50 vars in 955 bytes} [Tue Mar 19 12:25:39 2019] GET /static/css/iconfont.css => generated 9474 bytes in 19 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23353|app: 0|req: 1/5] 117.136.35.80 () {50 vars in 951 bytes} [Tue Mar 19 12:25:39 2019] GET /static/css/smasky.css => generated 9191 bytes in 20 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 23353|app: 0|req: 2/6] 117.136.35.80 () {50 vars in 966 bytes} [Tue Mar 19 12:25:39 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 23355|app: 0|req: 3/7] 117.136.35.80 () {50 vars in 984 bytes} [Tue Mar 19 12:25:43 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 23354|app: 0|req: 1/8] 117.136.35.80 () {50 vars in 988 bytes} [Tue Mar 19 12:25:43 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 0)
+[pid: 23353|app: 0|req: 3/9] 117.136.35.80 () {50 vars in 944 bytes} [Tue Mar 19 12:25:43 2019] GET /static/css/iconfont.woff2 => generated 5536 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 308 bytes (0 switches on core 1)
+[pid: 23352|app: 0|req: 3/10] 117.136.35.80 () {50 vars in 916 bytes} [Tue Mar 19 12:25:44 2019] GET /favicon.ico => generated 233 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 23352|app: 0|req: 4/11] 107.170.202.182 () {40 vars in 505 bytes} [Tue Mar 19 12:31:50 2019] GET / => generated 24946 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 23355|app: 0|req: 4/12] 183.208.16.158 () {46 vars in 794 bytes} [Tue Mar 19 12:36:04 2019] GET / => generated 24946 bytes in 113 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 23354|app: 0|req: 2/13] 95.213.177.123 () {46 vars in 816 bytes} [Tue Mar 19 13:03:01 2019] POST /azenv.php?auth=155297178105&a=PSCN&i=795550336&p=80 => generated 233 bytes in 9 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+a
+[pid: 23352|app: 0|req: 5/14] 188.34.55.210 () {40 vars in 606 bytes} [Tue Mar 19 13:17:56 2019] GET / => generated 24946 bytes in 13 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 23352|app: 0|req: 6/15] 183.208.16.158 () {46 vars in 794 bytes} [Tue Mar 19 13:24:04 2019] GET / => generated 24946 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 23352|app: 0|req: 7/16] 183.208.16.158 () {44 vars in 877 bytes} [Tue Mar 19 13:24:09 2019] GET /static/css/bootstrap.min.css.map => generated 542194 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 312 bytes (0 switches on core 0)
+a
+[pid: 23352|app: 0|req: 8/17] 185.100.33.0 () {38 vars in 579 bytes} [Tue Mar 19 13:26:19 2019] GET / => generated 24946 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+Tue Mar 19 13:38:28 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 13:38:28 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 13:40:55 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1608520
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1608520 pid: 24679 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 24679)
+spawned uWSGI worker 1 (pid: 24681, cores: 2)
+spawned uWSGI worker 2 (pid: 24682, cores: 2)
+spawned uWSGI worker 3 (pid: 24683, cores: 2)
+spawned uWSGI worker 4 (pid: 24684, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 24683|app: 0|req: 1/1] 183.208.16.158 () {50 vars in 979 bytes} [Tue Mar 19 13:41:06 2019] GET / => generated 26088 bytes in 133 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 24683|app: 0|req: 2/2] 183.208.16.158 () {52 vars in 1001 bytes} [Tue Mar 19 13:41:10 2019] GET / => generated 26088 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 24681|app: 0|req: 1/3] 183.208.16.158 () {52 vars in 995 bytes} [Tue Mar 19 13:41:10 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 0)
+[pid: 24681|app: 0|req: 2/4] 183.208.16.158 () {52 vars in 981 bytes} [Tue Mar 19 13:41:10 2019] GET /static/css/smasky.css => generated 9899 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 1)
+[pid: 24682|app: 0|req: 1/5] 183.208.16.158 () {52 vars in 985 bytes} [Tue Mar 19 13:41:10 2019] GET /static/css/iconfont.css => generated 9615 bytes in 14 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 24684|app: 0|req: 1/6] 183.208.16.158 () {52 vars in 1002 bytes} [Tue Mar 19 13:41:10 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 14 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 0)
+[pid: 24681|app: 0|req: 3/7] 183.208.16.158 () {52 vars in 996 bytes} [Tue Mar 19 13:41:10 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 24683|app: 0|req: 4/8] 183.208.16.158 () {54 vars in 1073 bytes} [Tue Mar 19 13:41:11 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 24683|app: 0|req: 4/9] 183.208.16.158 () {54 vars in 1084 bytes} [Tue Mar 19 13:41:11 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 8 headers in 308 bytes (0 switches on core 0)
+[pid: 24682|app: 0|req: 2/10] 183.208.16.158 () {52 vars in 1002 bytes} [Tue Mar 19 13:41:13 2019] GET /favicon.ico => generated 233 bytes in 9 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 13:43:39 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1edb520
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1edb520 pid: 24739 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 24739)
+spawned uWSGI worker 1 (pid: 24741, cores: 2)
+spawned uWSGI worker 2 (pid: 24742, cores: 2)
+spawned uWSGI worker 3 (pid: 24743, cores: 2)
+spawned uWSGI worker 4 (pid: 24744, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+...gracefully killing workers...
+Gracefully killing worker 4 (pid: 24744)...
+Gracefully killing worker 3 (pid: 24743)...
+Gracefully killing worker 2 (pid: 24742)...
+Gracefully killing worker 1 (pid: 24741)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/flask/flask_webTheme
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /root/.virtualenvs/wflask/bin/uwsgi
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 13:43:47 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x16bfff0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x16bfff0 pid: 24739 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 24739)
+spawned uWSGI worker 1 (pid: 24750, cores: 2)
+spawned uWSGI worker 2 (pid: 24751, cores: 2)
+spawned uWSGI worker 3 (pid: 24752, cores: 2)
+spawned uWSGI worker 4 (pid: 24753, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 24753|app: 0|req: 1/1] 183.208.16.158 () {50 vars in 999 bytes} [Tue Mar 19 13:43:49 2019] GET / => generated 26087 bytes in 127 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 24753|app: 0|req: 2/2] 117.136.35.80 () {50 vars in 949 bytes} [Tue Mar 19 13:44:23 2019] GET / => generated 26087 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 24750|app: 0|req: 1/3] 117.136.35.80 () {50 vars in 965 bytes} [Tue Mar 19 13:44:23 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 0)
+[pid: 24750|app: 0|req: 2/4] 117.136.35.80 () {50 vars in 955 bytes} [Tue Mar 19 13:44:23 2019] GET /static/css/iconfont.css => generated 9615 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 1)
+[pid: 24752|app: 0|req: 1/5] 117.136.35.80 () {50 vars in 994 bytes} [Tue Mar 19 13:44:23 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 0)
+[pid: 24750|app: 0|req: 3/6] 117.136.35.80 () {50 vars in 951 bytes} [Tue Mar 19 13:44:23 2019] GET /static/css/smasky.css => generated 9899 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 1/7] 117.136.35.80 () {50 vars in 966 bytes} [Tue Mar 19 13:44:23 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 24751|app: 0|req: 2/8] 117.136.35.80 () {50 vars in 1029 bytes} [Tue Mar 19 13:44:27 2019] GET /static/js/moment-with-locales.min.js?cclt1=ncache20.6037714868861201 => generated 249779 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 24750|app: 0|req: 4/9] 117.136.35.80 () {50 vars in 944 bytes} [Tue Mar 19 13:44:27 2019] GET /static/css/iconfont.woff2 => generated 5608 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 24752|app: 0|req: 2/10] 117.136.35.80 () {50 vars in 984 bytes} [Tue Mar 19 13:44:28 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 24750|app: 0|req: 5/11] 117.136.35.80 () {52 vars in 1035 bytes} [Tue Mar 19 13:44:52 2019] GET /MessageBoard => generated 21645 bytes in 101 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 24751|app: 0|req: 3/12] 117.136.35.80 () {50 vars in 1000 bytes} [Tue Mar 19 13:44:53 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 24753|app: 0|req: 3/13] 117.136.35.80 () {50 vars in 950 bytes} [Tue Mar 19 13:44:55 2019] GET /favicon.ico => generated 233 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 24753|app: 0|req: 4/14] 117.136.35.80 () {52 vars in 1023 bytes} [Tue Mar 19 13:44:59 2019] GET / => generated 26087 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 24752|app: 0|req: 3/15] 117.136.35.80 () {52 vars in 1023 bytes} [Tue Mar 19 13:49:46 2019] GET / => generated 26087 bytes in 116 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+4
+[pid: 24750|app: 0|req: 6/16] 117.136.35.80 () {52 vars in 1025 bytes} [Tue Mar 19 13:49:55 2019] GET /posts/3 => generated 24556 bytes in 61 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 24750|app: 0|req: 7/17] 117.136.35.80 () {50 vars in 945 bytes} [Tue Mar 19 13:49:56 2019] GET /favicon.ico => generated 233 bytes in 10 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+a
+[pid: 24750|app: 0|req: 8/18] 117.136.35.80 () {52 vars in 1023 bytes} [Tue Mar 19 13:52:43 2019] GET / => generated 26087 bytes in 24 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 24750|app: 0|req: 9/19] 117.136.35.80 () {52 vars in 1035 bytes} [Tue Mar 19 13:53:10 2019] GET /MessageBoard => generated 21645 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 24750|app: 0|req: 10/20] 117.136.35.80 () {50 vars in 995 bytes} [Tue Mar 19 13:53:32 2019] GET /MessageBoard => generated 21645 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 24750|app: 0|req: 11/21] 203.208.60.122 () {42 vars in 639 bytes} [Tue Mar 19 13:59:52 2019] GET /robots.txt => generated 233 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+[pid: 24752|app: 0|req: 4/22] 203.208.60.52 () {46 vars in 761 bytes} [Tue Mar 19 13:59:53 2019] GET /tags/ => generated 233 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 24750|app: 0|req: 12/23] 47.101.204.90 () {40 vars in 592 bytes} [Tue Mar 19 14:27:12 2019] GET / => generated 26087 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 24752|app: 0|req: 5/24] 117.136.35.80 () {52 vars in 1001 bytes} [Tue Mar 19 14:34:47 2019] GET / => generated 26087 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 24750|app: 0|req: 13/25] 117.136.35.80 () {50 vars in 916 bytes} [Tue Mar 19 14:34:48 2019] GET /favicon.ico => generated 233 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 24752|app: 0|req: 6/26] 117.136.35.80 () {52 vars in 989 bytes} [Tue Mar 19 14:34:49 2019] GET / => generated 26087 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 24750|app: 0|req: 14/27] 117.136.35.80 () {52 vars in 1013 bytes} [Tue Mar 19 14:34:52 2019] GET /MessageBoard => generated 21645 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 24752|app: 0|req: 7/28] 117.136.35.80 () {50 vars in 949 bytes} [Tue Mar 19 14:36:20 2019] GET / => generated 26087 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 24750|app: 0|req: 15/29] 112.25.185.146 () {46 vars in 792 bytes} [Tue Mar 19 14:59:46 2019] GET / => generated 26087 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 24750|app: 0|req: 16/30] 112.25.185.146 () {48 vars in 940 bytes} [Tue Mar 19 14:59:46 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 4/31] 112.25.185.146 () {48 vars in 930 bytes} [Tue Mar 19 14:59:46 2019] GET /static/css/iconfont.css => generated 9615 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 24753|app: 0|req: 5/32] 112.25.185.146 () {48 vars in 926 bytes} [Tue Mar 19 14:59:46 2019] GET /static/css/smasky.css => generated 9899 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 0)
+[pid: 24751|app: 0|req: 5/33] 112.25.185.146 () {48 vars in 947 bytes} [Tue Mar 19 14:59:46 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 1)
+[pid: 24753|app: 0|req: 6/34] 112.25.185.146 () {48 vars in 941 bytes} [Tue Mar 19 14:59:46 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 6/36] 112.25.185.146 () {50 vars in 1029 bytes} [Tue Mar 19 14:59:47 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 308 bytes (0 switches on core 0)
+[pid: 24752|app: 0|req: 8/36] 112.25.185.146 () {50 vars in 1018 bytes} [Tue Mar 19 14:59:47 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 0)
+[pid: 24752|app: 0|req: 9/37] 112.25.185.146 () {48 vars in 927 bytes} [Tue Mar 19 14:59:50 2019] GET /favicon.ico => generated 233 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+[pid: 24750|app: 0|req: 17/38] 112.25.185.146 () {44 vars in 899 bytes} [Tue Mar 19 14:59:51 2019] GET /static/css/bootstrap.min.css.map => generated 542194 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 312 bytes (0 switches on core 1)
+a
+[pid: 24751|app: 0|req: 7/39] 117.136.35.80 () {50 vars in 949 bytes} [Tue Mar 19 15:00:03 2019] GET / => generated 26087 bytes in 102 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 24753|app: 0|req: 7/40] 112.25.185.146 () {48 vars in 787 bytes} [Tue Mar 19 15:01:09 2019] GET / => generated 26087 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 24752|app: 0|req: 10/41] 112.25.185.146 () {50 vars in 943 bytes} [Tue Mar 19 15:01:10 2019] GET /static/css/smasky.css => generated 9899 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 9/42] 112.25.185.146 () {50 vars in 957 bytes} [Tue Mar 19 15:01:10 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 9/43] 112.25.185.146 () {50 vars in 947 bytes} [Tue Mar 19 15:01:10 2019] GET /static/css/iconfont.css => generated 9615 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 24753|app: 0|req: 8/44] 112.25.185.146 () {50 vars in 986 bytes} [Tue Mar 19 15:01:10 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 0)
+[pid: 24750|app: 0|req: 18/45] 112.25.185.146 () {50 vars in 958 bytes} [Tue Mar 19 15:01:11 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 24750|app: 0|req: 19/46] 112.25.185.146 () {50 vars in 936 bytes} [Tue Mar 19 15:01:12 2019] GET /static/css/iconfont.woff2 => generated 5608 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 1)
+[pid: 24750|app: 0|req: 20/47] 112.25.185.146 () {50 vars in 980 bytes} [Tue Mar 19 15:01:12 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 308 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 10/48] 112.25.185.146 () {50 vars in 976 bytes} [Tue Mar 19 15:01:12 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 24751|app: 0|req: 11/49] 112.25.185.146 () {50 vars in 908 bytes} [Tue Mar 19 15:01:17 2019] GET /favicon.ico => generated 233 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 24750|app: 0|req: 21/50] 112.25.185.146 () {50 vars in 941 bytes} [Tue Mar 19 15:02:01 2019] GET / => generated 26087 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 24751|app: 0|req: 12/51] 112.25.185.146 () {50 vars in 1001 bytes} [Tue Mar 19 15:07:16 2019] GET / => generated 26087 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+Tue Mar 19 15:13:32 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 15:13:32 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 15:14:58 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1393520
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1393520 pid: 26148 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 26148)
+spawned uWSGI worker 1 (pid: 26150, cores: 2)
+spawned uWSGI worker 2 (pid: 26151, cores: 2)
+spawned uWSGI worker 3 (pid: 26152, cores: 2)
+spawned uWSGI worker 4 (pid: 26153, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 26153|app: 0|req: 1/1] 117.136.35.80 () {50 vars in 949 bytes} [Tue Mar 19 15:15:13 2019] GET / => generated 26081 bytes in 119 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 26153|app: 0|req: 2/2] 117.136.35.80 () {52 vars in 1005 bytes} [Tue Mar 19 15:15:26 2019] GET /register => generated 21806 bytes in 24 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 26150|app: 0|req: 1/3] 117.136.35.80 () {50 vars in 924 bytes} [Tue Mar 19 15:15:27 2019] GET /favicon.ico => generated 233 bytes in 11 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 26150|app: 0|req: 2/4] 117.136.35.80 () {52 vars in 997 bytes} [Tue Mar 19 15:15:33 2019] GET / => generated 26081 bytes in 120 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 26150|app: 0|req: 3/5] 117.136.35.80 () {52 vars in 1013 bytes} [Tue Mar 19 15:15:38 2019] GET /MessageBoard => generated 21590 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26150|app: 0|req: 4/6] 117.136.35.80 () {52 vars in 1001 bytes} [Tue Mar 19 15:15:41 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 26150|app: 0|req: 5/7] 117.136.35.80 () {52 vars in 1013 bytes} [Tue Mar 19 15:15:44 2019] GET /MessageBoard => generated 21590 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26150|app: 0|req: 6/8] 117.136.35.80 () {52 vars in 1001 bytes} [Tue Mar 19 15:15:47 2019] GET / => generated 26081 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 26150|app: 0|req: 7/9] 117.136.35.80 () {52 vars in 1013 bytes} [Tue Mar 19 15:15:51 2019] GET /MessageBoard => generated 21590 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26150|app: 0|req: 8/10] 117.136.35.80 () {52 vars in 1001 bytes} [Tue Mar 19 15:15:53 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26150|app: 0|req: 9/11] 117.136.35.80 () {52 vars in 989 bytes} [Tue Mar 19 15:16:03 2019] GET / => generated 26081 bytes in 22 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26150|app: 0|req: 10/12] 112.25.185.146 () {50 vars in 941 bytes} [Tue Mar 19 15:16:53 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+4
+[pid: 26150|app: 0|req: 11/13] 112.25.185.146 () {52 vars in 995 bytes} [Tue Mar 19 15:17:53 2019] GET /posts/4 => generated 43373 bytes in 42 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 26150|app: 0|req: 12/14] 112.25.185.146 () {50 vars in 915 bytes} [Tue Mar 19 15:18:00 2019] GET /favicon.ico => generated 233 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+5
+[pid: 26151|app: 0|req: 1/15] 112.25.185.146 () {58 vars in 1157 bytes} [Tue Mar 19 15:18:31 2019] POST /posts/4 => generated 223 bytes in 69 msecs (HTTP/1.1 302) 7 headers in 500 bytes (1 switches on core 0)
+6
+[pid: 26150|app: 0|req: 13/16] 112.25.185.146 () {54 vars in 1077 bytes} [Tue Mar 19 15:18:31 2019] GET /posts/4 => generated 43962 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26151|app: 0|req: 2/17] 112.25.185.146 () {52 vars in 1025 bytes} [Tue Mar 19 15:18:44 2019] GET / => generated 26081 bytes in 75 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26150|app: 0|req: 14/18] 112.25.185.146 () {52 vars in 1018 bytes} [Tue Mar 19 15:18:49 2019] GET / => generated 26081 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26150|app: 0|req: 15/19] 112.25.185.146 () {52 vars in 1018 bytes} [Tue Mar 19 15:18:51 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26150|app: 0|req: 16/20] 112.25.185.146 () {52 vars in 1018 bytes} [Tue Mar 19 15:18:52 2019] GET / => generated 26081 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+Gracefully killing worker 4 (pid: 26153)...
+Gracefully killing worker 3 (pid: 26152)...
+Gracefully killing worker 2 (pid: 26151)...
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 26150)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/flask/flask_webTheme
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /root/.virtualenvs/wflask/bin/uwsgi
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 15:19:14 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1091ff0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1091ff0 pid: 26148 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 26148)
+spawned uWSGI worker 1 (pid: 26221, cores: 2)
+spawned uWSGI worker 2 (pid: 26222, cores: 2)
+spawned uWSGI worker 3 (pid: 26223, cores: 2)
+spawned uWSGI worker 4 (pid: 26224, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 26221|app: 0|req: 1/1] 47.101.205.4 () {40 vars in 588 bytes} [Tue Mar 19 15:38:24 2019] GET / => generated 26081 bytes in 117 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 2/2] 101.132.33.158 () {40 vars in 593 bytes} [Tue Mar 19 15:39:58 2019] GET / => generated 26081 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26221|app: 0|req: 3/3] 112.25.185.146 () {46 vars in 792 bytes} [Tue Mar 19 15:53:35 2019] GET / => generated 26081 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 26221|app: 0|req: 4/4] 112.25.185.146 () {48 vars in 927 bytes} [Tue Mar 19 15:53:35 2019] GET /favicon.ico => generated 233 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+[pid: 26221|app: 0|req: 5/5] 80.82.70.187 () {38 vars in 543 bytes} [Tue Mar 19 16:13:30 2019] GET /cache/global/img/gs.gif => generated 233 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 6/6] 47.100.36.239 () {40 vars in 589 bytes} [Tue Mar 19 16:22:06 2019] GET / => generated 26081 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 7/7] 47.92.155.0 () {40 vars in 590 bytes} [Tue Mar 19 16:23:43 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26221|app: 0|req: 8/8] 195.95.147.141 () {38 vars in 581 bytes} [Tue Mar 19 16:27:59 2019] GET / => generated 26081 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 9/9] 47.101.204.90 () {40 vars in 592 bytes} [Tue Mar 19 17:18:10 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 26221|app: 0|req: 10/10] 139.162.88.63 () {38 vars in 530 bytes} [Tue Mar 19 18:17:48 2019] GET /echo.php?info=1234567890 => generated 233 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 11/11] 47.101.203.29 () {40 vars in 592 bytes} [Tue Mar 19 18:32:01 2019] GET / => generated 26081 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 12/12] 198.108.66.16 () {40 vars in 503 bytes} [Tue Mar 19 19:09:18 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26221|app: 0|req: 13/13] 112.25.185.146 () {46 vars in 792 bytes} [Tue Mar 19 19:15:31 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 26221|app: 0|req: 14/14] 112.25.185.146 () {48 vars in 940 bytes} [Tue Mar 19 19:15:31 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 26221|app: 0|req: 15/15] 112.25.185.146 () {48 vars in 940 bytes} [Tue Mar 19 19:15:31 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 26221|app: 0|req: 16/16] 112.25.185.146 () {48 vars in 946 bytes} [Tue Mar 19 19:15:31 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 1)
+[pid: 26222|app: 0|req: 2/17] 112.25.185.146 () {48 vars in 929 bytes} [Tue Mar 19 19:15:31 2019] GET /static/css/iconfont.css => generated 9615 bytes in 12 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 1)
+[pid: 26222|app: 0|req: 2/18] 112.25.185.146 () {48 vars in 925 bytes} [Tue Mar 19 19:15:31 2019] GET /static/css/smasky.css => generated 9899 bytes in 17 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 0)
+[pid: 26221|app: 0|req: 17/19] 112.25.185.146 () {50 vars in 1017 bytes} [Tue Mar 19 19:15:32 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 0)
+[pid: 26224|app: 0|req: 1/20] 112.25.185.146 () {50 vars in 1029 bytes} [Tue Mar 19 19:15:32 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 308 bytes (0 switches on core 0)
+a
+[pid: 26221|app: 0|req: 18/21] 112.25.185.146 () {48 vars in 945 bytes} [Tue Mar 19 19:15:42 2019] GET / => generated 26081 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 26222|app: 0|req: 3/22] 112.25.185.146 () {48 vars in 926 bytes} [Tue Mar 19 19:15:43 2019] GET /favicon.ico => generated 233 bytes in 9 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+a
+[pid: 26224|app: 0|req: 2/23] 112.25.185.146 () {48 vars in 945 bytes} [Tue Mar 19 19:15:46 2019] GET / => generated 26081 bytes in 115 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26221|app: 0|req: 19/24] 112.25.185.146 () {48 vars in 946 bytes} [Tue Mar 19 19:15:52 2019] GET / => generated 26081 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 26221|app: 0|req: 20/25] 112.25.185.146 () {50 vars in 976 bytes} [Tue Mar 19 19:17:01 2019] GET / => generated 26081 bytes in 32 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 26221|app: 0|req: 21/26] 128.65.152.157 () {38 vars in 575 bytes} [Tue Mar 19 19:20:33 2019] GET / => generated 26081 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 26221|app: 0|req: 22/27] 64.90.186.102 () {42 vars in 617 bytes} [Tue Mar 19 19:50:56 2019] GET /user/register/ => generated 233 bytes in 0 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+Tue Mar 19 19:56:24 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 19:56:24 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 19:57:34 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x2591520
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2591520 pid: 30287 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 30287)
+spawned uWSGI worker 1 (pid: 30289, cores: 2)
+spawned uWSGI worker 2 (pid: 30290, cores: 2)
+spawned uWSGI worker 3 (pid: 30291, cores: 2)
+spawned uWSGI worker 4 (pid: 30292, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+...gracefully killing workers...
+Gracefully killing worker 4 (pid: 30292)...
+Gracefully killing worker 3 (pid: 30291)...
+Gracefully killing worker 2 (pid: 30290)...
+Gracefully killing worker 1 (pid: 30289)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/flask/flask_webTheme
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /root/.virtualenvs/wflask/bin/uwsgi
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 19:57:40 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x1053ff0
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1053ff0 pid: 30287 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 30287)
+spawned uWSGI worker 1 (pid: 30298, cores: 2)
+spawned uWSGI worker 2 (pid: 30299, cores: 2)
+spawned uWSGI worker 3 (pid: 30300, cores: 2)
+spawned uWSGI worker 4 (pid: 30301, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 30300|app: 0|req: 1/1] 112.25.185.146 () {46 vars in 792 bytes} [Tue Mar 19 19:57:44 2019] GET / => generated 25627 bytes in 119 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30300|app: 0|req: 2/2] 112.25.185.146 () {48 vars in 927 bytes} [Tue Mar 19 19:57:45 2019] GET /favicon.ico => generated 233 bytes in 6 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 1/3] 112.25.185.146 () {50 vars in 1010 bytes} [Tue Mar 19 19:58:01 2019] GET /MessageBoard => generated 21220 bytes in 107 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 30298|app: 0|req: 2/4] 112.25.185.146 () {50 vars in 998 bytes} [Tue Mar 19 19:58:03 2019] GET / => generated 25627 bytes in 48 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 3/5] 112.25.185.146 () {50 vars in 1010 bytes} [Tue Mar 19 19:58:09 2019] GET /MessageBoard => generated 21220 bytes in 14 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+smasky
+[pid: 30298|app: 0|req: 4/6] 112.25.185.146 () {58 vars in 1208 bytes} [Tue Mar 19 19:58:25 2019] POST /MessageBoard => generated 18771 bytes in 61 msecs (HTTP/1.1 200) 4 headers in 394 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 5/7] 112.25.185.146 () {58 vars in 1335 bytes} [Tue Mar 19 19:58:38 2019] POST /MessageBoard => generated 233 bytes in 14 msecs (HTTP/1.1 302) 4 headers in 145 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 6/8] 112.25.185.146 () {52 vars in 1180 bytes} [Tue Mar 19 19:58:38 2019] GET /MessageBoard => generated 19976 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 7/9] 112.25.185.146 () {50 vars in 1149 bytes} [Tue Mar 19 19:59:27 2019] GET /MessageBoard => generated 19976 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 8/10] 112.25.185.146 () {50 vars in 1137 bytes} [Tue Mar 19 19:59:29 2019] GET /logout => generated 209 bytes in 4 msecs (HTTP/1.1 302) 5 headers in 401 bytes (1 switches on core 1)
+a
+[pid: 30299|app: 0|req: 1/11] 112.25.185.146 () {50 vars in 1095 bytes} [Tue Mar 19 19:59:29 2019] GET / => generated 25627 bytes in 127 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+a
+[pid: 30298|app: 0|req: 9/12] 117.136.35.80 () {50 vars in 835 bytes} [Tue Mar 19 19:59:44 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30299|app: 0|req: 2/13] 117.136.35.80 () {50 vars in 965 bytes} [Tue Mar 19 19:59:44 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 1)
+[pid: 30299|app: 0|req: 3/14] 117.136.35.80 () {50 vars in 955 bytes} [Tue Mar 19 19:59:44 2019] GET /static/css/iconfont.css => generated 9615 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 30298|app: 0|req: 10/15] 117.136.35.80 () {50 vars in 951 bytes} [Tue Mar 19 19:59:44 2019] GET /static/css/smasky.css => generated 9899 bytes in 6 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 0)
+[pid: 30298|app: 0|req: 11/16] 117.136.35.80 () {50 vars in 994 bytes} [Tue Mar 19 19:59:44 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 1)
+[pid: 30301|app: 0|req: 1/17] 117.136.35.80 () {50 vars in 966 bytes} [Tue Mar 19 19:59:44 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 30298|app: 0|req: 12/18] 117.136.35.80 () {50 vars in 984 bytes} [Tue Mar 19 19:59:48 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 30300|app: 0|req: 3/19] 117.136.35.80 () {50 vars in 944 bytes} [Tue Mar 19 19:59:48 2019] GET /static/css/iconfont.woff2 => generated 5608 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 30300|app: 0|req: 4/20] 117.136.35.80 () {50 vars in 916 bytes} [Tue Mar 19 19:59:49 2019] GET /favicon.ico => generated 233 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+[pid: 30299|app: 0|req: 4/21] 117.136.35.80 () {52 vars in 1013 bytes} [Tue Mar 19 19:59:58 2019] GET /MessageBoard => generated 22425 bytes in 27 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 13/22] 117.136.35.80 () {50 vars in 928 bytes} [Tue Mar 19 19:59:58 2019] GET /favicon.ico => generated 233 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+a
+[pid: 30299|app: 0|req: 5/23] 117.136.35.80 () {52 vars in 1001 bytes} [Tue Mar 19 20:00:20 2019] GET / => generated 25627 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30300|app: 0|req: 5/24] 117.136.35.80 () {52 vars in 1013 bytes} [Tue Mar 19 20:00:26 2019] GET /MessageBoard => generated 22425 bytes in 32 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30301|app: 0|req: 2/25] 117.136.35.80 () {52 vars in 1001 bytes} [Tue Mar 19 20:00:28 2019] GET / => generated 25627 bytes in 119 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30298|app: 0|req: 14/26] 183.208.19.131 () {50 vars in 854 bytes} [Tue Mar 19 20:01:33 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 15/27] 183.208.19.131 () {50 vars in 996 bytes} [Tue Mar 19 20:01:34 2019] GET /static/img/avatar.jpg => generated 117940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 297 bytes (0 switches on core 1)
+[pid: 30299|app: 0|req: 6/28] 183.208.19.131 () {54 vars in 1088 bytes} [Tue Mar 19 20:01:34 2019] GET /static/css/smasky.css => generated 9899 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 306 bytes (0 switches on core 0)
+[pid: 30301|app: 0|req: 3/29] 183.208.19.131 () {54 vars in 1104 bytes} [Tue Mar 19 20:01:34 2019] GET /static/css/bootstrap.min.css => generated 121200 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 311 bytes (0 switches on core 0)
+[pid: 30301|app: 0|req: 4/30] 183.208.19.131 () {54 vars in 1092 bytes} [Tue Mar 19 20:01:34 2019] GET /static/css/iconfont.css => generated 9615 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 1)
+[pid: 30300|app: 0|req: 6/31] 183.208.19.131 () {50 vars in 990 bytes} [Tue Mar 19 20:01:34 2019] GET /static/js/moment-with-locales.min.js => generated 249779 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 310 bytes (0 switches on core 0)
+[pid: 30300|app: 0|req: 7/32] 183.208.19.131 () {52 vars in 1078 bytes} [Tue Mar 19 20:01:35 2019] GET /static/fonts/glyphicons-halflings-regular.woff2 => generated 18028 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 308 bytes (0 switches on core 1)
+[pid: 30299|app: 0|req: 7/33] 183.208.19.131 () {52 vars in 1067 bytes} [Tue Mar 19 20:01:35 2019] GET /static/fonts/Source-Sans-Pro-ExtraLight.woff2 => generated 60276 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 309 bytes (0 switches on core 1)
+[pid: 30301|app: 0|req: 5/34] 183.208.19.131 () {50 vars in 976 bytes} [Tue Mar 19 20:01:37 2019] GET /favicon.ico => generated 233 bytes in 11 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 1)
+a
+kirito
+[pid: 30298|app: 0|req: 16/35] 183.208.19.131 () {60 vars in 1221 bytes} [Tue Mar 19 20:01:50 2019] POST / => generated 25633 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30299|app: 0|req: 8/36] 183.208.19.131 () {52 vars in 1051 bytes} [Tue Mar 19 20:02:09 2019] GET /register => generated 21270 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30300|app: 0|req: 8/37] 183.208.19.131 () {52 vars in 1059 bytes} [Tue Mar 19 20:02:15 2019] GET /register => generated 21270 bytes in 26 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+kirito
+[pid: 30298|app: 0|req: 17/38] 183.208.19.131 () {60 vars in 1245 bytes} [Tue Mar 19 20:05:40 2019] POST /register => generated 209 bytes in 61 msecs (HTTP/1.1 302) 6 headers in 324 bytes (1 switches on core 0)
+a
+[pid: 30298|app: 0|req: 18/39] 183.208.19.131 () {54 vars in 1074 bytes} [Tue Mar 19 20:05:40 2019] GET / => generated 25627 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+kirito
+[pid: 30298|app: 0|req: 19/40] 183.208.19.131 () {60 vars in 1221 bytes} [Tue Mar 19 20:05:46 2019] POST / => generated 23926 bytes in 60 msecs (HTTP/1.1 200) 4 headers in 395 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 20/41] 183.208.19.131 () {52 vars in 1177 bytes} [Tue Mar 19 20:05:59 2019] GET /posts/1 => generated 40534 bytes in 41 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[2019-03-19 20:06:11,988] ERROR in app: Exception on /posts/1 [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./SmaBlog/blueprints/blog.py", line 57, in show_post
+    post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+  File "<string>", line 4, in __init__
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 129, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/ext/declarative/base.py", line 834, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'avater' is an invalid keyword argument for PostComment
+[pid: 30298|app: 0|req: 21/42] 183.208.19.131 () {60 vars in 1370 bytes} [Tue Mar 19 20:06:11 2019] POST /posts/1 => generated 291 bytes in 10 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 22/43] 112.25.185.146 () {50 vars in 1099 bytes} [Tue Mar 19 20:06:46 2019] GET /register => generated 21270 bytes in 27 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[2019-03-19 20:06:58,333] ERROR in app: Exception on /posts/1 [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./SmaBlog/blueprints/blog.py", line 57, in show_post
+    post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+  File "<string>", line 4, in __init__
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 129, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/ext/declarative/base.py", line 834, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'avater' is an invalid keyword argument for PostComment
+[pid: 30298|app: 0|req: 23/44] 183.208.19.131 () {60 vars in 1370 bytes} [Tue Mar 19 20:06:58 2019] POST /posts/1 => generated 291 bytes in 8 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+[2019-03-19 20:07:01,775] ERROR in app: Exception on /posts/1 [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./SmaBlog/blueprints/blog.py", line 57, in show_post
+    post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+  File "<string>", line 4, in __init__
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 129, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/ext/declarative/base.py", line 834, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'avater' is an invalid keyword argument for PostComment
+[pid: 30298|app: 0|req: 24/45] 183.208.19.131 () {60 vars in 1370 bytes} [Tue Mar 19 20:07:01 2019] POST /posts/1 => generated 291 bytes in 8 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 25/46] 183.208.19.131 () {54 vars in 1208 bytes} [Tue Mar 19 20:07:21 2019] GET /posts/1 => generated 40534 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 26/47] 112.25.185.146 () {50 vars in 1115 bytes} [Tue Mar 19 20:07:23 2019] GET /MessageBoard => generated 22425 bytes in 16 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[2019-03-19 20:07:26,957] ERROR in app: Exception on /posts/1 [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./SmaBlog/blueprints/blog.py", line 57, in show_post
+    post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+  File "<string>", line 4, in __init__
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 129, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/ext/declarative/base.py", line 834, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'avater' is an invalid keyword argument for PostComment
+[pid: 30298|app: 0|req: 27/48] 183.208.19.131 () {60 vars in 1370 bytes} [Tue Mar 19 20:07:26 2019] POST /posts/1 => generated 291 bytes in 8 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+a
+[pid: 30298|app: 0|req: 28/49] 183.208.19.131 () {52 vars in 1171 bytes} [Tue Mar 19 20:07:32 2019] GET / => generated 23926 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 29/50] 183.208.19.131 () {52 vars in 1177 bytes} [Tue Mar 19 20:07:35 2019] GET /posts/2 => generated 28931 bytes in 24 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[2019-03-19 20:07:44,994] ERROR in app: Exception on /posts/2 [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./SmaBlog/blueprints/blog.py", line 57, in show_post
+    post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+  File "<string>", line 4, in __init__
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 129, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/ext/declarative/base.py", line 834, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'avater' is an invalid keyword argument for PostComment
+[pid: 30298|app: 0|req: 30/51] 183.208.19.131 () {60 vars in 1370 bytes} [Tue Mar 19 20:07:44 2019] POST /posts/2 => generated 291 bytes in 8 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 1)
+smasky
+[pid: 30298|app: 0|req: 31/52] 112.25.185.146 () {58 vars in 1305 bytes} [Tue Mar 19 20:07:46 2019] POST /MessageBoard => generated 19976 bytes in 59 msecs (HTTP/1.1 200) 4 headers in 394 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 32/53] 112.25.185.146 () {58 vars in 1335 bytes} [Tue Mar 19 20:07:50 2019] POST /MessageBoard => generated 233 bytes in 12 msecs (HTTP/1.1 302) 4 headers in 145 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 33/54] 112.25.185.146 () {52 vars in 1180 bytes} [Tue Mar 19 20:07:50 2019] GET /MessageBoard => generated 21157 bytes in 14 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+a
+[pid: 30298|app: 0|req: 34/55] 112.25.185.146 () {50 vars in 1125 bytes} [Tue Mar 19 20:08:05 2019] GET / => generated 23926 bytes in 16 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 35/56] 112.25.185.146 () {50 vars in 1127 bytes} [Tue Mar 19 20:08:06 2019] GET /posts/2 => generated 28931 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 36/57] 183.208.19.131 () {52 vars in 1194 bytes} [Tue Mar 19 20:08:06 2019] GET /MessageBoard => generated 21157 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30298|app: 0|req: 37/58] 183.208.19.131 () {60 vars in 1385 bytes} [Tue Mar 19 20:08:12 2019] POST /MessageBoard => generated 233 bytes in 12 msecs (HTTP/1.1 302) 4 headers in 145 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 38/59] 183.208.19.131 () {54 vars in 1230 bytes} [Tue Mar 19 20:08:12 2019] GET /MessageBoard => generated 22319 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[2019-03-19 20:08:12,870] ERROR in app: Exception on /posts/2 [POST]
+Traceback (most recent call last):
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "./SmaBlog/blueprints/blog.py", line 57, in show_post
+    post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+  File "<string>", line 4, in __init__
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 441, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/util/compat.py", line 129, in reraise
+    raise value
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/orm/state.py", line 438, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/root/.virtualenvs/wflask/lib/python3.5/site-packages/sqlalchemy/ext/declarative/base.py", line 834, in _declarative_constructor
+    "%r is an invalid keyword argument for %s" % (k, cls_.__name__)
+TypeError: 'avater' is an invalid keyword argument for PostComment
+[pid: 30298|app: 0|req: 39/60] 112.25.185.146 () {58 vars in 1320 bytes} [Tue Mar 19 20:08:12 2019] POST /posts/2 => generated 291 bytes in 9 msecs (HTTP/1.1 500) 2 headers in 84 bytes (1 switches on core 0)
+[pid: 30298|app: 0|req: 40/61] 183.208.19.131 () {52 vars in 1199 bytes} [Tue Mar 19 20:10:02 2019] GET /MessageBoard => generated 22319 bytes in 16 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+Tue Mar 19 20:11:03 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Mar 19 20:11:03 2019 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 20:12:14 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x13cb540
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x13cb540 pid: 30610 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 30610)
+spawned uWSGI worker 1 (pid: 30612, cores: 2)
+spawned uWSGI worker 2 (pid: 30613, cores: 2)
+spawned uWSGI worker 3 (pid: 30614, cores: 2)
+spawned uWSGI worker 4 (pid: 30615, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+...gracefully killing workers...
+Gracefully killing worker 3 (pid: 30614)...
+Gracefully killing worker 4 (pid: 30615)...
+Gracefully killing worker 2 (pid: 30613)...
+Gracefully killing worker 1 (pid: 30612)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/flask/flask_webTheme
+closing all non-uwsgi socket fds > 2 (max_fd = 65535)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /root/.virtualenvs/wflask/bin/uwsgi
+[uWSGI] getting INI configuration from config.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Mar 19 20:12:19 2019] ***
+compiled with version: 5.4.0 20160609 on 18 March 2019 13:21:23
+os: Linux-4.4.0-117-generic #141-Ubuntu SMP Tue Mar 13 11:58:07 UTC 2018
+nodename: iZwz9dnfbgdn5wbaglcubfZ
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /home/flask/flask_webTheme
+detected binary path: /root/.virtualenvs/wflask/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/flask/flask_webTheme
+your processes number limit is 7856
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.5.2 (default, Nov 12 2018, 13:43:14)  [GCC 5.4.0 20160609]
+Python main interpreter initialized at 0x9bb010
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:774: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+  'Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. '
+/root/.virtualenvs/wflask/lib/python3.5/site-packages/flask_sqlalchemy/__init__.py:794: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+sqlite://///home/flask/flask_webTheme/data.db
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x9bb010 pid: 30610 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 30610)
+spawned uWSGI worker 1 (pid: 30621, cores: 2)
+spawned uWSGI worker 2 (pid: 30622, cores: 2)
+spawned uWSGI worker 3 (pid: 30623, cores: 2)
+spawned uWSGI worker 4 (pid: 30624, cores: 2)
+*** Stats server enabled on 127.0.0.1:9191 fd: 15 ***
+a
+[pid: 30624|app: 0|req: 1/1] 183.208.19.131 () {50 vars in 1123 bytes} [Tue Mar 19 20:12:33 2019] GET / => generated 23926 bytes in 106 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 1/2] 183.208.19.131 () {52 vars in 1177 bytes} [Tue Mar 19 20:12:37 2019] GET /posts/1 => generated 40534 bytes in 142 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 2/3] 183.208.19.131 () {60 vars in 1370 bytes} [Tue Mar 19 20:12:46 2019] POST /posts/1 => generated 223 bytes in 19 msecs (HTTP/1.1 302) 4 headers in 140 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 3/4] 183.208.19.131 () {54 vars in 1215 bytes} [Tue Mar 19 20:12:46 2019] GET /posts/1 => generated 41654 bytes in 32 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 4/5] 112.25.185.146 () {50 vars in 1118 bytes} [Tue Mar 19 20:12:55 2019] GET /posts/2 => generated 28931 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 5/6] 47.92.121.206 () {40 vars in 589 bytes} [Tue Mar 19 20:12:56 2019] GET / => generated 25627 bytes in 25 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 6/7] 112.25.185.146 () {50 vars in 1120 bytes} [Tue Mar 19 20:12:57 2019] GET / => generated 23926 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 7/8] 112.25.185.146 () {50 vars in 1127 bytes} [Tue Mar 19 20:12:59 2019] GET /posts/1 => generated 41654 bytes in 27 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 8/9] 112.25.185.146 () {50 vars in 1120 bytes} [Tue Mar 19 20:13:18 2019] GET / => generated 23926 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 9/10] 112.25.185.146 () {50 vars in 1104 bytes} [Tue Mar 19 20:16:04 2019] GET / => generated 23926 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 10/11] 112.25.185.146 () {50 vars in 1113 bytes} [Tue Mar 19 20:16:10 2019] GET / => generated 23926 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 11/12] 112.25.185.146 () {50 vars in 1137 bytes} [Tue Mar 19 20:16:12 2019] GET /MessageBoard => generated 22319 bytes in 31 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 12/13] 112.25.185.146 () {50 vars in 1149 bytes} [Tue Mar 19 20:16:17 2019] GET /MessageBoard => generated 22319 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 13/14] 112.25.185.146 () {50 vars in 1149 bytes} [Tue Mar 19 20:16:18 2019] GET /MessageBoard => generated 22319 bytes in 15 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 14/15] 112.25.185.146 () {50 vars in 1125 bytes} [Tue Mar 19 20:16:53 2019] GET / => generated 23926 bytes in 16 msecs (HTTP/1.1 200) 3 headers in 96 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 15/16] 91.232.194.159 () {38 vars in 581 bytes} [Tue Mar 19 20:54:33 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 16/17] 183.208.16.243 () {46 vars in 793 bytes} [Tue Mar 19 21:08:08 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 17/18] 183.208.16.243 () {48 vars in 928 bytes} [Tue Mar 19 21:08:08 2019] GET /favicon.ico => generated 233 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 72 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 18/19] 183.208.16.243 () {50 vars in 1011 bytes} [Tue Mar 19 21:08:10 2019] GET /MessageBoard => generated 24768 bytes in 17 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 19/20] 183.208.16.243 () {50 vars in 999 bytes} [Tue Mar 19 21:08:13 2019] GET / => generated 25627 bytes in 19 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 20/21] 183.208.16.243 () {50 vars in 1001 bytes} [Tue Mar 19 21:09:18 2019] GET /posts/1 => generated 43951 bytes in 24 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 21/22] 183.208.16.243 () {50 vars in 994 bytes} [Tue Mar 19 21:27:25 2019] GET / => generated 25627 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 22/23] 183.208.16.243 () {50 vars in 1011 bytes} [Tue Mar 19 21:27:31 2019] GET /MessageBoard => generated 24768 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 23/24] 183.208.16.243 () {50 vars in 1023 bytes} [Tue Mar 19 21:27:34 2019] GET /MessageBoard => generated 24768 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 24/25] 183.208.16.243 () {50 vars in 999 bytes} [Tue Mar 19 21:27:35 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 25/26] 183.208.16.243 () {50 vars in 1011 bytes} [Tue Mar 19 21:27:39 2019] GET /MessageBoard => generated 24768 bytes in 18 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+a
+[pid: 30621|app: 0|req: 26/27] 183.208.16.243 () {50 vars in 999 bytes} [Tue Mar 19 21:27:40 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+[pid: 30621|app: 0|req: 27/28] 216.245.197.254 () {32 vars in 414 bytes} [Tue Mar 19 21:44:18 2019] HEAD /robots.txt => generated 0 bytes in 0 msecs (HTTP/1.0 404) 2 headers in 72 bytes (0 switches on core 0)
+a
+[pid: 30621|app: 0|req: 28/29] 183.208.16.243 () {50 vars in 978 bytes} [Tue Mar 19 21:48:57 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 29/30] 183.208.16.243 () {50 vars in 1001 bytes} [Tue Mar 19 21:48:59 2019] GET /posts/4 => generated 21071 bytes in 23 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 30/31] 183.208.16.243 () {48 vars in 947 bytes} [Tue Mar 19 21:49:09 2019] GET / => generated 25627 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 31/32] 183.208.16.243 () {50 vars in 1001 bytes} [Tue Mar 19 21:49:12 2019] GET /posts/3 => generated 24008 bytes in 21 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 32/33] 183.208.16.243 () {48 vars in 947 bytes} [Tue Mar 19 21:49:14 2019] GET / => generated 25627 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
+[pid: 30621|app: 0|req: 33/34] 183.208.16.243 () {50 vars in 1001 bytes} [Tue Mar 19 21:49:17 2019] GET /posts/2 => generated 31228 bytes in 22 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 1)
+a
+[pid: 30621|app: 0|req: 34/35] 183.208.16.243 () {48 vars in 947 bytes} [Tue Mar 19 21:49:19 2019] GET / => generated 25627 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 267 bytes (1 switches on core 0)
