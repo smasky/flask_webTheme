@@ -31,7 +31,7 @@
                 <ul class="nav nav-right head-right-nav">
                     <li class='dropdown login'>
                         {% if not current_user.is_authenticated %}
-                        <a data-toggle='dropdown' class="login dropdown-toggle white-info">
+                        <a data-toggle='dropdown' class="login dropdown-toggle white-info" href='#'>
                             <span>登录</span>
                             <b class="caret white-info"></b>
                         </a>
@@ -136,8 +136,8 @@
         </div>
         {% endblock app_left_aside %}
         <div class="app-main info-color-low-white " id='app-main'>
-                <div class="main-content col-lg-9">
-            {% block main_content %}{% endblock main_content %} </div>{% block app_right_aside %}{% endblock app_right_aside %}
+            <div class="main-content col-lg-9">
+                {% block main_content %}{% endblock main_content %} </div>{% block app_right_aside %}{% endblock app_right_aside %}
 
         </div>
 
@@ -159,11 +159,11 @@
                 $(link).toggleClass('active animated slideInLeft');
             });
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
-            $("button.left-button").click(function(){
+            $("button.left-button").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('main-active');
                 $('div.app-left-aside').toggleClass('left-active');
-                            });
+            });
 
         });
     </script>
