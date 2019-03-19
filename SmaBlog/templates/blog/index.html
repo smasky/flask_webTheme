@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
+    <div class="content-header info-color-pure-white boder-bottom">
+        <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
+        <small>不困于情，不畏将来，不念过往。</small>
+    </div>
+    <div class="blog-post boder-around">
+        {% include 'blog/_post.html' %} {% if Posts %}
+        <div class="page-footer text-center">{{ render_pagination(pagination,class='text-center') }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block app_right_aside %}
+{% include 'blog/_rightAside.html' %}
+{% endblock %}

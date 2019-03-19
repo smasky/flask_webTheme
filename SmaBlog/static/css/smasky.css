@@ -1,0 +1,641 @@
+@font-face {
+    font-family: 'font-Sour-Sans';
+    src: url('../fonts/Source-Sans-Pro-ExtraLight.woff2') format('woff');
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont.woff2') format('woff2'), url('iconfont.woff') format('woff'), url('iconfont.ttf') format('truetype'), url('iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 20px!important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouye:before {
+    content: "\e605";
+}
+
+.header-info-blue {
+    background-color: rgb(133, 179, 212);
+}
+
+.icon-size {
+    font-size: 30px;
+}
+
+.navbar-font {
+    font-size: 25px;
+}
+
+.app-main img {
+    max-width: 100%
+}
+
+.font-bg-info-white {
+    color: rgb(250, 255, 235);
+}
+
+.middle {
+    float: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.font-info-Source {
+    font-family: "font-Sour-Sans";
+    font-style: normal;
+}
+
+.navbar-brand {
+    float: none!important;
+    display: inline-block;
+}
+
+.navbar-header {
+    margin-top: 5px;
+}
+
+.navbar {
+    border-width: 0 0 0 0;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    height: 40px;
+}
+
+.bg-info-mblue {
+    background-color: rgb(19, 141, 182);
+}
+
+.app-container {
+    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+}
+
+.post-meta {
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.post-meta span {
+    padding-right: 10px;
+}
+
+.post-meta-icon {
+    font-size: 15px!important;
+}
+
+.container {
+    padding: 0 0;
+}
+
+.nav-tabs li {
+    background-color: rgba(242, 245, 244, 0.89) !important;
+    border-width: 0px 0px!important;
+}
+
+.nav-tabs {
+    background: #eaeaea!important;
+    border: none!important;
+    border-bottom: 1px solid rgb(187, 181, 181) !important;
+}
+
+.pull-left {
+    float: left!important;
+}
+
+.thumb-sm {
+    display: inline-block;
+    width: 40px;
+}
+
+.nav-tabs li a {
+    color: rgb(125, 119, 119) !important;
+    background-color: rgba(242, 245, 244, 0.89) !important;
+    border: none!important;
+}
+
+.list-group li {
+    background-color: transparent!important;
+}
+
+.list-group li:hover {
+    background-color: transparent!important;
+}
+
+.nav-tabs li.active {
+    border-bottom: 1px solid rgb(125, 119, 119) !important;
+}
+
+.aside {
+    height: auto;
+    position: fixed;
+    width: 195px;
+    top: 50px;
+    bottom: 0px;
+    margin: 0 0 0 0!important;
+    padding: 0px 0px;
+    overflow: hidden;
+}
+
+.sub-aside {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 215px;
+    height: 100%;
+}
+
+.img-size {
+    width: 100px;
+    display: block;
+    margin-left: 20px;
+}
+
+.user-img-wrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.bg-green {
+    background-color: rgba(213, 240, 237, 0.3);
+}
+
+.aside .text-center {
+    padding-top: 5px;
+    display: block;
+    text-align: center;
+    font-family: "font-Sour-Sans";
+}
+
+.dropdown {
+    position: relative;
+}
+
+.wrap {
+    padding: 15px;
+}
+
+.thumb-lg {
+    display: inline-block;
+    width: 96px;
+}
+
+.avatar {
+    position: relative;
+    white-space: nowrap;
+    border-radius: 500px;
+    padding-top: 25px;
+}
+
+.avatar img {
+    width: 76px;
+    border-radius: 500px;
+    margin-bottom: 15px;
+}
+
+.describe {
+    font-family: font-Sour-Sans;
+    font-size: 13px;
+    font-style: normal;
+    color: rgba(0, 0, 0, .8);
+}
+
+.main-des {
+    display: block;
+}
+
+.sub-des {
+    margin-top: 5px;
+    display: block;
+    color: #98a6ad;
+}
+
+.line {
+    height: 2px;
+    border-radius: 500px;
+}
+
+.post-line {
+    height: 1px;
+    border-radius: 500px;
+    border-color: #edf1f2;
+    border-bottom: 1px solid #dee5e7;
+}
+
+.text-muted {
+    color: #a0a0a0;
+}
+
+.bg-white {
+    background-color: rgba(10, 10, 10, 0.404);
+}
+
+.aside-nav-head {
+    font-family: "font-Sour-Sans";
+    font-size: 12px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 15px;
+    margin-top: 7px;
+    color: #535b5fb0;
+}
+
+.nav-stacked li>a {
+    float: left;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.787);
+    text-align: left;
+    padding-left: 30px;
+    font-size: 13px;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: #337ab7!important;
+}
+
+.nav-stacked li>a:hover {
+    cursor: pointer;
+}
+
+.nav-stacked span {
+    font-family: 'font-Sour-Sans';
+}
+
+.aside-icon {
+    padding-right: 15px;
+}
+
+.aside-footer {
+    z-index: 10000;
+    position: relative;
+}
+
+.sub-li {
+    display: none;
+}
+
+.active {
+    display: block;
+    animation-duration: 0.5s!important;
+}
+
+.active li {
+    list-style-type: none;
+    display: block;
+}
+
+.active li:hover {
+    background-color: rgb(71, 62, 62);
+}
+
+.active li a {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    float: left;
+    text-decoration: none;
+    padding-left: 0px;
+    font-size: 13px;
+}
+
+.nav-sub {
+    width: 100%;
+    padding-left: 0px!important;
+}
+
+.nav-sub li a {
+    width: 100%;
+    padding-left: 30px;
+    background-color: rgba(250, 255, 235, 0.5);
+}
+
+.nav-sub li a:hover {
+    background-color: bisque;
+}
+
+.nav-right {
+    float: right!important;
+    padding: 5px 0px;
+}
+
+.nav-right a {
+    color: black;
+}
+
+.nav-right a:hover {
+    background-color: transparent!important;
+    cursor: pointer;
+    color: black;
+}
+
+.app-head {
+    position: fixed!important;
+    width: 1170px;
+    z-index: 10001;
+}
+
+.app-main {
+    margin-left: 195px;
+    margin-top: 30px;
+    width: 83.33%;
+    display: block;
+    overflow: auto;
+    transition: transform .4s ease;
+}
+
+.main-content {
+    height: 100%;
+    padding: 0px 0px;
+    display: block;
+}
+
+.app-right-aside {
+    height: 100%;
+    padding: 0px 0px;
+    display: table-cell;
+}
+
+.info-color-low-white {
+    background-color: rgba(236, 238, 238, 0.774);
+}
+
+.info-color-high-white {
+    background-color: rgba(242, 245, 244, 0.89);
+}
+
+.info-color-pure-white {
+    background-color: rgba(255, 255, 255, 0.705);
+}
+
+.content-header {
+    top: 0px;
+    padding: 20px 20px;
+}
+
+.content-header h1 {
+    margin-left: 5%;
+    color: #5c5c5c;
+}
+
+.app-right-aside .nav-wrap {
+    padding-top: 20px;
+}
+
+.content-header small {
+    margin-left: 10%;
+    font-size: 100%;
+    font-family: "font-Sour-Sans";
+    color: #b6bcbd;
+}
+
+.boder-bottom {
+    border-bottom: 1px solid #dee5e7;
+}
+
+.boder-around {
+    border: 1px solid #dee5e7;
+}
+
+.index-post-img-wrap {
+    height: 20%;
+    overflow: hidden;
+}
+
+.post-img {
+    width: 100%;
+    min-height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.panel-heading {
+    padding: 5px 5px;
+}
+
+.panel-body {
+    padding: 30px;
+}
+
+.panel-body h2 {
+    font-size: 18px;
+    margin-top: 0px!important;
+}
+
+.main-head-img {
+    background-color: rgba(255, 255, 255, 0.705);
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 30px;
+}
+
+
+/* 留言板样式*/
+
+.comment-body a {
+    color: #343333e0;
+    font-family: 'font-Sour-Sans';
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.comment-body p {
+    padding: 5px 0px;
+    color: #7a7876;
+    font-size: 17px;
+}
+
+.comment-parent {
+    margin-left: 20px;
+}
+
+.comment-body {
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+
+/* blog 文章面板的css */
+.post-main center{
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+/* blog 表单的css */
+
+.form-font-info {
+    font-weight: lighter;
+}
+
+.body-info {
+    background-color: #f2faf985;
+    height: 200px!important;
+}
+
+
+/* blog 字体颜色的css */
+
+.time-font {
+    color: #a0a0a0;
+    font-size: 8px;
+}
+
+.grey-info {
+    color: #a0a0a0;
+}
+
+.grey-info-g {
+    color: #8a8a8a;
+}
+
+.white-info {
+    color: white!important;
+}
+
+
+/* blog 字体大小的css */
+
+.time-font {
+    color: #a0a0a0;
+}
+
+
+/* blog 基础大小的css */
+
+.lg {
+    width: 280px;
+}
+
+
+/* blog header的css */
+
+.head-right-nav {
+    float: right!important;
+    margin-right: -15px;
+}
+
+nav a:hover {
+    background-color: transparent!important;
+}
+
+nav a:focus {
+    background-color: transparent!important;
+}
+
+nav a {
+    background-color: transparent!important;
+}
+
+.dropdown-menu {
+    right: 0!important;
+    left: auto;
+}
+
+.login-panel {
+    padding: 15px 15px;
+}
+/* blog head的字体 */
+.rm-button{
+    margin-top:10px;
+    padding: 0;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+/* blog post的字体 */
+
+.blog-post p {
+    margin: 1.5em 0;
+    color: #484848;
+}
+
+.blog-post {
+    padding: 30px 30px;
+    display: block;
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+.comment-avater img {
+    border-radius: 50px;
+}
+
+.form-info {
+    margin: 40px 40px;
+}
+
+@media screen and (max-width:1200px) {
+    .aside {
+        width: 160px;
+    }
+    .app-main {
+        margin-left: 160px;
+    }
+    .left-head {
+        width: 160px;
+    }
+    .navbar-font {
+        font-size: 17px;
+    }
+    .wrap {
+        padding-right: 50px;
+    }
+    .app-head {
+        width: 970px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .aside {
+        width: 125px;
+    }
+    .app-main {
+        margin-left: 125px;
+    }
+    .app-head {
+        width: 750px;
+    }
+    .wrap {
+        padding-left: 0px;
+        padding-right: 70px;
+    }
+    .img-full {
+        width: 57px!important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .aside {
+        transform:translate3d(-125px,0,0);
+        transition: transform .4s ease;
+    }
+    .app-main {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .app-head {
+        width: 100%;
+    }
+
+    .left-active{
+        transform:translate3d(0px,0,0);
+        -webkit-transform:translate3d(0px,0,0);
+        transition: transform .4s ease;
+        display: block;
+    }
+    .main-active{
+        transform:translate3d(125px,0,0);
+        -webkit-transform:translate3d(125px,0,0);
+        transition: transform .4s ease;
+    }
+}

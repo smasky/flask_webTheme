@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block main_content %}
+    <div class=" content-header info-color-pure-white boder-bottom " >
+        <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
+        <small>不困于情，不畏将来，不念过往。</small>
+    </div>
+    <div class="main-head-img">
+            <img src="https://ws1.sinaimg.cn/large/e837aa80gy1g15tn8vl6fj21ao0si7wh.jpg"
+              style='background-size:contain; width:100%;'>
+        </div>
+    <ol class="comment-list " style="list-style:none; ">
+        {% for message in Messages %}
+        <li class="comment-parent ">
+            <a class='comment-avater' style='float: left; border-radius: 50px;'>
+                <img src="{{ message.admin.avater }} " style="height:40px!important; width: 40px!important; ">
+            </a>
+            <div class="comment-body ">
+                <div class="comment-name ">
+                    <span>
+                    <a>
+                        {{ message.name }}
+                    </a>
+                </span>
+                    <div class="comment-meta ">
+                        <small class='time-font' style='padding: 8px 0px;' data-toggle="tooltip " data-placement="top " data-timestamp="{{ message.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} " data-delay="500 ">
+                        {{ moment(message.timestamp).fromNow(refresh=True) }}
+                    </small>
+
+                    </div>
+                </div>
+                <div class="comment-content ">
+                    <p>
+                        {{message.body}}
+                    </p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+    {% if current_user.can() %}
+    <div class='form-info'>
+        <h4 class='grey-info-g'>发表评论:</h4>
+        <form method="POST">
+            {{ Form.csrf_token }}
+            <div class="form-group ">
+                {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
+            </div>
+            <h5>欢迎{{ current_user.name  }}归来</h5>
+            {{ Form.submit(class='btn btn-primary') }}
+        </form>
+    </div>
+    {% else %}
+    <div class='form-info'>
+        <h4 class='grey-info-g' >发表评论:</h3>
+        <h5 class='grey-info' >请先登录！</h5>
+        <div class='login-panel'>
+            <form method="POST">
+                {{ adminForm.csrf_token }}
+                <div class="form-group ">
+                    {{ adminForm.username.label(class='grey-info form-font-info')}} {{ adminForm.username(class='form-control') }}
+                </div>
+                <div class="form-group ">
+                    {{ adminForm.password.label(class='grey-info form-font-info')}} {{ adminForm.password(class='form-control') }}
+                </div>
+                <div class='row'>
+                    <div class='col-xs-6'>
+                        {{ adminForm.submit(class='btn btn-primary') }}
+                    </div>
+                    <div class="col-xs-6">
+                        <button type='button' class="btn btn-primary right" href="{{ url_for('blog.register') }}" style='float:right;'>注册</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    {% endif  %}
+{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}

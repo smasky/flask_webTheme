@@ -1,0 +1,334 @@
+@-------------------------
+title::机器学习-----支持向量机原理（一）
+top_img:: 'https://ws1.sinaimg.cn/large/e4e313f5gy1fyftay8kvsj21400p046k.jpg'
+abstract:: 手撕支持向量机原理。
+@-------------------------
+# 机器学习-----支持向量机原理（一）
+
+## 一、前言
+
+​&emsp;&emsp;最近在研究机器学习，看了网上许多有关于介绍SVM的 文章，众多大佬的文章都写的非常好。但是不知道怎么的，大多数文章千篇一律，对于SVM的一些比较难理解的点都选择忽略，可能大佬都觉得这一部分比较简单。但是对于初学者来说，手撕这部分原理还是比较痛苦的，特别 后面SMO这一块，所以我觉得有必要从一个初学者的角度，来解释一下SVM的推导过程的一些网上文章都忽视的比较细节的地方。
+
+**本文参考知乎大佬 Jack-Cui:https://zhuanlan.zhihu.com/ml-jack**
+
+## 二、SVM简介
+
+​&emsp;&emsp;SVM（Support Vector Machines），没见吃过马肉，肯定见过马儿跑。SVM就是属于现在非常火热的机器学习领域。在人工神经网络未正式出关前，SVM一直占据机器学习的头名。前几年数据挖掘大赛第一名都是采用SVM进行数据分类。近几年，随着神经网络的崛起，SVM跌落神坛。但是作为一个简单粗暴的数据挖掘工具还是有其存在的意义，值得我们学习。何为机器学习？何为SVM？SVM最重要的作用就是数据的分类和回测。SVM主流主要分为两类线性SVM以及非线性SVM，线性和非线性的区别主要还是在于是否使用核函数。线性是指我们是否可以用一条直线把两类数据分隔，就如下面所示的红球和蓝球，我们能不能用直线把在他们之间画出一条楚河汉界。一边是项羽一边是刘邦。
+
+![找到一条线红球与蓝球](https://ws1.sinaimg.cn/large/e4e313f5ly1fyc2ump96hj20dm0a2q35.jpg)
+
+![千辛万苦找到一条线来分隔他们](https://ws1.sinaimg.cn/large/e4e313f5ly1fyc2zyvkhvj20dm0a2dg9.jpg)
+
+​&emsp;&emsp;可能有同学会问，在这张图里面可以找到很多条线来分隔他们，哪条线才是最好的呢？
+
+![](https://ws1.sinaimg.cn/large/e4e313f5ly1fyd5jvjnhej218e0c00xn.jpg)
+
+​&emsp;&emsp;如上图(a)所表示的两类球，假设纵坐标是重量，横坐标是体积，在二维平面画出它们的位置如(a)所示。(b)、(c)是两条不同的分割线。它有一个学名叫“决策面”。我们可以看出对于(b)、(c)两张图来说，很明显(c)图的分隔效果要比(b)好，因为在c图的决策面下，离决策面最近的黄球和蓝球的距离d最大。而离决策面最近的黄球和蓝球也有一个名字叫“支持向量”。“支持向量”的意思是“决策面”的位置其实是由这几个“支持向量”决定的。“支持向量”离"决策面"的距离d越大，就说明这个分类器越好。在c图的决策面下，黄球和蓝球特征差异大，说明c图的分类器是一类比较好的分类器。所以我们在做SVM的时候，优化的目标就是使这个d最大。
+
+​&emsp;&emsp;回归正题上线性SVM还可以分为硬间隔分类以及软间隔分类。硬间隔分类就是指红球与蓝球严格分布在这条线的两边，不允许越界。软间隔相反，允许有一部分的红球可以跨过分隔线到蓝方区域。为什么会有硬间隔和软间隔呢？ 在现实世界中，总会出现误差，也许在球的大小会稍大，重量会稍重，却恰好越过线，那么我们在硬间隔求解的时候，就会存在无解的现象。就像下面这张图一样永远都不能找到一条线来把红球和蓝球分离。
+
+![找不到线将蓝球和红球分离](https://ws1.sinaimg.cn/large/e4e313f5gy1fyc66tbwk5j20de09xt9l.jpg)
+
+​&emsp;&emsp;针对这样子的分布，当然有办法求解，就是用软间隔或者核函数，其实核函数就是把这些二维点提高一个维度，就像我们在看重庆网红立交桥一样，俯视的情况下所有的桥都交错重合在一起，其实在三维的情况下，所有桥其实是分开的。也就是球也许在平面的情况下分不开，我们可以把球映射到三维、四维甚至无穷维的空间，在那个空间下也许是线性可分的。当然核函数在之后也会具体介绍。今天主要还是介绍一下硬间隔和软间隔下的线性SVM原理。
+
+## 三、硬间隔下的线性SVM
+
+- ### 热身
+
+​&emsp;&emsp;在介绍硬间隔前，需要复习一下高中的平面几何的一点知识。因为SVM的优化目标就是找到一条线使得所有的样本点到该线的距离和最短。这就要用到高中点到一条直线的距离计算问题。
+
+![](https://ws1.sinaimg.cn/large/e4e313f5gy1fyc9b7jaolj20ac07lt97.jpg)
+
+​&emsp;&emsp;已知红球坐标（x，y）和蓝线直线方程：ax+by+c=0，则红球到蓝线距离为：
+
+<center style="font-size:30px"> $d=\frac{ax+by+c}{\sqrt{a^2+b^2}}$ </center>
+
+​&emsp;&emsp;我们用大学矩阵论中矩阵相乘的形式来表示，令直线的方向向量为：
+
+<center style='font-size:30px'>$w=[a,b]$</center>
+
+​&emsp;&emsp;再令球的坐标为：
+
+<center style='font-size:30px'>$X=[x_1,x_2]$</center>
+
+​&emsp;&emsp;经过这样的定义之后，直线方程为：
+
+<center style='font-size:30px'>$w^TX+b=0$</center>
+
+​&emsp;&emsp;我们得到一个比较官方的点到直线距离表示方法：
+
+<center style='font-size:30px'>$d=\frac{w^TX+b}{\|w\|}$</center>
+
+​&emsp;&emsp;其中$\|w\|$是$w$的模。这个距离$d$在SVM领域有一个正式的说法叫“**几何间隔**”，d的分子部分即为“**函数间隔**”。不一定必须是一个二维坐标，距离$d$的公式才成立，N维坐标下，这个点到直线的距离公式也成立。不信的话可以试着在三维坐标下推导。
+
+​&emsp;&emsp;引出$d$的表达式之后，再回顾一下我们SVM优化的目标是，样本内"支持向量"到**决策面**的距离最大,即d最大。假设样本内有n个点，所以我们令硬间隔SVM的目标函数为$\theta$:
+
+<center style='font-size:30px'>$\theta=\frac{w^TX_i+b}{\|w\|}$</center>
+
+&emsp;&emsp;其中：$X_i$指的支持向量。
+
+​&emsp;&emsp;接下来，我们重点就是围绕这个式子做一系列的措施，让它尽可能的简化一点。那么重点来了，对于这个方程。
+
+<center style='font-size:30px'>$w^Tx+b=c$</center>
+
+![此处盗图一张(非原创)](https://ws1.sinaimg.cn/large/e4e313f5ly1fyd7rbobr5j20fs0apgom.jpg)
+
+​&emsp;&emsp;我们的目标是二分类样本，假设蓝色星星的样本编号为-1，红色球的样本编号为1。所以从上图可以看出所有蓝色星星的坐标均满足$w^Tx+b\le-c$，红色球的坐标均满足$w^Tx+b\ge c$。这就是**硬间隔**的特点，所有的样本点都不能超过这两条虚线。**软间隔**的话是允许超过的，但是会在目标函数设置相应的惩罚系数。所以原则还是不超过虚线为最优解。
+
+​&emsp;&emsp;有人就会说这个c的值就是“函数间隔”，确实是这样。而且有一个重点是这个“函数间隔”是会随$w$、$b$的值改变的。若$w$、$b$同时放大两倍，那就会变成$2c$。所以我们可以人为的把$w$、$b$缩小$c$倍，这个方程就变成：
+
+<center style='font-size:30px'>$w_1^Tx+b_1=1$</center>
+
+![此处盗图一张](https://ws1.sinaimg.cn/large/e4e313f5ly1fyd7kvnvaqj20fs0apq41.jpg)
+
+&emsp;&emsp;其实这个$w_1$、$b_1$还是我们要求解的$w$、$b$。同时对这两者的缩放并不影响直线的位置。
+
+&emsp;&emsp;我们的目标函数就变成：
+
+<center style='font-size:30px'>$\theta=\frac{1}{\|w\|}$</center>
+
+&emsp;&emsp;但是还需要满足几个约束条件：
+
+<center style='font-size:30px'>$y_i(w^Tx+b)\ge1$</center>
+
+&emsp;&emsp;其中：$y_i$表示的是该样本点的分类编号。蓝色星星为-1，红色球为+1。所以样本内的点都满足上式。
+
+&emsp;&emsp;然后我们的优化目标就变成求$\theta$的最大值。反过来想就是求$\|w\|$的最大值。在改装一下，现在我们的目标函数就是：
+
+<center style='font-size:30px'>$\theta_1=\frac{1}{2}\|w\|^2$</center>
+
+&emsp;&emsp;只需要求$min\theta_1$即可。
+
+​&emsp;&emsp;有人会问，为什么我们这边要用$\|w\|^2$呢？这就涉及优化问题中的凸优化的问题，单单一个$w$不是凸函数而$\|w\|^2$就是一个凸优化函数，具体什么叫凸优化，还请大家百度一下，这边就不赘述了。只需要让大家知道的是
+
+&emsp;&emsp;凸函数就是导数为0的点，就是全局最优解。这就是凸函数做最优化的好处。
+
+​&emsp;&emsp;所以现在我们把目标函数和约束整合在一起就变成：
+
+<center style='font-size:30px'>$obj=min\theta_1=min\frac{1}{2}\|w\|^2$</center>
+
+<center style='font-size:30px'>s.t. $y_i(w^Tx+b)\ge1$</center>
+
+- ### 优化问题
+
+​&emsp;&emsp;下面又到了复习大学高等数学的时间，拉格朗日函数。高数中我们学过两类涉及优化的问题
+
+#### （1） 无约束优化问题
+
+​&emsp;&emsp;目标函数：
+
+<center style='font-size:30px'>$min f(x)$</center>
+
+#### （2）带等式约束的优化问题
+
+​&emsp;&emsp;目标函数：
+
+<center style='font-size:30px'>$min f(x)$</center>
+
+​&emsp;&emsp;约束：
+
+ <center style='font-size:30px'>s.t.         $h(x_i)=0,i=1,2,3....n$</center>
+
+​&emsp;&emsp;第一类无约束优化问题，只需用求导法、图像法，或者数值计算领域的最速下降法均有办法求出最小值，它的优点就是自变量不受约束，算出来是什么就是什么。
+
+​&emsp;&emsp;对于第二类带等式约束的优化问题，就比较棘手，也许$f(x)$的极值并不满足约束的要求。高中学过线性规划的方法来求最小值。但是等式越多，问题就变得复杂了。这时候就应该搬出拉格朗日函数。拉格朗日函数的核心就是把带约束的优化问题转变成无约束的优化问题。（2）中的优化问题与下列等价：
+
+<center style='font-size:30px'>$F(x)=f(x)-\sum\limits_{i=1}^{n}\lambda_ih(x_i)$</center>
+
+&emsp;&emsp;其中：$\lambda_i \ge 0$
+
+&emsp;&emsp;然后根据费马大定理对各个分量求导等于0，即可求出F（x）的极值：
+
+<center style='font-size:30px'>$\frac{\partial F(X)}{\partial x}=0$</center>
+
+<center style='font-size:30px'>$\frac{\partial F(X)}{\partial \lambda_i}=0,i=1,2,3....n$</center>
+
+&emsp;&emsp;但是有人会问，SVM的约束是不等式，下面就要介绍一下第三种约束问题
+
+#### （3）带不等式约束顺带等式的优化问题
+
+​&emsp;&emsp;目标函数：
+
+<center style='font-size:30px'>$min f(x)$</center>
+
+​&emsp;&emsp;约束：
+
+ <center style='font-size:30px'>s.t.         $g(x_j)\le 0,j=1,2,3....m$</center>
+
+ <center style='font-size:30px'>s.t.         $h(x_i)=0,i=1,2,3....n$</center>
+
+​&emsp;&emsp;针对这种类型的优化问题方法还是相同，使用拉格朗日函数，将约束乘上拉格朗日乘子，构成无约束的优化问题：
+
+<center style='font-size:30px'>$F(x)=f(x)+\sum\limits_{i=1}^{n}\lambda_ih(x_i)+\sum\limits_{i=1}^{m}\mu_j g(x_j)$</center>
+
+&emsp;&emsp;其中：$\lambda_i \ge 0、\mu_i \ge0$
+
+​&emsp;&emsp;所以再来回顾一下，我们要求解的优化问题：
+
+<center style='font-size:30px'>$obj=min\theta_1=min\frac{1}{2}\|w\|^2$</center>
+
+<center style='font-size:30px'>s.t. $y_i(w^Tx+b)\ge1$</center>
+
+​&emsp;&emsp;应用拉格朗日乘子法，原问题变为：
+
+<center style='font-size:30px'>$L(w,b,\alpha)=\frac{1}{2}\|w\|^2-\sum\limits_{i=1}^{n}\alpha_iy_i((w^Tx_i+b)-1)$</center>
+
+&emsp;&emsp;其中：$\alpha_i \ge 0$
+
+- ### 拉格朗日函数
+
+​&emsp;&emsp;下面我们来讨论一下一个小小的难点，很多网上教程都没有很好的解释，所以我这边尝试的来解释一下。
+
+<center style='font-size:30px'>\begin{eqnarray}\max\limits_{\alpha_i \ge 0}^{}L(w,b,\alpha)=
+\begin{cases}
+\frac{1}{2}\|w\|^2  &y_i((w^Tx_i+b)-1)\ge 0\cr \infty &y_i((w^Tx_i+b)-1) < 0\end{cases}
+\end{eqnarray}</center>
+
+​&emsp;&emsp;上式是一个分段函数，当样本点的坐标都满足条件是，$L(w,b,\alpha)$的最大值就是我们所求的$\frac{1}{2}\|w\|^2$，但是当样本点但凡有一个点不在可行域的范围内，那么$L(w,b,\alpha)$的最大值就是$\infty$。因为我们来看一下$L(w,b,\alpha)$的表达式，$\alpha_i$恒大于等于0，而如果样本点均在可行域，则$y_i(w^Tx_i+b-1)$恒大于0，所以$-\sum\limits_{i=1}^{n}\alpha_iy_i(w^Tx_i+b-1)$这个的极大值为0。因为两个大于0的数相乘取负。那也就是说如果样本点均在可行域内时，$L(w,b,\alpha)$的最大值即为我们最初的目标函数$\frac{1}{2}\|w\|^2$。但是如果有一个点不在可行域内，即$y_i(w^Tx_i+b-1)$小于0，则负值乘正值再取一个负号，即为一个正值，则当$\alpha_i$取正无穷时，$L(w,b,\alpha)$的最大值为$\infty$。所以这就是为什么，在应用拉格郎日乘子法以后，我们的目标函数变为：**pass ：（当$y_i((w^Tx_i+b)-1)\ge0$时，$\max\limits_{\alpha_i\ge 0}L(w,b,\alpha)$为$\frac{1}{2}\|w\|^2$这一点很重要。）**
+
+<center style='font-size:30px'>$\min\limits_{w,b}\max\limits_{\alpha_i\ge 0}L(w,b,\alpha)$</center>
+
+<center style='font-size:30px'>s.t. $\alpha_i \ge 0$</center>
+
+<center style='font-size:30px'>s.t. $y_i(w^Tx+b)\ge1$</center>
+
+- ### 拉格朗日对偶问题
+
+​&emsp;&emsp;但是在很多情况下，即使使用拉格朗日函数对各个分量求导等于0，感觉难度还是很大，因为还存在两个约束。所以接下来我们考虑这样的两个式子。
+
+<center style='font-size:30px'>$\min\limits_{w,b}\max\limits_{\alpha_i\ge 0}L(w,b,\alpha)=p^*$</center>
+
+<center style='font-size:30px'>$\max\limits_{\alpha_i\ge 0}\min\limits_{w,b}L(w,b,\alpha)=d^*$</center>
+
+​&emsp;&emsp;我们来看一下，上面两个式子的区别，恰好是把最小值和最大值互换。针对这样子一类的式子，我们叫做拉格朗日对偶问题。在这个对偶问题中简单的条件互换之后，并不是一个等价的优化问题了。其实有：
+
+<center style='font-size:30px'>$d^*\le p^*$</center>
+
+​&emsp;&emsp;这里有一个简单的小证明，证明如下：
+
+<center style='font-size:25px'>$\theta_D(\alpha) = \min\limits_{w,b}L(w,b,\alpha) \le L(w,b,\alpha)\le \max\limits_{\alpha_i\ge 0}L(w,b,\alpha)=\theta_P(w,b)$</center>
+
+​&emsp;&emsp;稍微理解一下上面不等式为何成立，关键是得出无论$w,b,\alpha$取何值，$\theta_D(\alpha)\le\theta_P(w,b)$均成立。原因是
+
+$\theta_D(\alpha)$只与$\alpha$有关而$\theta_P(w,b)$只与$w,b$有关。所以有下面这个式子成立：
+
+<center style='font-size:25px'>$d^*=\max\limits_{\alpha}\theta_D(\alpha)\le \min\limits_{w,b}\theta_P(w,b)=p^*$</center>
+
+- ### KKT条件
+
+​&emsp;&emsp;所以为什么要说这个对偶问题呢？因为当满足一定条件时，$d^*=p^*$。而这个条件就是KKT条件。换句话说当优化问题满足KKT条件时，对偶问题是相互等价的。什么是KKT条件呢？大家可以看一下下面的网址，我觉得它讲的已经非常详细了。
+
+**KKT条件：https://www.cnblogs.com/ooon/p/5721119.html**
+
+​&emsp;&emsp;稍微总结一下KKT条件就是下面几个式子：
+
+​&emsp;&emsp;对于这样的一个最优化问题：
+<center style='font-size:30px'>$F(x)=f(x)+\sum\limits_{i=1}^{n}\lambda_ih(x_i)+\sum\limits_{i=1}^{m}\mu_j g(x_j)$</center>
+​&emsp;&emsp;求解：
+
+<center style='font-size:30px'>$\min\limits_{w,b}\max\limits_{\alpha_i\ge 0}F(x,\lambda_i,\mu_j)$</center>
+
+​&emsp;&emsp;当满足以下几个条件时：
+
+<center style='font-size:30px'>梯度条件：$\frac{\partial F}{\partial x}=0$</center>
+
+<center style='font-size:30px'>拉格朗日乘子条件：$\lambda_i\ge0,\mu_i\ge0$</center>
+
+<center style='font-size:30px'>互补松弛条件：$\sum\limits_{i=0}^{n}\mu_i g(x_i)=0$</center>
+
+<center style='font-size:30px'>原始的约束条件： $y_i(w^Tx+b)\ge1$</center>
+
+​&emsp;&emsp;可得到下面两个最优化问题相互等价：
+
+<center style='font-size:30px'>$\min\limits_{w,b}\max\limits_{\alpha_i\ge 0}L(w,b,\alpha)=\max\limits_{\alpha_i\ge 0}\min\limits_{w,b}L(w,b,\alpha)$</center>
+
+- ### 推导
+
+&emsp;&emsp;​回到SVM的最优化问题，其实对于SVM的最优化问题来说，KKT条件是天然成立。这是第二个很多大佬没有讲清楚的地方，讲一下个人小小的理解。KKT条件其实就是要满足三个条件：（1）、梯度条件；（2）拉格朗日乘子条件；（3）互补松弛条件。一个一个来看，梯度条件。对于拉格朗日函数来说，当取到极值时，本来就需要求每个自变量的导数为0，所以梯度条件自然满足。(2)拉格朗日乘子均大于等于0，也自然满足。(3)第三个，互补松弛条件其实也是自然满足的。看下面这个式子
+
+  <center style='font-size:30px'>\begin{eqnarray}\max\limits_{\alpha_i \ge 0}^{}L(w,b,\alpha)=
+  \begin{cases}
+  \frac{1}{2}\|w\|^2  &y_i((w^Tx_i+b)-1)\ge 0\cr \infty &y_i((w^Tx_i+b)-1) < 0\end{cases}
+  \end{eqnarray}</center>
+
+&emsp;&emsp;当$L(w,b,\alpha)$取到最大值时，就是满足$\sum\limits_{i=0}^{n}\mu_i g(x_i)=0$。所以对于SVM优化问题，KKT条件是自然满足的。
+
+&emsp;&emsp;所以我们最后整理一下，SVM优化问题。利用对偶问题在满足KKT条件时，互相等价的性质。优化问题变为：
+
+  <center style='font-size:30px'>$\max\limits_{\alpha_i\ge 0}\min\limits_{w,b}L(w,b,\alpha)$</center>
+
+  <center style='font-size:30px'>$s.t.\alpha_i\ge0$</center>
+
+<center style='font-size:30px'>$y_i(w^Tx+b)\ge1$</center>
+
+<center style='font-size:30px'>$\alpha_i g(x_i)=0,i=0,1,2,3...n$</center>
+
+<center style='font-size:30px'>$\frac{\partial L}{\partial w}=0,\frac{\partial L}{\partial b}=0$</center>
+
+
+​&emsp;&emsp;为什么是$\alpha_i g(x_i)=0,i=0,1,2,3...n$呢？ 明明是$\sum\limits_{i=0}^{n}-\alpha_i g(x_i)=0$。因为$\alpha_i \ge0$、$g(x_i)\ge0$。负数乘正数累加，应为一个小于等于0的数。因为累加要为0，所以每一项都应为0。得到：$\alpha_i g(x_i)=0,i=0,1,2,3...n$。所以先求$\frac{\partial L}{\partial w}=0$、$\frac{\partial L}{\partial b}=0$：
+
+<center style='font-size:30px'>$\frac{\partial L}{\partial w}=w-\sum\limits_{i=1}^{n}\alpha_iy_ix_i=0$</center>
+<center style='font-size:30px'>$w=\sum\limits_{i=1}^{n}\alpha_iy_ix_i$</center>
+
+​&emsp;&emsp;这也是为什么之前用$\|w\|^2$作为目标函数，求导之后可以得到w的表达式。
+
+​&emsp;&emsp;对$b$求导：
+
+<center style='font-size:30px'>$\frac{\partial L}{\partial b}=\sum\limits_{i=1}^{n}\alpha_iy_i=0$</center>
+
+<center style='font-size:30px'>$\sum\limits_{i=1}^{n}\alpha_iy_i=0$</center>
+
+​&emsp;&emsp;将上面两个式子带入$\max\limits_{\alpha_i\ge 0}\min\limits_{w,b}L(w,b,\alpha)$可以消去$\min\limits_{w,b}$:
+
+<center style='font-size:30px'>$L(\alpha)=\frac{1}{2}(\sum\limits_{i=1}^{n}\alpha_iy_ix_i)^2-\sum\limits_{j=1}^{n}\alpha_j(y_j(\sum\limits_{i=1}^{n}\alpha_iy_ix_ix_j+b)-1)$</center>
+
+​&emsp;&emsp;整理一下，把$b$和$1$提出来：
+
+<center style='font-size:20px'>$L(\alpha)=(\sum\limits_{i=1}^{n}\alpha_iy_ix_i)^2-\sum\limits_{j=1}^{n}\alpha_jy_j\sum\limits_{i=1}^{n}\alpha_iy_ix_ix_j-b\sum\limits_{i=0}^{n}\alpha_iy_i+\sum\limits_{i=1}^{n}\alpha_i$</center>
+
+​&emsp;&emsp;又：
+
+<center style='font-size:30px'>$\sum\limits_{i=1}^{n}\alpha_iy_i=0$</center>
+
+​&emsp;&emsp;得到：
+
+<center style='font-size:30px'>$L(\alpha)=\frac{1}{2}(\sum\limits_{i=1}^{n}\alpha_iy_ix_i)^2-\sum\limits_{j=1}^{n}\alpha_jy_j\sum\limits_{i=1}^{n}\alpha_iy_ix_ix_j+\sum\limits_{i=1}^{n}\alpha_i$</center>
+
+​&emsp;&emsp;再化简一下，又因为：
+
+<center style='font-size:30px'>$(\sum\limits_{i=1}^{n}\alpha_iy_ix_i)^2=\sum\limits_{j=1}^{n}\alpha_jy_j\sum\limits_{i=1}^{n}\alpha_iy_ix_ix_j$</center>
+
+​&emsp;&emsp;代入得到：
+
+<center style='font-size:30px'>$L(\alpha)=-\frac{1}{2}\sum\limits_{j=1}^{n}\alpha_jy_j\sum\limits_{i=1}^{n}\alpha_iy_ix_ix_j+\sum\limits_{i=1}^{n}\alpha_i$</center>
+
+&emsp;&emsp;SVM的优化问题就变为：
+
+<center style='font-size:30px'>$\max\limits_{\alpha_i \ge 0}L(\alpha)$</center>
+
+<center style='font-size:30px'>$s.t.\alpha_i\ge0$</center>
+
+<center style='font-size:30px'>$y_i(w^Tx+b)\ge1$</center>
+
+<center style='font-size:30px'>$\alpha_i g(x_i)=0,i=0,1,2,3...n$</center>
+
+&emsp;&emsp;好了，所有的简化都已经完成，对于这个优化问题，就需要我们来点干货了，使用SMO算法来求解。SMO算法是手撕SVM原理中比较难的部分。将在机器学习-----支持向量机原理（二）中解释，并且将会贴出源码。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+​
