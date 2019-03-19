@@ -55,6 +55,10 @@ def register_commands(app):
             db.drop_all()
             click.echo('Drop tables.')
         db.create_all()
+        from .models import Admin
+        admin=Admin(username='smasky',password='wumengtian',web='http://www.smaskyer.com',email='492109831@qq.com',right=1,name='smasky',avater='https://ws1.sinaimg.cn/large/007G9tRkgy1g18c1e7h6vj30sg0sg41f.jpg')
+        db.session.add(admin)
+        db.session.commit()
         click.echo('Initialized database.')
     @app.cli.command()
     @click.option('--filename',help='add new post into db')

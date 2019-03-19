@@ -34,7 +34,6 @@ def show_post(post_id):
     post=Post.query.get_or_404(post_id)
     post_coms=post.postcomments
     post.views=post.views+1
-    print(post.views)
     admin_form=AdminForm()
     login(admin_form)
     if request.cookies.get('name'):
@@ -50,10 +49,29 @@ def show_post(post_id):
         body=form.body.data
         email=form.email.data
         postId=post_id
+        admin=Admin.query.filter(Admin.email==email).first()
         if current_user.can():
-            post_com=PostComment(name=username,body=body,post_id=postId,email=email,avater=current_user.avater)
+            if admin:
+                admin.name=username
+                db.session.add(admin)
+                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
+            else:
+                addmin=Admin(name=username,email=email,right=3)
+                db.session.add(admin)
+                db.session.commit()
+                admin=Admin.query.filter(Admin.email==email).first()
+                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id,avater=current_user.avater)
         else:
-            post_com=PostComment(name=username,body=body,post_id=postId,email=email)
+            if admin:
+                admin.name=username
+                db.session.add(admin)
+                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id)
+            else:
+                admin=Admin(name=username,email=email,right=3)
+                db.session.add(admin)
+                db.session.commit()
+                admin=Admin.query.filter(Admin.email==email).first()
+                post_com=PostComment(body=body,post_id=postId,admin_id=admin.id)
         post.comments+=1
         db.session.add(post_com)
         db.session.commit()
@@ -78,13 +96,33 @@ def register():
         email=form.email.data
         avater=form.avater.data
         auth_code=form.auth_code.data
-        if(auth_code=='3428'):
-            admin=Admin(username=username,name=name,password=password,email=email,right=2,avater=avater)
+        adminU=Admin.query.filter(Admin.username==username).first()
+        adminE=Admin.query.filter(Admin.email==email).first()
+        adminN=Admin.query.filter(Admin.name==name).first()
+        if(auth_code=='3428' and adminN==None and adminE==None and adminN==None):
+            admin=Admin.query.filter(Admin.email==email).first()
+            if admin:
+                admin.name=name
+                admin.set_password(password)
+                admin.right=2
+                admin.avater=avater
+            else:
+                admin=Admin(username=username,name=name,password=password,email=email,right=2,avater=avater)
             db.session.add(admin)
             db.session.commit()
-            return redirect(url_for('blog.index'))
+            res=make_response(redirect(url_for('blog.index')))
+            res.set_cookie('name',username,max_age=30*24*3600)
+            res.set_cookie('email',email,max_age=30*24*3600)
+            return res
         else:
-            form.auth_code.errors='激活码不正确,请重试!'
+            if(not adminU):
+                form.username.errors='该用户名已存在'
+            elif(not adminE):
+                form.email.errors='该邮箱已经注册'
+            elif(not adminN):
+                form.name.errors='该昵称已经被注册'
+            else:
+                form.auth_code.errors='激活码不正确,请重试!'
     return render_template('blog/register.html',Form=form,adminForm=admin_form)
 
 
@@ -92,18 +130,12 @@ def register():
 @blog_bp.route('/MessageBoard',methods=['GET','POST'])
 def MessageBoard():
     messages=Message.query.order_by(Message.timestamp.desc()).all()
-    if current_user.can():
-        form=MessageForm(name=current_user.name)
-        form.name.data=current_user.name
-    else:
-        form=MessageForm()
-
+    form=MessageForm()
     admin_form=AdminForm()
     login(admin_form)
     if form.validate_on_submit():
-        Name=form.name.data
         Body=form.body.data
-        message=Message(name=Name,body=Body,admin_id=current_user.id)
+        message=Message(body=Body,admin_id=current_user.id)
         db.session.add(message)
         db.session.commit()
         return redirect(url_for('blog.MessageBoard'))
@@ -124,4 +156,4 @@ def login(admin_form):
         if admin:
             if user_name==admin.username and admin.validate_password(password):
                 login_user(admin,remember=False)
-                print('121')
+

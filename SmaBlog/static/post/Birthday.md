@@ -2,6 +2,7 @@
 title:: Birthday
 top_img:: 'https://ws1.sinaimg.cn/large/e4e313f5gy1fwkja4xm3vj21hc0u010x.jpg'
 abstract:: 自言自语
+time:: 2018-10-24
 @-------------------------
 # Birthday
 

@@ -1,7 +1,7 @@
 from .models import Post
 from .extensions import db
 import time
-import datetime
+from datetime import datetime
 import markdown
 from faker import Faker
 fake=Faker()
@@ -35,7 +35,7 @@ def loading_post(filename=''):
                     post_img=Info['top_img'],
                     abstract=Info['abstract'],
                     comments=0,
-                    timestamp=datetime.datetime.utcnow())
+                    timestamp=datetime.strptime(Info['time'].strip(),'%Y-%m-%d'))
         print('aa')
         db.session.add(post)
         db.session.commit()
