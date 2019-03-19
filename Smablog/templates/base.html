@@ -19,10 +19,13 @@
         {% block nav_head %}
         <div class="app-head container">
             <nav class="left-header navbar navbar-default header-info-blue  col-xs-2" role='navigation'>
-                <div class='navbar-header font-bg-info-white text-center'>
-                    <i class='glyphicon glyphicon-heart middle icon-size'> </i>
+                <button class='left-button visible-xs pull-left rm-button' ui-toggle-target='app-main'>
+                        <i class="iconfont icon-caidan aside-icon"></i>
+                </button>
+                <a href="{{ url_for('blog.index')}}" class='hidden-xs navbar-header font-bg-info-white text-center' style='margin-top:10px;text-decoration: none;'>
+                    <i class='glyphicon glyphicon-heart middle icon-size' style='margin-bottom: 10px;'> </i>
                     <span class='font-info-Source hidden-md hidden-xs web-title navbar-font'>Smasky</span>
-                </div>
+                </a>
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
                 <ul class="nav nav-right head-right-nav">
@@ -66,7 +69,7 @@
         </div>
         {% endblock nav_head %} {% block app_left_aside %}
         <div class='app-left-aside aside bg-green col-xs-2'>
-            <div class="sub-aside clearfix hidden-xs text-center show ">
+            <div class="sub-aside clearfix text-center show ">
                 <div class="dropdown wrap">
                     <div class="ui-avtar">
                         <a href=#>
@@ -132,8 +135,9 @@
             </div>
         </div>
         {% endblock app_left_aside %}
-        <div class="app-main info-color-low-white ">
-            {% block main_content %}{% endblock main_content %} {% block app_right_aside %}{% endblock app_right_aside %}
+        <div class="app-main info-color-low-white " id='app-main'>
+                <div class="main-content col-lg-9">
+            {% block main_content %}{% endblock main_content %} </div>s{% block app_right_aside %}{% endblock app_right_aside %}
 
         </div>
 
@@ -152,9 +156,14 @@
         $(document).ready(function() {
             $("a[ui-toggle='active']").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
-                $(link).toggleClass('active animated slideInLeft')
+                $(link).toggleClass('active animated slideInLeft');
             });
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
+            $("button.left-button").click(function(){
+                var link = '#' + $(this).attr('ui-toggle-target');
+                $(link).toggleClass('main-active');
+                $('div.app-left-aside').toggleClass('left-active');
+                            });
 
         });
     </script>

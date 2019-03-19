@@ -348,6 +348,7 @@
     width: 83.33%;
     display: block;
     overflow: auto;
+    transition: transform .4s ease;
 }
 
 .main-content {
@@ -460,7 +461,11 @@
     margin-bottom: 40px;
 }
 
-
+/* blog 文章面板的css */
+.post-main center{
+    overflow-x: auto;
+    overflow-y: hidden;
+}
 /* blog 表单的css */
 
 .form-font-info {
@@ -534,7 +539,15 @@ nav a {
 .login-panel {
     padding: 15px 15px;
 }
-
+/* blog head的字体 */
+.rm-button{
+    margin-top:10px;
+    padding: 0;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
 
 /* blog post的字体 */
 
@@ -603,7 +616,8 @@ textarea {
 
 @media screen and (max-width:768px) {
     .aside {
-        display: none;
+        transform:translate3d(-125px,0,0);
+        transition: transform .4s ease;
     }
     .app-main {
         width: 100%;
@@ -611,5 +625,17 @@ textarea {
     }
     .app-head {
         width: 100%;
+    }
+
+    .left-active{
+        transform:translate3d(0px,0,0);
+        -webkit-transform:translate3d(0px,0,0);
+        transition: transform .4s ease;
+        display: block;
+    }
+    .main-active{
+        transform:translate3d(125px,0,0);
+        -webkit-transform:translate3d(125px,0,0);
+        transition: transform .4s ease;
     }
 }

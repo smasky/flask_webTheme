@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
-<div class="main-content col-xs-9">
     <div class="content-header info-color-pure-white boder-bottom">
         <h1 style="font-family:'ABC';font-style: normal;">{{ Post.title }}</h1>
         <small>{{ Post.abstract }}</small>
@@ -69,6 +68,5 @@
             {{ Form.submit(class='btn btn-primary') }}
         </form>
     </div>
-</div>
 
 {% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}

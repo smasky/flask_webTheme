@@ -1,4 +1,4 @@
-<div class="app-right-aside col-xs-3 info-color-high-white">
+<div class="app-right-aside col-md-3 info-color-high-white hidden-md hidden-xs">
     <div class="nav-wrap">
         <ul class="nav nav-tabs nav-justified" role="tablist">
             <li class="active" role="presentation">
@@ -25,7 +25,7 @@
                     <li class="list-group-item">
                         <a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
                         <div class="clear" style="display:block;margin-left:60px;">
-                            <h4 style='font-size: 14px;'>{{ post.title }}</h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.comments }}</small></div>
+                            <h4  style='font-size: 15px;'><a href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.comments }}</small></div>
                     </li>
                     {% endfor %} {% endif %}
                 </ul>
@@ -37,8 +37,8 @@
                     {% if rand_posts %}{% for post in rand_posts %}
                     <li class="list-group-item">
                         <a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
-                        <div class="clear" style="display:block;margin-left:60px;">
-                            <h4 style='font-size: 14px;'>{{ post.title }}</h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.views }}</small></div>
+                        <div  class="clear" style="display:block;margin-left:60px;">
+                           <h4  style='font-size: 15px;'><a href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4><small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.views }}</small></div>
                     </li>
                     {% endfor %}{% endif %}
                 </ul>
