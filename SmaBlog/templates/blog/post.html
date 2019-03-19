@@ -3,6 +3,9 @@
     <h1 style="font-family:'ABC';font-style: normal;">{{ Post.title }}</h1>
     <small>{{ Post.abstract }}</small>
 </div>
+<div class="main-head-img">
+    <img src="{{ Post.post_img|removeurl }}" style='background-size:contain; width:100%;'>
+</div>
 {% if Post%}
 <div class='blog-post post-main'>{{ Post.body|safe }}</div>
 {% endif %}

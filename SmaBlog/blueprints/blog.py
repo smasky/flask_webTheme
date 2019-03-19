@@ -28,6 +28,11 @@ def index():
     return render_template('blog/index.html',Posts=posts,pagination=pagination,adminForm=admin_form)
 
 
+@blog_bp.route('/aboutme')
+def aboutme():
+    admin_form=AdminForm()
+    login(admin_form)
+    return render_template('blog/aboutMe.html',adminForm=admin_form)
 
 @blog_bp.route('/posts/<int:post_id>',methods=['GET','POST'])
 def show_post(post_id):
@@ -156,4 +161,3 @@ def login(admin_form):
         if admin:
             if user_name==admin.username and admin.validate_password(password):
                 login_user(admin,remember=False)
-

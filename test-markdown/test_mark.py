@@ -1,7 +1,7 @@
 import markdown
 
 mark=''
-with open('123.md','r',encoding='utf-8') as f:
+with open('about.md','r',encoding='utf-8') as f:
     is_info=False
 
     is_zw=False
@@ -54,13 +54,8 @@ with open('123.md','r',encoding='utf-8') as f:
     </body>
     </html>
     '''
-    ret = markdown.markdown(mark)
+    ret = markdown.markdown(''.join(content))
     output= html % ret
 
 with open('OUTPUT.html','w',encoding='utf-8') as f:
     f.write(output)
-
-with open('123.md','r',encoding='utf-8') as f:
-        content=f.read()
-        print(type(content))
-        html=markdown.markdown(content)

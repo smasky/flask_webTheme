@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
+<div class="content-header info-color-pure-white boder-bottom">
+    <h1 style="font-family:'ABC';font-style: normal;">关于我</h1>
+    <small>人间有味是清欢。</small>
+</div>
+<div class="main-head-img">
+    <img src="https://ws1.sinaimg.cn/large/007G9tRkgy1g18hzg86m1j311x0lcth5.jpg" style='background-size:contain; width:100%;'>
+</div>
+
+<div class='blog-post post-main'>
+    <h3>也许这是我</h3>
+    <p>江苏六朝古都南京江河湖海大学在读研究生，专业水力学及河流动力学。</p>
+    <p>ps:在南京已经快六年了。。。至少还要在读三年，没错，是在读博。</p>
+    <p>爱好当然是水利啦。。。或许我自己都不信，将来会成为水利行业人才。</p>
+    <p>其实业余时间还是喜欢玩代码。</p>
+    <p>会一丢丢C，一点点C++，可能会Java，这三个学的太久远。</p>
+    <p>会很多python，中等html+css+js。</p>
+    <p>学习路径：C——Fortran——Java——C++——QT——python——html+css+js</p>
+    <p>目前主要使用的还是python，Python真的是万能的胶水语言，可以做一切想不到的事</p>
+    <p>不过现在回坑Fortran，因为所学专业的一个大牛级别代码是Fortran77，简直反人类。</p>
+    <h4>技能树</h4>
+    <p>编程：QT、python、html+css+js</p>
+    <p>水力学：好像没有。。。会一点Mike算吗，正在苦学EFDC。目前所学正好和代码有关。</p>
+    <h3>关于博客</h3>
+    <p>18年暑假开始筹划打造一款博客，一开始用Hexo静态博客，用了几个月感觉不过瘾。遂，查百度</p>
+    <p>Python后端开发，Django和flask映入眼帘，作为只开发一个微型网站，所以选择了flask，灵活轻型。</p>
+    <p>寒假开始看书入手，苦读《Flask Web开发实战》，二月回到学校着手开始建造。前前后后大概一个月</p>
+    <p>时间，初步框架搭建完成，就是现在这个样子，剩下的就是修修补补以及添加新功能。</p>
+    <p>在这里要感谢Handsome主题的作者，为了快速搭建网站，抄了很多这款主题的风格设计，希望可以见谅。</p>
+    <p>贴出该作者博客：https://www.ihewro.com/</p>
+    <h3>博客分享的内容</h3>
+    <ul>
+    <li>
+    <h4>生活感悟</h4>
+    </li>
+    <li>
+    <h4>水力学内容（近期应该是EFDC源码感悟）</h4>
+    </li>
+    <li>
+    <h4>python等代码的心得</h4>
+    </li>
+    <li>
+    <h4>flask搭建网站的心得</h4>
+    </li>
+    </ul>
+    <h3>有关博客源码</h3>
+    <p>博客源码全部在github上开源。喜欢的话可以star（但是自认为这个代码很渣，还需要很多的改进和添加注释）</p>
+    <p>地址：https://github.com/smasky/flask_webTheme</p>
+    <p>因为前前后后踩了很多坑，学习flask的朋友可以通过下方联系方式交流呀。</p>
+    <h3>联系方式</h3>
+    <p>邮箱：2457725812@qq.com</p>
+    <p>微博：会哭得sky</p>
+    <h3>内容版权：</h3>
+    <p>要是看上 的话随便引用，但是不能用于商业用途。。。。</p>
+</div>
+
+
+
+{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}

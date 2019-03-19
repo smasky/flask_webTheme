@@ -26,6 +26,7 @@ def create_app(config_name=None):
     register_template_context(app)
 
     app.config.from_object(config[config_name])
+    app.add_template_filter(do_remove,'removeurl')
     print(app.config['SQLALCHEMY_DATABASE_URI'])
     return app
 
@@ -124,3 +125,8 @@ def register_template_context(app):
         post_info['days_from_s']=str(cal_days())+'天'
         post_info['modify']=datetime.utcnow()
         return dict(Post_info=post_info,hot_posts=hot_posts,rand_posts=rand_posts)
+
+
+def do_remove(string):
+    string=eval(string)
+    return string
