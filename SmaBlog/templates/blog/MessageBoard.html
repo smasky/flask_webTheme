@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block main_content %}
+{% extends pjax('base.html') %} {% block main_content %}
 <div class=" content-header info-color-pure-white boder-bottom ">
     <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
     <small>不困于情，不畏将来，不念过往。</small>
@@ -15,9 +15,14 @@
         <div class="comment-body ">
             <div class="comment-name ">
                 <span>
-                    <a href="{{ message.admin.web }}" style='text-decoration: none' target="_blank">
+                    <b><a href="{{ message.admin.web }}" style='text-decoration: none' target="_blank">
                         {{ message.admin.name }}
-                    </a>
+                    </a></b>
+                    {% if message.admin.right==1 %}
+                    <label class="label bg-blue-info">博主</label>
+                    {% else %}
+                    <label class="label bg-blue-info">友人</label>
+                    {% endif %}
                 </span>
                 <div class="comment-meta ">
                     <small class='time-font' style='padding: 8px 0px;' data-toggle="tooltip " data-placement="top " data-timestamp="{{ message.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} " data-delay="500 ">
@@ -74,4 +79,4 @@
             </form>
         </div>
 </div>
-{% endif %} {% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
+{% endif %} {% endblock %}

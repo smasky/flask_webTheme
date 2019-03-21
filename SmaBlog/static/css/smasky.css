@@ -496,8 +496,10 @@
 .white-info {
     color: white!important;
 }
-
-
+.bg-blue-info{
+    background-color: #6c92d6;
+    color: white;
+}
 /* blog 字体大小的css */
 
 .time-font {

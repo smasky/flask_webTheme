@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block main_content %}
+{% extends pjax('base.html') %} {% block main_content %}
 
 <div class=" content-header info-color-pure-white boder-bottom ">
     <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
@@ -37,4 +37,4 @@
     </form>
 </div>
 
-{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
+{% endblock %}

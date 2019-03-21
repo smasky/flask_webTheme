@@ -28,7 +28,7 @@ class BaseConfig(object):
 
     CKEDITOR_ENABLE_CSRF = True
     CKEDITOR_FILE_UPLOADER = 'admin.upload_image'
-
+    PJAX_BASE_TEMPLATE = "pjax.html"
     MAIL_SERVER = os.getenv('MAIL_SERVER')
     MAIL_PORT = 465
     MAIL_USE_SSL = True

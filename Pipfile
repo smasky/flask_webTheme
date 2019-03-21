@@ -16,6 +16,7 @@ flask-wtf = "*"
 requests = "*"
 flask-login = "*"
 flask-script = "*"
+flask-pjax = "*"
 
 [requires]
 python_version = "3.6"

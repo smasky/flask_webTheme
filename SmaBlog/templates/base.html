@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/iconfont.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type='text/javascript' src="{{ url_for('static',filename='js/jquery.pjax.js') }}"></script>
     <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="dns-prefetch" href="//cdn.mathjax.org" /> {% endblock head %}
 </head>
@@ -98,7 +100,7 @@
                         <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
                         <li><a href="{{ url_for('blog.MessageBoard') }}"><i class="iconfont icon-liuyanban1 aside-icon"></i><span
                                     href="#">留言板</span></a></li>
-                        <li><a href="{{ url_for('blog.aboutme') }}"><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
+                        <li><a  data-pjax="#main-content" href="{{ url_for('blog.aboutme') }}"><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
                     </ul>
 
                 </div>
@@ -134,16 +136,18 @@
         </div>
         {% endblock app_left_aside %}
         <div class="app-main info-color-low-white " id='app-main'>
-            <div class="main-content col-lg-9">
-                {% block main_content %}{% endblock main_content %} </div>{% block app_right_aside %}{% endblock app_right_aside %}
+            <div class="main-content col-lg-9" id="main-content">
+                {% block main_content %}{% endblock main_content %} </div>{% block app_right_aside %}{% include 'blog/_rightAside.html' %}{% endblock app_right_aside %}
 
         </div>
 
     </div>
     {% block script %}{% endblock script %}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.pjax.js"></script>
+    <script src="/static/js/application.js"></script>
     {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }} {{ moment.locale('zh-cn') }}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
@@ -156,14 +160,15 @@
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft');
             });
+
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
             $("button.left-button").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('main-active');
                 $('div.app-left-aside').toggleClass('left-active');
             });
-
         });
+        $(document).pjax('a[data-pjax]', '#main-content');
     </script>
 </body>
 

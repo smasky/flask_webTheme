@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
+{% extends pjax('base.html') %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
 <div class="content-header info-color-pure-white boder-bottom">
     <h1 style="font-family:'ABC';font-style: normal;">{{ Post.title }}</h1>
     <small>{{ Post.abstract }}</small>
@@ -68,4 +68,4 @@
     </form>
 </div>
 
-{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
+{% endblock %}

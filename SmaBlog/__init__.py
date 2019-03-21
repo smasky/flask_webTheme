@@ -11,7 +11,7 @@ from .blueprints.blog import blog_bp
 from .settings import config
 from .utils import sum_comment
 from datetime import datetime
-from .extensions import db,bootstrap,moment,csrf,login,Guest
+from .extensions import db,bootstrap,moment,csrf,login,Guest,pjax
 '''
 创建app主体文件
 '''
@@ -43,6 +43,7 @@ def register_extensions(app):
     moment.init_app(app)
     csrf.init_app(app)
     login.init_app(app)
+    pjax.init_app(app)
     login.anonymous_user=Guest
 
 
@@ -113,6 +114,10 @@ def register_commands(app):
             db.session.add(admin)
         db.session.commit()
         click.echo('Done')
+    @app.cli.command()
+    def test():
+        admin=Admin.query.filter(Admin.name=='smasky').first()
+        print(admin.right)
 def register_template_context(app):
     @app.context_processor
     def inject_right():

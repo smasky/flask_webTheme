@@ -28,8 +28,12 @@ def index():
     return render_template('blog/index.html',Posts=posts,pagination=pagination,adminForm=admin_form)
 
 
-@blog_bp.route('/aboutme')
+@blog_bp.route('/aboutme',methods=['GET','POST'])
 def aboutme():
+    if "X-PJAX" in request.headers:
+        print('11111')
+    else:
+        print('22')
     admin_form=AdminForm()
     login(admin_form)
     return render_template('blog/aboutMe.html',adminForm=admin_form)
