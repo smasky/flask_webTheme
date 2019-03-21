@@ -1,6 +1,5 @@
 $(function() {
 
-  // Set up PJAX.
-  $('a[data-pjax]').pjax()
-
+    // Set up PJAX.
+    $('a[data-pjax]').pjax();
 })

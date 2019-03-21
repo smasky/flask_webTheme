@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/smasky.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/iconfont.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <script type='text/javascript' src="{{ url_for('static',filename='js/jquery.pjax.js') }}"></script>
-    <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="dns-prefetch" href="//cdn.mathjax.org" /> {% endblock head %}
+    <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="dns-prefetch" href="https://cdn.mathjax.org" /> {% endblock head %}
 </head>
 
 <body>
@@ -95,19 +94,19 @@
                 <div class="navi  navigation">
                     <ul class="nav nav-stacked">
                         <li class='aside-nav-head'><span>导航:</span></li>
-                        <li><a href="{{ url_for('blog.index') }}"><i class="iconfont icon-shouye aside-icon"></i><span>首页</span></a></li>
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.index') }}"><i class="iconfont icon-shouye aside-icon"></i><span>首页</span></a></li>
                         <li><a href="https://github.com/smasky"><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
                         <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                        <li><a href="{{ url_for('blog.MessageBoard') }}"><i class="iconfont icon-liuyanban1 aside-icon"></i><span
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.MessageBoard') }}"><i class="iconfont icon-liuyanban1 aside-icon"></i><span
                                     href="#">留言板</span></a></li>
-                        <li><a  data-pjax="#main-content" href="{{ url_for('blog.aboutme') }}"><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.aboutme') }}"><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
                     </ul>
 
                 </div>
                 <div class="line bg-white"></div>
                 <ul class="nav nav-stacked">
                     <li class="aside-nav-head"><span>功能:</span></li>
-                   <!---<li><a ui-toggle="active" ui-toggle-target="sub-liOne"><i class="iconfont icon-fenlei aside-icon"></i><span
+                    <!---<li><a ui-toggle="active" ui-toggle-target="sub-liOne"><i class="iconfont icon-fenlei aside-icon"></i><span
                                 href="#">分类</span></a></li>
                     <ul id="sub-liOne" class="sub-li nav-sub">
                         <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">个人生活</span></a></li>
@@ -153,7 +152,7 @@
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
         'textarea', 'pre','code','a'], ignoreClass:"comment-content" }, "HTML-CSS": { availableFonts: ["STIX","TeX"], showMathMenu: false } }); MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     </script>
-    <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
         $(document).ready(function() {
             $("a[ui-toggle='active']").click(function() {
@@ -167,8 +166,27 @@
                 $(link).toggleClass('main-active');
                 $('div.app-left-aside').toggleClass('left-active');
             });
+
         });
-        $(document).pjax('a[data-pjax]', '#main-content');
+        $(document).on('submit', 'form', function(event) {
+            //这是提交表单的pjax。form表示所有的提交表单都会执行pjax，比如搜索和提交评论，可自行修改改成你想要执行pjax的form id或class。#container 同上改成你主题的内容主体id或class。
+            $.pjax.submit(event, '#main-content');
+        });
+        $(document).on('pjax:end', function() {
+            $('#main-content a[data-pjax]').pjax();
+            $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function() {
+                MathJax.Hub.Config({
+                    text2jax: {
+                        inlineMath: [
+                            ['$', '$'],
+                            ['\\(', '\\)']
+                        ]
+                    }
+                });
+                var math = document.getElementsByClassName("post-main")[0];
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
+            })
+        });
     </script>
 </body>
 

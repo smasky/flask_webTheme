@@ -42,7 +42,7 @@
 </ol>
 <div class='form-info'>
     <h4 class='grey-info-g'>发表评论:</h4>
-    <form method="POST">
+    <form method="POST" action='/posts/{{ Post.id }}'>
         {{ Form.csrf_token }}
         <div class="form-group ">
             {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}

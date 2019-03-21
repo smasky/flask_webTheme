@@ -1,4 +1,4 @@
-{% extends pjax('base.html') %} {% block main_content %}
+{% extends pjax('base.html') %} {% from 'bootstrap/pagination.html' import render_pagination %}{% block main_content %}
 <div class=" content-header info-color-pure-white boder-bottom ">
     <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
     <small>不困于情，不畏将来，不念过往。</small>
@@ -40,10 +40,11 @@
     </li>
     {% endfor %}
 </ol>
+<div class="page-footer text-center">{{ render_pagination(pagination,class='text-center') }}</div>
 {% if current_user.can() %}
 <div class='form-info'>
     <h4 class='grey-info-g'>发表评论:</h4>
-    <form method="POST">
+    <form method="POST" action='/MessageBoard'>
         {{ Form.csrf_token }}
         <div class="form-group ">
             {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
@@ -57,7 +58,7 @@
     <h4 class='grey-info-g'>发表评论:</h3>
         <h5 class='grey-info'>请先登录！</h5>
         <div class='login-panel'>
-            <form method="POST">
+            <form method="POST" action='/MessageBoard'>
                 {{ adminForm.csrf_token }}
                 <div class="form-group ">
                     {{ adminForm.username.label(class='grey-info form-font-info')}} {{ adminForm.username(class='form-control') }}

@@ -21,7 +21,6 @@ def index():
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
     pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=per_page)
     posts=pagination.items
-    print('a')
     admin_form=AdminForm()
     login(admin_form)
 
@@ -30,16 +29,14 @@ def index():
 
 @blog_bp.route('/aboutme',methods=['GET','POST'])
 def aboutme():
-    if "X-PJAX" in request.headers:
-        print('11111')
-    else:
-        print('22')
+
     admin_form=AdminForm()
     login(admin_form)
     return render_template('blog/aboutMe.html',adminForm=admin_form)
 
 @blog_bp.route('/posts/<int:post_id>',methods=['GET','POST'])
 def show_post(post_id):
+
     post=Post.query.get_or_404(post_id)
     post_coms=post.postcomments
     post.views=post.views+1
@@ -138,7 +135,10 @@ def register():
 #留言板视图
 @blog_bp.route('/MessageBoard',methods=['GET','POST'])
 def MessageBoard():
-    messages=Message.query.order_by(Message.timestamp.desc()).all()
+    page=request.args.get('page',1,type=int)
+    per_page=current_app.config['BLUELOG_POST_PER_PAGE']
+    pagination = Message.query.order_by(Message.timestamp.desc()).paginate(page, per_page=per_page)
+    messages=pagination.items
     form=MessageForm()
     admin_form=AdminForm()
     login(admin_form)
@@ -148,7 +148,7 @@ def MessageBoard():
         db.session.add(message)
         db.session.commit()
         return redirect(url_for('blog.MessageBoard'))
-    return render_template('blog/MessageBoard.html',Form=form,Messages=messages,adminForm=admin_form)
+    return render_template('blog/MessageBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
 
 @blog_bp.route('/logout')
 @login_required
@@ -159,7 +159,6 @@ def logout():
 def login(admin_form):
     if admin_form.validate_on_submit():
         user_name=admin_form.username.data
-        print(user_name)
         password=admin_form.password.data
         admin=Admin.query.filter(Admin.username==user_name).first()
         if admin:
