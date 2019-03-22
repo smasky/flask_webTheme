@@ -156,7 +156,6 @@ def logout():
     logout_user()
     adminform=AdminForm()
     html=str(render_template('login_fail.html',adminForm=adminform))
-    print(html)
     return html
 
 def login(admin_form):
