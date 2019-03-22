@@ -150,11 +150,14 @@ def MessageBoard():
         return redirect(url_for('blog.MessageBoard'))
     return render_template('blog/MessageBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
 
-@blog_bp.route('/logout')
+@blog_bp.route('/logout',methods=['GET'])
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('blog.index'))
+    adminform=AdminForm()
+    html=str(render_template('login_fail.html',adminForm=adminform))
+    print(html)
+    return html
 
 def login(admin_form):
     if admin_form.validate_on_submit():
@@ -164,3 +167,23 @@ def login(admin_form):
         if admin:
             if user_name==admin.username and admin.validate_password(password):
                 login_user(admin,remember=False)
+@blog_bp.route('/login',methods=['POST'])
+def login_admin():
+    name = request.values.get("name")
+    pwd = request.values.get("pwd")
+    if True:
+        user_name=name
+        password=pwd
+        admin=Admin.query.filter(Admin.username==user_name).first()
+        if admin:
+            if user_name==admin.username and admin.validate_password(password):
+                login_user(admin,remember=True)
+                html=render_template('login_sucess.html')
+                return str(html)
+            else:
+                adminform=AdminForm()
+                adminform.username.errors='密码错误或用户名不存在'
+                html=str(render_template('login_fail.html',adminForm=adminform))
+                return html
+
+    return make_response("")

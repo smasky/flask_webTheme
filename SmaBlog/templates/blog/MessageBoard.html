@@ -57,7 +57,8 @@
 <div class='form-info'>
     <h4 class='grey-info-g'>发表评论:</h3>
         <h5 class='grey-info'>请先登录！</h5>
-        <div class='login-panel'>
+        <button type="button" class = "btn btn-primary right" onclick="login()">登录</button>
+       <!-- <div class='login-panel'>
             <form method="POST" action='/MessageBoard'>
                 {{ adminForm.csrf_token }}
                 <div class="form-group ">
@@ -78,6 +79,6 @@
 
 
             </form>
-        </div>
+        </div>-->
 </div>
 {% endif %} {% endblock %}

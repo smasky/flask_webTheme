@@ -5,11 +5,14 @@
     {% block head %}
     <title>Smasky's Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename='css/smasky.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/iconfont.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script type='text/javascript' src="{{ url_for('static',filename='js/jquery.pjax.js') }}"></script>
     <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="dns-prefetch" href="https://cdn.mathjax.org" /> {% endblock head %}
@@ -30,7 +33,7 @@
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
                 <ul class="nav nav-right head-right-nav">
-                    <li class='dropdown login'>
+                    <li class='dropdown login_user'>
                         {% if not current_user.is_authenticated %}
                         <a data-toggle='dropdown' class="login dropdown-toggle white-info" href='#'>
                             <span>登录</span>
@@ -40,14 +43,15 @@
                             <form method="POST">
                                 {{ adminForm.csrf_token }}
                                 <div class="form-group ">
-                                    {{ adminForm.username.label(class='grey-info-g form-font-info') }} {{ adminForm.username(class='form-control') }}
+                                    {{ adminForm.username.label(class='grey-info-g  form-font-info') }} {{ adminForm.username(class='login_name form-control') }}
                                 </div>
                                 <div class="form-group ">
-                                    {{ adminForm.password.label(class='grey-info-g form-font-info')}} {{ adminForm.password(class='form-control') }}
+                                    {{ adminForm.password.label(class='grey-info-g  form-font-info')}} {{ adminForm.password(class='login_pwd form-control') }}
                                 </div>
                                 <div class='row'>
                                     <div class='col-xs-6'>
-                                        {{ adminForm.submit(class='btn btn-primary') }}
+                                        <!--{{ adminForm.submit(class='btn btn-primary') }}-->
+                                        <button type="button" class = "btn btn-primary right" onclick="ajaxForm()">登录</button>
                                     </div>
                                     <div class="col-xs-6">
                                         <a href="{{ url_for('blog.register') }}" style='float:right;'>
@@ -59,7 +63,7 @@
                             </form>
                         </div>
                         {% else %}
-                        <a href="{{ url_for('blog.logout') }}" class="login white-info">
+                        <a onclick="ajaxForm1()" class="login white-info">
                             <span>登出</span>
                         </a>
 
@@ -143,10 +147,10 @@
     </div>
     {% block script %}{% endblock script %}
 
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
     <script src="/static/js/jquery.pjax.js"></script>
     <script src="/static/js/application.js"></script>
+    <script src="/static/js/loginAjax.js"></script>
     {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }} {{ moment.locale('zh-cn') }}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
@@ -155,6 +159,7 @@
     <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
         $(document).ready(function() {
+
             $("a[ui-toggle='active']").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft');
@@ -168,11 +173,13 @@
             });
 
         });
+
         $(document).on('submit', 'form', function(event) {
             //这是提交表单的pjax。form表示所有的提交表单都会执行pjax，比如搜索和提交评论，可自行修改改成你想要执行pjax的form id或class。#container 同上改成你主题的内容主体id或class。
             $.pjax.submit(event, '#main-content');
         });
         $(document).on('pjax:end', function() {
+            $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
             $('#main-content a[data-pjax]').pjax();
             $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function() {
                 MathJax.Hub.Config({
@@ -187,6 +194,7 @@
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
             })
         });
+
     </script>
 </body>
 
