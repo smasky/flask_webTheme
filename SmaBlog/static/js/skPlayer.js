@@ -36,7 +36,7 @@ const Util = {
                 }
             }
         };
-        xhr.open('GET', option.url);
+        xhr.open('POST', option.url);
         xhr.send(null);
     }
 };
@@ -57,7 +57,7 @@ class skPlayer {
             element: document.getElementById('skPlayer'),
             autoplay: false, //true/false
             mode: 'listloop', //singleloop/listloop
-            listshow: true //true/false
+            listshow: false //true/false
         };
         // this.option = Object.assign({},defaultOption,option);
         for (let defaultKey in defaultOption) {

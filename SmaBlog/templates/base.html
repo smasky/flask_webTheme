@@ -33,8 +33,16 @@
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
                 <ul class="nav nav-right head-right-nav navbar-nav">
-                    <li class="music-player" style="height: 50px; width:200px;">
+                    <li class="music-player hidden-xs" style="height: 50px; width:150px;">
                         <div id="skPlayer"></div>
+                        <div id="skPlayer-control">
+                            <a class='player-control-bo' onclick="player.play()">
+                                <i class="iconfont icon-bofang2 aside-icon"></i>
+                            </a>
+                            <a class='player-control-zan' onclick="player.pause()">
+                                <i class="iconfont icon-zanting1 aside-icon"></i>
+                            </a>
+                        </div>
                     </li>
                     <li class='dropdown login_user'>
                         {% if not current_user.is_authenticated %}
@@ -167,12 +175,11 @@
                 source: 317921676
             }
         });
-        player.toggleList();
+
     </script>
     <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
         $(document).ready(function() {
-
             $("a[ui-toggle='active']").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft');

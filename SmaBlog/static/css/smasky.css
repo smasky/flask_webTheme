@@ -571,7 +571,25 @@ nav a {
 .login-panel {
     padding: 15px 15px;
 }
-
+/*播放器*/
+.player-control-bo{
+    position: absolute;
+    top: 18px;
+    left: 50px;
+    width:28px;
+    height:28px;
+    z-index: 999;
+    text-decoration: none!important;
+}
+.player-control-zan{
+    position: absolute;
+    top: 18px;
+    left: 80px;
+    width:28px;
+    height:28px;
+    z-index: 999;
+    text-decoration: none!important;
+}
 
 /* blog head的字体 */
 
