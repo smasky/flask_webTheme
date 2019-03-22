@@ -461,11 +461,38 @@
     margin-bottom: 40px;
 }
 
+
+/* blog music css*/
+
+.skPlayer-picture {
+    width: 40px!important;
+    height: 40px!important;
+}
+
+.skPlayer-list-on {
+    width: 200px!important;
+    height: 50px!important;
+}
+
+.skPlayer-control {
+    float: left!important;
+    padding: 0px 0px!important;
+}
+
+.skPlayer-play-btn {
+    width: 30px!important;
+    height: 30px!important;
+}
+
+
 /* blog 文章面板的css */
-.post-main center{
+
+.post-main center {
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+
 /* blog 表单的css */
 
 .form-font-info {
@@ -496,10 +523,13 @@
 .white-info {
     color: white!important;
 }
-.bg-blue-info{
+
+.bg-blue-info {
     background-color: #6c92d6;
     color: white;
 }
+
+
 /* blog 字体大小的css */
 
 .time-font {
@@ -541,15 +571,19 @@ nav a {
 .login-panel {
     padding: 15px 15px;
 }
+
+
 /* blog head的字体 */
-.rm-button{
-    margin-top:10px;
+
+.rm-button {
+    margin-top: 10px;
     padding: 0;
     border: 1px solid transparent;
     outline: none;
     background-color: transparent;
     color: white;
 }
+
 
 /* blog post的字体 */
 
@@ -618,7 +652,7 @@ textarea {
 
 @media screen and (max-width:768px) {
     .aside {
-        transform:translate3d(-125px,0,0);
+        transform: translate3d(-125px, 0, 0);
         transition: transform .4s ease;
     }
     .app-main {
@@ -628,16 +662,15 @@ textarea {
     .app-head {
         width: 100%;
     }
-
-    .left-active{
-        transform:translate3d(0px,0,0);
-        -webkit-transform:translate3d(0px,0,0);
+    .left-active {
+        transform: translate3d(0px, 0, 0);
+        -webkit-transform: translate3d(0px, 0, 0);
         transition: transform .4s ease;
         display: block;
     }
-    .main-active{
-        transform:translate3d(125px,0,0);
-        -webkit-transform:translate3d(125px,0,0);
+    .main-active {
+        transform: translate3d(125px, 0, 0);
+        -webkit-transform: translate3d(125px, 0, 0);
         transition: transform .4s ease;
     }
 }

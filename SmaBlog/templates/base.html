@@ -32,7 +32,10 @@
                 </a>
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
-                <ul class="nav nav-right head-right-nav">
+                <ul class="nav nav-right head-right-nav navbar-nav">
+                    <li class="music-player" style="height: 50px; width:200px;">
+                        <div id="skPlayer"></div>
+                    </li>
                     <li class='dropdown login_user'>
                         {% if not current_user.is_authenticated %}
                         <a data-toggle='dropdown' class="login dropdown-toggle white-info" href='#'>
@@ -147,7 +150,7 @@
     </div>
     {% block script %}{% endblock script %}
 
-
+    <script src="/static/js/skPlayer.min.js"></script>
     <script src="/static/js/jquery.pjax.js"></script>
     <script src="/static/js/application.js"></script>
     <script src="/static/js/loginAjax.js"></script>
@@ -155,6 +158,16 @@
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
         'textarea', 'pre','code','a'], ignoreClass:"comment-content" }, "HTML-CSS": { availableFonts: ["STIX","TeX"], showMathMenu: false } }); MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    </script>
+    <script>
+        var player = new skPlayer({
+            autoplay: true,
+            music: {
+                type: 'cloud',
+                source: 317921676
+            }
+        });
+        player.toggleList();
     </script>
     <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
