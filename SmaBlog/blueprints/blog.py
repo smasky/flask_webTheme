@@ -6,8 +6,8 @@
 """
 
 from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request
-from SmaBlog.models import Post,Message,Admin,PostComment
-from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm
+from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment
+from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm,SpeakForm
 from SmaBlog.extensions import db
 from flask_login import login_user,logout_user,login_required,current_user
 from SmaBlog.utils import redirect_back,sum_comment
@@ -149,7 +149,24 @@ def MessageBoard():
         db.session.commit()
         return redirect(url_for('blog.MessageBoard'))
     return render_template('blog/MessageBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
-
+#我的动态视图
+@blog_bp.route('/speakself',methods=['GET','POST'])
+def SpeakSelf():
+    page=request.args.get('page',1,type=int)
+    per_page=current_app.config['BLUELOG_POST_PER_PAGE']
+    pagination = SelfComment.query.order_by(SelfComment.timestamp.desc()).paginate(page, per_page=per_page)
+    messages=pagination.items
+    form=SpeakForm()
+    admin_form=AdminForm()
+    login(admin_form)
+    if form.validate_on_submit() and current_user.test_right():
+        Body=form.body.data
+        secret=form.secret.data
+        message=SelfComment(body=Body,admin_id=current_user.id,secret=secret)
+        db.session.add(message)
+        db.session.commit()
+        return redirect(url_for('blog.SpeakSelf'))
+    return render_template('blog/speakBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
 @blog_bp.route('/logout',methods=['GET'])
 @login_required
 def logout():

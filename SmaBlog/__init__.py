@@ -5,7 +5,9 @@
     :license: MIT, see LICENSE for more details.
 """
 import click
+from sqlalchemy import MetaData
 from flask import Flask,render_template
+from flask_migrate import Migrate
 from .models import Admin,Post
 from .blueprints.blog import blog_bp
 from .settings import config
@@ -45,6 +47,7 @@ def register_extensions(app):
     login.init_app(app)
     pjax.init_app(app)
     login.anonymous_user=Guest
+    migrate=Migrate(app,db,render_as_batch=True)
 
 
 def register_commands(app):

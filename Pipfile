@@ -17,6 +17,7 @@ requests = "*"
 flask-login = "*"
 flask-script = "*"
 flask-pjax = "*"
+flask-migrate = "*"
 
 [requires]
 python_version = "3.6"

@@ -1,0 +1,66 @@
+{% extends pjax('base.html') %} {% from 'bootstrap/pagination.html' import render_pagination %}{% block main_content %}
+<div class=" content-header info-color-pure-white boder-bottom ">
+    <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
+    <small>不困于情，不畏将来，不念过往。</small>
+</div>
+<div class="main-head-img">
+    <img src="https://ws1.sinaimg.cn/large/e837aa80gy1g15tn8vl6fj21ao0si7wh.jpg" style='background-size:contain; width:100%;'>
+</div>
+<div class='wrap-comment'>
+<ol class="comment-list ">
+    {% for message in Messages %}
+
+    <li class="comment-parent b-l">
+        <a class='comment-avater' style='float: left; border-radius: 50px;display:inline-block;margin-left: -20px;'>
+            <img src="{{ message.admin.avater }} " style="height:40px!important; width: 40px!important; ">
+        </a>
+        <div class="comment-body b-a info-color-pure-white">
+            <div class="comment-name b-b">
+                <span class="arrow left">
+                </span>
+                <span>
+                    <b><a href="{{ message.admin.web }}" style='text-decoration: none' target="_blank">
+                        {{ message.admin.name }}
+                    </a></b>
+                </span>
+                <span class="comment-meta pull-right ">
+                    <small class='time-font' style='padding: 8px 0px;' data-toggle="tooltip " data-placement="top " data-timestamp="{{ message.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} " data-delay="500 ">
+                        {{ moment(message.timestamp).fromNow(refresh=True) }}
+                    </small>
+                </span>
+            </div>
+            <div class="comment-content ">
+                <p>
+                    {% if not message.secret %}
+                    {{message.body}}
+                    {% else %}
+                    {% if current_user.test_right() %}
+                    {{message.body}}
+                    {% else %}
+                    抱歉，此条为私密评论
+                    {% endif %}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ol>
+</div>
+<div class="page-footer text-center">{{ render_pagination(pagination,class='text-center') }}</div>
+{% if current_user.test_right() %}
+<div class='form-info'>
+    <h4 class='grey-info-g'>发表评论:</h4>
+    <form method="POST" action='/speakself'>
+        {{ Form.csrf_token }}
+        <div class="form-group ">
+            {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
+            {{ Form.secret.label(class='grey-info form-font-info') }}
+            {{ Form.secret }}
+        </div>
+        <h5>欢迎{{ current_user.name }}归来</h5>
+        {{ Form.submit(class='btn btn-primary') }}
+    </form>
+</div>
+{% endif %}
+ {% endblock %}

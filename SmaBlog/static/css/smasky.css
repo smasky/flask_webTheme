@@ -339,7 +339,7 @@
 .app-head {
     position: fixed!important;
     width: 1170px;
-    z-index: 10001;
+    z-index: 999;
 }
 
 .app-main {
@@ -362,7 +362,9 @@
     padding: 0px 0px;
     display: table-cell;
 }
-
+.info-color-pure-white{
+    background-color: white;
+}
 .info-color-low-white {
     background-color: rgba(236, 238, 238, 0.774);
 }
@@ -438,27 +440,80 @@
 
 
 /* 留言板样式*/
+.arrow{
+    position: absolute;
+    top:-8px;
+    left:-24px;
+}
+.arrow:after,.arrow:before {
+    z-index: 999;
+	border:solid transparent;
+	content:' ';
+	height: 0;
+	left: 100%;
+	position: absolute;
+	width: 0;
+}
 
+.arrow:after {
+    z-index: 999;
+	border-width: 10px;
+	border-right-color: #fff;
+    top: 20px;
+    left:4px;
+}
+
+.arrow:before {
+    z-index: 999;
+	border-width: 12px;
+	border-right-color: #dee5e7;
+	top: 18px;
+}
+.wrap-comment{
+    padding-left:20px;
+}
 .comment-body a {
     color: #343333e0;
     font-family: 'font-Sour-Sans';
     font-size: 15px;
     font-weight: bold;
 }
+.comment-name{
+    margin: 5px 0px;
+    position: relative;
+    padding: 10px 10px;
 
+}
+.b-b{
+    border-bottom: 1px solid #dee5e7;
+}
+.comment-content{
+    padding: 20px 20px;
+}
 .comment-body p {
     padding: 5px 0px;
     color: #7a7876;
     font-size: 17px;
 }
-
+.b-l{
+    border-left:2px solid #dee5e7;
+}
 .comment-parent {
     margin-left: 20px;
-}
+    padding-bottom: 40px;
 
+}
+.b-a{
+    background-color: white;
+}
 .comment-body {
-    margin-left: 50px;
-    margin-bottom: 40px;
+    margin-left: 35px;
+
+    border-radius: 10px 10px 0 0;
+}
+.comment-list {
+    list-style:none;
+    margin-right:30px;
 }
 
 
@@ -602,7 +657,15 @@ nav a {
     color: white;
 }
 
-
+/* blog footer*/
+footer{
+    text-align: center;
+    padding: 10px 0px;
+    color:#0f0f0f;
+}
+footer div{
+    padding: 5px 0px;
+}
 /* blog post的字体 */
 
 .blog-post p {
@@ -690,5 +753,12 @@ textarea {
         transform: translate3d(125px, 0, 0);
         -webkit-transform: translate3d(125px, 0, 0);
         transition: transform .4s ease;
+    }
+
+    .wrap-comment{
+        padding-left:0px!important;
+    }
+    .comment-list{
+        padding-left: 10px!important;
     }
 }

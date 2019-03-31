@@ -31,6 +31,14 @@ class PostComment(db.Model):
 
     #admin_id=db.Column(db.Integer,db.ForeignKey('admin.id')) #与表admin建立联系
     #admin=db.relationship('Admin'.back_populates='postcomments') 暂时先不和用户表连接
+class SelfComment(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    body=db.Column(db.String(200))
+    timestamp=db.Column(db.DateTime,default=datetime.utcnow,index=True)
+    secret=db.Column(db.Boolean,default=False)
+    admin_id=db.Column(db.Integer,db.ForeignKey('admin.id'))
+    admin=db.relationship('Admin',back_populates='selfcomments')
+
 class Admin(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(20))
@@ -40,6 +48,7 @@ class Admin(db.Model,UserMixin):
     email=db.Column(db.String(30),unique=True)
     avater=db.Column(db.String(128),default="https://ws1.sinaimg.cn/large/007G9tRkgy1g15xb7y323j3074074q3a.jpg")
     right=db.Column(db.Integer,default=3)
+    selfcomments=db.relationship('SelfComment',back_populates='admin')
     messages=db.relationship('Message',back_populates='admin')   #与表message建立联系
     postcomments=db.relationship('PostComment',back_populates='admin') #与表postcomment建立联系
 
@@ -57,5 +66,9 @@ class Admin(db.Model,UserMixin):
     def password(self,password):
         self.password_hash=generate_password_hash(password)
 
+    def test_right(self):
+        if(self.right==1):
+            return True
+        return False
     def can(self):
         return True

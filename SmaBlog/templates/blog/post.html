@@ -12,12 +12,12 @@
 <ol class="comment-list " style="list-style:none; ">
     {% for postcomment in PostCom %}
     <li class="comment-parent ">
-        <a class='comment-avater' style='float: left; border-radius: 50px;'>
+        <a class='comment-avater' style='float: left; border-radius: 50px;margin-top:10px;'>
 
             <img src="{{ postcomment.admin.avater }} " style="height:40px!important; width: 40px!important; ">
 
         </a>
-        <div class="comment-body ">
+        <div class="comment-body " style="margin-left:45px!important;">
             <div class="comment-name ">
                 <span>
                         <a style='text-decoration: none;'>
@@ -31,7 +31,7 @@
 
                 </div>
             </div>
-            <div class="comment-content ">
+            <div class="comment-content " style='padding: 0px 10px!important;'>
                 <p>
                     {{postcomment.body}}
                 </p>

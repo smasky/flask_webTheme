@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/smasky.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/iconfont.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+    <link href="https://cdn.bootcss.com/izitoast/1.4.0/css/iziToast.min.css" rel="stylesheet">
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
@@ -24,17 +26,18 @@
         <div class="app-head container">
             <nav class="left-header navbar navbar-default header-info-blue  col-xs-2" role='navigation'>
                 <button class='left-button visible-xs pull-left rm-button' ui-toggle-target='app-main'>
-                        <i class="iconfont icon-caidan aside-icon"></i>
+                    <i class="iconfont icon-caidan aside-icon"></i>
                 </button>
-                <a href="{{ url_for('blog.index')}}" class='hidden-xs navbar-header font-bg-info-white text-center' style='margin-top:10px;text-decoration: none;'>
+                <a href="{{ url_for('blog.index')}}" class='hidden-xs navbar-header font-bg-info-white text-center'
+                    style='margin-top:10px;text-decoration: none;'>
                     <i class='glyphicon glyphicon-heart middle icon-size' style='margin-bottom: 10px;'> </i>
                     <span class='font-info-Source hidden-md hidden-xs web-title navbar-font'>Smasky</span>
                 </a>
             </nav>
             <nav class='right-header navbar navbar-default header-info-blue col-xs-10'>
                 <ul class="nav nav-right head-right-nav navbar-nav">
-                    <li class="music-player hidden-xs" style="height: 50px; width:150px;">
-                        <div id="skPlayer"></div>
+                    <!------<li class="music-player hidden-xs" style="height: 50px; width:150px;">
+                       <div id="skPlayer"></div>
                         <div id="skPlayer-control">
                             <a class='player-control-bo' onclick="player.play()">
                                 <i class="iconfont icon-bofang2 aside-icon"></i>
@@ -43,7 +46,7 @@
                                 <i class="iconfont icon-zanting1 aside-icon"></i>
                             </a>
                         </div>
-                    </li>
+                    </li>-->
                     <li class='dropdown login_user'>
                         {% if not current_user.is_authenticated %}
                         <a data-toggle='dropdown' class="login dropdown-toggle white-info" href='#'>
@@ -54,18 +57,22 @@
                             <form method="POST">
                                 {{ adminForm.csrf_token }}
                                 <div class="form-group ">
-                                    {{ adminForm.username.label(class='grey-info-g form-font-info') }} {{ adminForm.username(class='login_name form-control') }}
+                                    {{ adminForm.username.label(class='grey-info-g form-font-info') }}
+                                    {{ adminForm.username(class='login_name form-control') }}
                                 </div>
                                 <div class="form-group ">
-                                    {{ adminForm.password.label(class='grey-info-g form-font-info')}} {{ adminForm.password(class='login_pwd form-control') }}
+                                    {{ adminForm.password.label(class='grey-info-g form-font-info')}}
+                                    {{ adminForm.password(class='login_pwd form-control') }}
                                 </div>
                                 <div class='row'>
                                     <div class='col-xs-6'>
                                         <!--{{ adminForm.submit(class='btn btn-primary') }}-->
-                                        <button type="button" class="btn btn-primary right" onclick="ajaxForm()">登录</button>
+                                        <button type="button" class="btn btn-primary right"
+                                            onclick="ajaxForm()">登录</button>
                                     </div>
                                     <div class="col-xs-6">
-                                        <a data-pjax="#main-content" href="{{ url_for('blog.register') }}" style='float:right;'>
+                                        <a data-pjax="#main-content" href="{{ url_for('blog.register') }}"
+                                            style='float:right;'>
                                             <button type='button' class="btn btn-primary right">注册</button></a>
                                     </div>
                                 </div>
@@ -109,12 +116,17 @@
                 <div class="navi  navigation">
                     <ul class="nav nav-stacked">
                         <li class='aside-nav-head'><span>导航:</span></li>
-                        <li><a data-pjax="#main-content" href="{{ url_for('blog.index') }}"><i class="iconfont icon-shouye aside-icon"></i><span>首页</span></a></li>
-                        <li><a href="https://github.com/smasky"><i class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.index') }}"><i
+                                    class="iconfont icon-shouye aside-icon"></i><span>首页</span></a></li>
+                        <li><a href="https://github.com/smasky"><i
+                                    class="iconfont icon-github-copy aside-icon"></i><span href="#">仓库</span></a></li>
                         <li><a><i class="iconfont icon-pengyou aside-icon"></i><span href="#">朋友</span></a></li>
-                        <li><a data-pjax="#main-content" href="{{ url_for('blog.MessageBoard') }}"><i class="iconfont icon-liuyanban1 aside-icon"></i><span
-                                    href="#">留言板</span></a></li>
-                        <li><a data-pjax="#main-content" href="{{ url_for('blog.aboutme') }}"><i class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.MessageBoard') }}"><i
+                                    class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">留言板</span></a></li>
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.SpeakSelf') }}"><i
+                                    class="iconfont icon-liuyanban1 aside-icon"></i><span href="#">自言自语</span></a></li>
+                        <li><a data-pjax="#main-content" href="{{ url_for('blog.aboutme') }}"><i
+                                    class="iconfont icon-my aside-icon"></i><span href="#">关于我</span></a></li>
                     </ul>
 
                 </div>
@@ -137,82 +149,159 @@
                         <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">留言板</span></a></li>
                         <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">关于我</span></a></li>
                     </ul>-->
-                    <li><a ui-toggle='active' ui-toggle-target='sub-liThree'><i class="iconfont icon-youlian aside-icon"></i><span
-                                href="#">友链</span></a></li>
+                    <li><a ui-toggle='active' ui-toggle-target='sub-liThree'><i
+                                class="iconfont icon-youlian aside-icon"></i><span href="#">友链</span></a></li>
                     <ul id="sub-liThree" class="sub-li nav-sub">
-                        <li><a href='https://kiritokun07.github.io' target="_blank"><i class="iconfont icon-pengyoutuijian aside-icon"></i><span href="#">Kirito</span></a></li>
+                        <li><a href='https://kiritokun07.github.io' target="_blank"><i
+                                    class="iconfont icon-pengyoutuijian aside-icon"></i><span href="#">Kirito</span></a>
+                        </li>
 
                     </ul>
-                    <li><a ui-toggle='active' ui-toggle-target='sub-liFour'><i class="iconfont icon-juanzeng  aside-icon"></i><span
-                                href="#">捐赠</span></a></li>
+                    <li><a ui-toggle='active' ui-toggle-target='sub-liFour'><i
+                                class="iconfont icon-juanzeng  aside-icon"></i><span href="#">捐赠</span></a></li>
                 </ul>
             </div>
         </div>
         {% endblock app_left_aside %}
         <div class="app-main info-color-low-white " id='app-main'>
-            <div class="main-content col-lg-9" id="main-content">
-                {% block main_content %}{% endblock main_content %} </div>{% block app_right_aside %}{% include 'blog/_rightAside.html' %}{% endblock app_right_aside %}
+            <div class="main-content col-lg-9">
+                <div id="main-content">
+                    {% block main_content %}{% endblock main_content %} </div>
+                <div id="aplayer"></div>
+                <footer class="row">
 
+                    <div id='copyright'>
+                        Copyright © 2018 smaskyer
+                    </div>
+                    <div id='beian'>
+                        浙ICP备18043640号-1
+                    </div>
+                    <div id='framework-info'>
+                        <span>
+                            驱动-flask | 主题-Smile
+                        </span>
+                    </div>
+                </footer>
+            </div>
+            {% block app_right_aside %}{% include 'blog/_rightAside.html' %}{% endblock app_right_aside %}
         </div>
 
     </div>
     {% block script %}{% endblock script %}
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+    <script src="https://cdn.bootcss.com/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script src="/static/js/viewer.js"></script>
+    <link href="/static/css/viewer.css" rel="stylesheet">
     <script src="/static/js/skPlayer.min.js"></script>
     <script src="/static/js/jquery.pjax.js"></script>
     <script src="/static/js/application.js"></script>
     <script src="/static/js/loginAjax.js"></script>
-    {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }} {{ moment.locale('zh-cn') }}
+    {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
+    {{ moment.locale('zh-cn') }}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
         'textarea', 'pre','code','a'], ignoreClass:"comment-content" }, "HTML-CSS": { availableFonts: ["STIX","TeX"], showMathMenu: false } }); MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     </script>
     <script>
-        var player = new skPlayer({
+        /*var player = new skPlayer({
             autoplay: true,
             music: {
                 type: 'cloud',
                 source: 2720539934
             }
+        });*/
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            fixed: true,
+            lrcType: 1,
+            autoplay:true,
+            audio: []
         });
-
+        find_playlist('2720539934')
     </script>
     <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
-        $(document).ready(function() {
-            $("a[ui-toggle='active']").click(function() {
+        $(document).ready(function () {
+            if(!isMobile()){
+            iziToast.show({
+                title: 'Hey',
+                icon: 'icon-drafts',
+                class: 'custom1',
+                message: '音乐开始播放啦!',
+                position: 'topRight',
+                image: 'static/img/av.jpg',
+                balloon: true,
+                buttons: [
+                    ['<button>好的</button>', function (instance, toast) {
+                        // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
+                        iziToast.info({
+                            color: 'dark',
+                            icon: 'icon-photo',
+                            title: 'OK',
+                            message: '好的哦',
+                            position: 'topRight',
+                            // iconText: 'star',
+                        });
+
+                    }],
+                    ['<button>暂停</button>', function (instance, toast) {
+                        // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
+                        ap.pause();
+                        iziToast.info({
+                            color: 'dark',
+                            icon: 'icon-ondemand_video',
+                            title: 'OK',
+                            message: '好的哦,左下角还可以开启',
+                            position: 'topRight',
+                            // iconText: 'star',
+                        });
+
+                    }],
+                ]
+            });}else{
+                ap.destroy();
+            }
+            $("a[ui-toggle='active']").click(function () {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('active animated slideInLeft');
             });
 
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
-            $("button.left-button").click(function() {
+            $("button.left-button").click(function () {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('main-active');
                 $('div.app-left-aside').toggleClass('left-active');
             });
 
         });
-
-        $(document).on('submit', 'form', function(event) {
+        $(document).on('submit', 'form', function (event) {
             //这是提交表单的pjax。form表示所有的提交表单都会执行pjax，比如搜索和提交评论，可自行修改改成你想要执行pjax的form id或class。#container 同上改成你主题的内容主体id或class。
             $.pjax.submit(event, '#main-content');
         });
-        $(document).on('pjax:end', function() {
-            $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
+        $(document).on('pjax:end', function () {
+            if($('.app-left-aside').hasClass('left-active'))
+            {
+                $("button.left-button").click();
+            }
+            flask_moment_render_all();
             $('#main-content a[data-pjax]').pjax();
-            $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function() {
-                MathJax.Hub.Config({
-                    text2jax: {
-                        inlineMath: [
-                            ['$', '$'],
-                            ['\\(', '\\)']
-                        ]
-                    }
-                });
-                var math = document.getElementsByClassName("post-main")[0];
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
-            })
+            var $image = $('.blog-post img');
+            $image.viewer();
+            $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+                function () {
+                    MathJax.Hub.Config({
+                        text2jax: {
+                            inlineMath: [
+                                ['$', '$'],
+                                ['\\(', '\\)']
+                            ]
+                        }
+                    });
+                    var math = document.getElementsByClassName("post-main")[0];
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
+                })
+            $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
+
         });
     </script>
 </body>
