@@ -214,7 +214,7 @@
             container: document.getElementById('aplayer'),
             fixed: true,
             lrcType: 1,
-            autoplay:true,
+            autoplay:false,
             audio: []
         });
         find_playlist('2720539934')
@@ -227,18 +227,19 @@
                 title: 'Hey',
                 icon: 'icon-drafts',
                 class: 'custom1',
-                message: '音乐开始播放啦!',
+                message: '要开启音乐吗？',
                 position: 'topRight',
                 image: 'static/img/av.jpg',
                 balloon: true,
                 buttons: [
                     ['<button>好的</button>', function (instance, toast) {
                         // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
+                        ap.play();
                         iziToast.info({
                             color: 'dark',
                             icon: 'icon-photo',
                             title: 'OK',
-                            message: '好的哦',
+                            message: '好的哦，一首凉凉送给你',
                             position: 'topRight',
                             // iconText: 'star',
                         });
