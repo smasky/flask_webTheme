@@ -1,12 +1,43 @@
 @font-face {
     font-family: 'font-Sour-Sans';
-    src: url('../fonts/Source-Sans-Pro-ExtraLight.woff2') format('woff');
+    src: url('../fonts/Source-Sans-Pro-ExtraLight.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sans-light';
+    src: url('../fonts/sourcesanspro-light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sans-bold';
+    src: url('../fonts/sourcesanspro-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'iconfont';
     src: url('iconfont.eot');
     src: url('iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont.woff2') format('woff2'), url('iconfont.woff') format('woff'), url('iconfont.ttf') format('truetype'), url('iconfont.svg#iconfont') format('svg');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: inherit;
+}
+
+body {
+    line-height: 2;
+    font-family: 'sans-bold';
 }
 
 a:hover {
@@ -19,9 +50,9 @@ a {
 }
 
 .right-h4 {
-    padding-left:15px;
-    padding-top:15px;
-    color:#707474;
+    padding-left: 15px;
+    padding-top: 15px;
+    color: #707474;
 }
 
 .iconfont {
@@ -454,15 +485,22 @@ a {
     padding: 15px 15px 15px 15px;
     margin-bottom: 30px;
 }
+
+
 /*scrol*/
-.mulu-fixed{
-    position:fixed;
-    top:30px;
+
+.mulu-fixed {
+    position: fixed!important;
+    top: 50px!important;
 }
-.mulu-move{
+
+.mulu-move {
     position: relative;
 }
+
+
 /* 留言板样式*/
+
 .arrow {
     position: absolute;
     top: -8px;
@@ -510,7 +548,6 @@ a {
     margin: 5px 0px;
     position: relative;
     padding: 10px 10px;
-
 }
 
 .b-b {
@@ -534,7 +571,6 @@ a {
 .comment-parent {
     margin-left: 20px;
     padding-bottom: 40px;
-
 }
 
 .b-a {
@@ -543,7 +579,6 @@ a {
 
 .comment-body {
     margin-left: 35px;
-
     border-radius: 10px 10px 0 0;
 }
 
@@ -662,7 +697,10 @@ nav a {
 .login-panel {
     padding: 15px 15px;
 }
+
+
 /* 侧边栏目录 */
+
 *[data-toc] h1,
 *[data-toc] h2,
 *[data-toc] h3,
@@ -672,7 +710,10 @@ nav a {
     margin-top: -50px;
     padding-top: 50px;
 }
+
+
 /*播放器*/
+
 .player-control-bo {
     position: absolute;
     top: 18px;
@@ -693,6 +734,7 @@ nav a {
     text-decoration: none !important;
 }
 
+
 /* blog head的字体 */
 
 .rm-button {
@@ -704,7 +746,9 @@ nav a {
     color: white;
 }
 
+
 /* blog footer*/
+
 footer {
     text-align: center;
     padding: 10px 0px;
@@ -714,6 +758,7 @@ footer {
 footer div {
     padding: 5px 0px;
 }
+
 
 /* blog post的字体 */
 
@@ -744,23 +789,18 @@ textarea {
     .aside {
         width: 160px;
     }
-
     .app-main {
         margin-left: 160px;
     }
-
     .left-head {
         width: 160px;
     }
-
     .navbar-font {
         font-size: 17px;
     }
-
     .wrap {
         padding-right: 50px;
     }
-
     .app-head {
         width: 970px;
     }
@@ -770,20 +810,16 @@ textarea {
     .aside {
         width: 125px;
     }
-
     .app-main {
         margin-left: 125px;
     }
-
     .app-head {
         width: 750px;
     }
-
     .wrap {
         padding-left: 0px;
         padding-right: 70px;
     }
-
     .img-full {
         width: 57px !important;
     }
@@ -794,33 +830,27 @@ textarea {
         transform: translate3d(-125px, 0, 0);
         transition: transform .4s ease;
     }
-
     .app-main {
         width: 100%;
         margin-left: 0px;
     }
-
     .app-head {
         width: 100%;
     }
-
     .left-active {
         transform: translate3d(0px, 0, 0);
         -webkit-transform: translate3d(0px, 0, 0);
         transition: transform .4s ease;
         display: block;
     }
-
     .main-active {
         transform: translate3d(125px, 0, 0);
         -webkit-transform: translate3d(125px, 0, 0);
         transition: transform .4s ease;
     }
-
     .wrap-comment {
         padding-left: 0px !important;
     }
-
     .comment-list {
         padding-left: 10px !important;
     }
