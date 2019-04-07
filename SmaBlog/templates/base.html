@@ -196,11 +196,14 @@
     <script src="/static/js/jquery.pjax.js"></script>
     <script src="/static/js/application.js"></script>
     <script src="/static/js/loginAjax.js"></script>
+    <link href="/static/css/toc-helper.min.css" rel="stylesheet" />
+    <script src="/static/js/toc-helper.min.js"></script>
     {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
     {{ moment.locale('zh-cn') }}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
-        'textarea', 'pre','code','a'], ignoreClass:"comment-content" }, "HTML-CSS": { availableFonts: ["STIX","TeX"], showMathMenu: false } }); MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        'textarea', 'pre','code','a'], ignoreClass:"comment-content" }, "HTML-CSS": { availableFonts: ["STIX","TeX"], showMathMenu: false } });
+         MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     </script>
     <script>
         /*var player = new skPlayer({
@@ -210,56 +213,88 @@
                 source: 2720539934
             }
         });*/
+        const toc=new TocHelper();
+        const toc_bool=true;
         const ap = new APlayer({
             container: document.getElementById('aplayer'),
             fixed: true,
             lrcType: 1,
-            autoplay:false,
+            autoplay: false,
             audio: []
         });
         find_playlist('2720539934')
     </script>
     <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
+        $(window).scroll(function () {
+            var top = $(document).scrollTop()
+            var mulu = $('#mulu')
+            if (mulu.length > 0) {
+                var bool = mulu.hasClass('mulu-fixed');
+                if (top > 780) {
+                    if (!bool) {
+                        mulu.removeClass('mulu-move');
+                        mulu.addClass('mulu-fixed');
+                    }
+                } else {
+                    if (bool) {
+                        mulu.removeClass('mulu-fixed');
+                        mulu.addClass('mulu-move')
+                    }
+
+                }
+            }
+        });
         $(document).ready(function () {
-            if(!isMobile()){
-            iziToast.show({
-                title: 'Hey',
-                icon: 'icon-drafts',
-                class: 'custom1',
-                message: '要开启音乐吗？',
-                position: 'topRight',
-                image: 'static/img/av.jpg',
-                balloon: true,
-                buttons: [
-                    ['<button>好的</button>', function (instance, toast) {
-                        // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
-                        ap.play();
-                        iziToast.info({
-                            color: 'dark',
-                            icon: 'icon-photo',
-                            title: 'OK',
-                            message: '好的哦，一首凉凉送给你',
-                            position: 'topRight',
-                            // iconText: 'star',
-                        });
+            var post=$('#post-main')
+            if(post.length>0){
+                if(toc_bool){
+                    toc.reset();
+                    toc_bool=false;
+                }else{
+                    toc.reload();
+                }
+                $('#toc').removeClass('toc-fixed');
+            }
+            if (!isMobile()) {
+                iziToast.show({
+                    title: 'Hey',
+                    icon: 'icon-drafts',
+                    class: 'custom1',
+                    message: '要开启音乐吗？',
+                    position: 'topRight',
+                    image: 'static/img/av.jpg',
+                    balloon: true,
+                    buttons: [
+                        ['<button>好的</button>', function (instance, toast) {
+                            // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
+                            ap.play();
+                            iziToast.info({
+                                color: 'dark',
+                                icon: 'icon-photo',
+                                title: 'OK',
+                                message: '好的哦，一首凉凉送给你',
+                                position: 'topRight',
+                                // iconText: 'star',
+                            });
 
-                    }],
-                    ['<button>暂停</button>', function (instance, toast) {
-                        // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
-                        ap.pause();
-                        iziToast.info({
-                            color: 'dark',
-                            icon: 'icon-ondemand_video',
-                            title: 'OK',
-                            message: '好的哦,左下角还可以开启',
-                            position: 'topRight',
-                            // iconText: 'star',
-                        });
+                        }],
+                        ['<button>暂停</button>', function (instance, toast) {
+                            // instance.hide({ transitionOut: 'fadeOutUp' }, toast);
+                            ap.pause();
+                            iziToast.info({
+                                color: 'dark',
+                                icon: 'icon-ondemand_video',
+                                title: 'OK',
+                                message: '好的哦,左下角还可以开启',
+                                position: 'topRight',
+                                // iconText: 'star',
+                            });
 
-                    }],
-                ]
-            });}else{
+                        }],
+                    ]
+                });
+            } else {
                 ap.destroy();
             }
             $("a[ui-toggle='active']").click(function () {
@@ -279,30 +314,47 @@
             //这是提交表单的pjax。form表示所有的提交表单都会执行pjax，比如搜索和提交评论，可自行修改改成你想要执行pjax的form id或class。#container 同上改成你主题的内容主体id或class。
             $.pjax.submit(event, '#main-content');
         });
+        /*$(document).on('pjax:send', function () {
+            var mulu = $('#mulu');
+            if (mulu.length > 0) {
+                $($('#mulu')[0]).html('');
+            }
+        });*/
         $(document).on('pjax:end', function () {
-            if($('.app-left-aside').hasClass('left-active'))
-            {
+            //GenerateContentList();
+            var post=$('#post-main')
+            if(post.length>0){
+                if(toc_bool){
+                    toc.reset();
+                    toc_bool=false;
+                }else{
+                    toc.reload();
+                }
+                $('#toc').removeClass('toc-fixed')
+            }
+            if ($('.app-left-aside').hasClass('left-active')) {
                 $("button.left-button").click();
             }
             flask_moment_render_all();
             $('#main-content a[data-pjax]').pjax();
             var $image = $('.blog-post img');
             $image.viewer();
-            $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
-                function () {
-                    MathJax.Hub.Config({
-                        text2jax: {
-                            inlineMath: [
-                                ['$', '$'],
-                                ['\\(', '\\)']
-                            ]
-                        }
-                    });
-                    var math = document.getElementsByClassName("post-main")[0];
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
-                })
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
+            /* $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+                 function () {
 
+                     MathJax.Hub.Config({
+                         text2jax: {
+                             inlineMath: [
+                                 ['$', '$'],
+                                 ['\\(', '\\)']
+                             ]
+                         }
+                     });
+                     var math = document.getElementsByClassName("post-main")[0];
+                     MathJax.Hub.Queue(["Typeset", MathJax.Hub, math])
+                 });*/
         });
     </script>
 </body>
