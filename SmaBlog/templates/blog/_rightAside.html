@@ -25,7 +25,7 @@
                     <li class="list-group-item">
                         <a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
                         <div class="clear" style="display:block;margin-left:60px;">
-                            <h4  style='font-size: 15px;'><a data-pjax="#main-content"   href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.comments }}</small></div>
+                            <h4  style='font-size: 15px;'><a data-pjax="#main-content"   href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='margin-right: 5px;'></i><span style="vertical-align:super;">{{ post.comments }}</span></small></div>
                     </li>
                     {% endfor %} {% endif %}
                 </ul>
@@ -38,7 +38,7 @@
                     <li class="list-group-item">
                         <a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
                         <div  class="clear" style="display:block;margin-left:60px;">
-                           <h4  style='font-size: 15px;'><a data-pjax="#main-content" href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4><small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.views }}</small></div>
+                           <h4  style='font-size: 15px;'><a data-pjax="#main-content" href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4><small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='margin-right: 5px;'></i><span style="vertical-align:super;">{{ post.views }}</span></small></div>
                     </li>
                     {% endfor %}{% endif %}
                 </ul>

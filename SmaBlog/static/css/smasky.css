@@ -31,10 +31,18 @@ h3,
 h4,
 h5,
 h6,
-p {
+p ,small{
     font-family: inherit;
 }
-
+.left span{
+    font-size: 15px;
+}
+small span{
+    font-size:13px;
+}
+.post-meta span{
+    font-size:15px;
+}
 body {
     line-height: 2;
     font-family: 'sans-bold';
@@ -132,7 +140,7 @@ a {
 }
 
 .post-meta-icon {
-    font-size: 15px !important;
+    font-size: 20px !important;
 }
 
 .container {
