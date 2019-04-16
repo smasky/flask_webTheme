@@ -196,6 +196,7 @@
     <script src="/static/js/loginAjax.js"></script>
     <link href="/static/css/toc-helper.min.css" rel="stylesheet" />
     <script src="/static/js/toc-helper.min.js"></script>
+    <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }} {{ moment.locale('zh-cn') }}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({ showProcessingMessages: false, messageStyle: "none", extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], skipTags: ['script', 'noscript', 'style',
@@ -211,7 +212,6 @@
         });
         find_playlist('2720539934')
     </script>
-    <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script>
         $(window).scroll(function() {
             if ($('#blog-post').length > 0) {
@@ -319,7 +319,9 @@
             $('#main-content a[data-pjax]').pjax();
             var $image = $('.blog-post img');
             $image.viewer();
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            if($('.post-main').length>0){
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub,".post-main"]);
+            }
             $('div.nav-wrap').css('height', $('div.main-content').height() + 'px');
             /* $.getScript("https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
                  function () {

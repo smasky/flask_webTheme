@@ -37,6 +37,11 @@ p ,small{
 p{
     font-size: 15px;
 }
+.post-main img{
+    display: block;
+    margin:0 auto;
+    width: 50%;
+}
 .left span{
     font-size: 15px;
 }
@@ -640,7 +645,11 @@ a {
     background-color: #f2faf985;
     height: 200px !important;
 }
-
+/* 文章图片*/
+.main-head-img img{
+    object-fit: cover;
+    height:400px;
+}
 
 /* blog 字体颜色的css */
 
@@ -800,6 +809,11 @@ textarea {
     .aside {
         width: 160px;
     }
+    /* 文章图片*/
+.main-head-img img{
+    object-fit: cover;
+    height:300px;
+}
     .app-main {
         margin-left: 160px;
     }
@@ -834,6 +848,11 @@ textarea {
     .img-full {
         width: 57px !important;
     }
+    /* 文章图片*/
+.main-head-img img{
+    object-fit: cover;
+    height:200px;
+}
 }
 
 @media screen and (max-width:768px) {
@@ -841,6 +860,11 @@ textarea {
         transform: translate3d(-125px, 0, 0);
         transition: transform .4s ease;
     }
+    /* 文章图片*/
+.main-head-img img{
+    object-fit: cover;
+    height:200px;
+}
     .app-main {
         width: 100%;
         margin-left: 0px;
