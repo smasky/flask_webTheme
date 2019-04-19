@@ -4,6 +4,28 @@ $(function() {
     $('a[data-pjax]').pjax();
 })
 
+function reloadLatex() {
+    window.renderMathInElement(document.getElementById("blog-post"), {
+        delimiters: [{
+            left: "$$",
+            right: "$$",
+            display: true
+        }, {
+            left: "\\[",
+            right: "\\]",
+            display: true
+        }, {
+            left: "$",
+            right: "$",
+            display: false
+        }, {
+            left: "\\(",
+            right: "\\)",
+            display: false
+        }]
+    });
+}
+
 function playPostMusic(id) {
     const subap = new APlayer({
         container: document.getElementById('sub-aplayer'),
