@@ -7,7 +7,11 @@
     <img src="{{ Post.post_img|removeurl }}" style='background-size:contain; width:100%;'>
 </div>
 {% if Post%}
-<div class='blog-post post-main' data-toc="#toc" id='blog-post'>{{ Post.body|safe }}</div>
+<div class='blog-post post-main' data-toc="#toc" id='blog-post' style="margin-bottom:20px;">
+    {% if Post.url %}
+    <div id="sub-aplayer" musicID={{Post.url}}></div>
+    {% endif %} {{ Post.body|safe }}
+</div>
 {% endif %}
 <ol class="comment-list " style="list-style:none; ">
     {% for postcomment in PostCom %}
