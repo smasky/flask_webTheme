@@ -861,9 +861,6 @@
         .panel-body h2{
             font-size: 15px;
         }
-        .left span{
-            font-size: 5px;
-        }
         .nav-stacked li>a{
             padding-left: 10px;
         }
@@ -892,6 +889,7 @@
             transform: translate3d(125px, 0, 0);
             -webkit-transform: translate3d(125px, 0, 0);
             transition: transform .4s ease;
+            touch-action: none;
         }
         .wrap-comment {
             padding-left: 0px !important;
