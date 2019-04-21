@@ -10,7 +10,10 @@ function ajaxForm() {
         dataType: "html",
         success: function(data) {
             $('li.login_user').html(data);
-            $.pjax({ url: window.location.pathname, container: '#main-content' });
+            $.pjax({
+                url: window.location.pathname,
+                container: '#main-content'
+            });
         },
         error: function(e) {
             alert("输入有误");

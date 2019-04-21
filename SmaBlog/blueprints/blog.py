@@ -201,5 +201,10 @@ def login_admin():
                 adminform.username.errors='密码错误或用户名不存在'
                 html=str(render_template('login_fail.html',adminForm=adminform))
                 return html
-
+        else:
+            adminform=AdminForm()
+            adminform.username.errors='用户名不存在'
+            print('111')
+            html=str(render_template('login_fail.html',adminForm=adminform))
+            return html
     return make_response("")
