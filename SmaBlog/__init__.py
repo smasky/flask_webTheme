@@ -84,6 +84,19 @@ def register_commands(app):
         fake_posts(post)
 
         click.echo('Done.')
+    @app.cli.command()
+    @click.option('--avater',default=50)
+    def modifyAv(avater):
+        from .models import Admin
+        admins=Admin.query.filter(Admin.avater=="https://ws1.sinaimg.cn/large/007G9tRkgy1g15xb7y323j3074074q3a.jpg")
+        for admin in admins:
+            admin.avater='http://image.smaskyer.com/fangke.jpg'
+            db.session.add(admin)
+            db.session.commit()
+        admin=Admin.query.filter(Admin.avater=="https://ws1.sinaimg.cn/large/eaad02bagy1g17cqc16onj205i04dt8h.jpg").first()
+        admin.avater="http://image.smaskyer.com/7f920e462ea065035f8bd386e04a2e1.jpg"
+        db.session.add(admin)
+        db.session.commit()
 
     @app.cli.command()
     @click.option('--message',default=50,help='Quantity of message,default is 50.')

@@ -297,7 +297,6 @@
             $("button.left-button").click(function() {
                 var link = '#' + $(this).attr('ui-toggle-target');
                 $(link).toggleClass('main-active');
-                $('.main-content').attr('style','touch-action:none');
                 $('div.app-left-aside').toggleClass('left-active');
             });
             if ($('#blog-post').length > 0) {

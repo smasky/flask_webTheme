@@ -49,18 +49,29 @@ function find_music(id, name, work, cover) {
     var baseUrl = 'http://120.79.36.48/';
     //id = '28815250';
     var url1 = baseUrl + 'music/url?id=' + id;
-    var url3 = baseUrl + 'lyric?id=' + id;
+    //var url3 = baseUrl + 'lyric?id=' + id;
     $.getJSON(url1, function(data1) {
         var url_m = data1.url;
         $.getJSON(url3, function(data) {
-            var lrc1 = data.lrc.lyric;
-            ap.list.add([{
-                name: String(name),
-                artist: String(work),
-                url: url_m,
-                cover: String(cover),
-                lrc: lrc1,
-            }]);
+
+            if(data.hasOwnProperty("lrc"){
+                var lrc1 = data.lrc.lyric;
+                ap.list.add([{
+                    name: String(name),
+                    artist: String(work),
+                    url: url_m,
+                    cover: String(cover),
+                    lrc: lrc1,
+                }]);
+            }else{
+                ap.list.add([{
+                    name: String(name),
+                    artist: String(work),
+                    url: url_m,
+                    cover: String(cover),
+                }]);
+            }
+
 
         });
     });
