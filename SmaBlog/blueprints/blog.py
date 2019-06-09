@@ -101,6 +101,8 @@ def register():
         name=form.name.data
         email=form.email.data
         avater=form.avater.data
+        if('//' not in avater):
+            avater="http://q1.qlogo.cn/g?b=qq&nk={}&s=640".format(avater)
         auth_code=form.auth_code.data
         adminU=Admin.query.filter(Admin.username==username).first()
         adminE=Admin.query.filter(Admin.email==email).first()

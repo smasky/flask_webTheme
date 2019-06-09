@@ -49,33 +49,33 @@ function find_music(id, name, work, cover) {
     var baseUrl = 'http://120.79.36.48/';
     //id = '28815250';
     var url1 = baseUrl + 'music/url?id=' + id;
+    console.log(url1);
     //var url3 = baseUrl + 'lyric?id=' + id;
     $.getJSON(url1, function(data1) {
         var url_m = data1.url;
-        $.getJSON(url3, function(data) {
 
-            if(data.hasOwnProperty("lrc"){
-                var lrc1 = data.lrc.lyric;
-                ap.list.add([{
-                    name: String(name),
-                    artist: String(work),
-                    url: url_m,
-                    cover: String(cover),
-                    lrc: lrc1,
-                }]);
-            }else{
-                ap.list.add([{
-                    name: String(name),
-                    artist: String(work),
-                    url: url_m,
-                    cover: String(cover),
-                }]);
-            }
-
-
-        });
+        //if (data.hasOwnProperty("lrc")) {
+        //  console.log('歌拉取成功！');
+        // var lrc1 = data.lrc.lyric;
+        //ap.list.add([{
+        //    name: String(name),
+        //   artist: String(work),
+        //  url: url_m,
+        // cover: String(cover),
+        // lrc: lrc1,
+        // }]);
+        //   } else {
+        console.log('歌拉取成功！');
+        ap.list.add([{
+            name: String(name),
+            artist: String(work),
+            url: url_m,
+            cover: String(cover),
+        }]);
+        // }
     });
-}
+};
+
 
 function find_playlist(id) {
     var baseUrl = 'http://120.79.36.48/';

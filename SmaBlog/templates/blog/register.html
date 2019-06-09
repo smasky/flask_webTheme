@@ -5,7 +5,7 @@
     <small>不困于情，不畏将来，不念过往。</small>
 </div>
 <div class="head-img" style='padding: 15px 15px;'>
-    <img src="https://ws1.sinaimg.cn/large/e837aa80gy1g15tn8vl6fj21ao0si7wh.jpg" style='background-size:contain; width:100%;'>
+    <img src="http://image.smaskyer.com/liuyanban.jpg!s" style='background-size:contain; width:100%;'>
 </div>
 <div class='form-info'>
     <h3>用户注册</h3>
@@ -27,7 +27,7 @@
             <small class="error">{{ message }}</small> {% endfor %}
         </div>
         <div class="form-group ">
-            {{ Form.avater.label }} {{ Form.avater(class='form-control') }}
+            {{ Form.avater.label }} {{ Form.avater(class='form-control',placeholder="推荐填QQ号，获取QQ头像，防止所填头像地址失效！") }}
         </div>
         <div class="form-group ">
             {{ Form.auth_code.label }} {{ Form.auth_code(class='form-control') }} {% for message in Form.auth_code.errors %}
