@@ -13,7 +13,8 @@ from .blueprints.blog import blog_bp
 from .settings import config
 from .utils import sum_comment
 from datetime import datetime
-from .extensions import db,bootstrap,moment,csrf,login,Guest,pjax
+from .extensions import db,bootstrap,moment,csrf,login,Guest,pjax,robot
+from werobot.contrib.flask import make_view
 '''
 创建app主体文件
 '''
@@ -46,6 +47,13 @@ def register_extensions(app):
     csrf.init_app(app)
     login.init_app(app)
     pjax.init_app(app)
+    view_robot=make_view(robot)
+    app.add_url_rule(rule='/robot/', # WeRoBot 挂载地址
+                 endpoint='werobot', # Flask 的 endpoint
+                 view_func=view_robot,
+                 methods=['GET', 'POST'])
+
+    csrf.exempt(view_robot)
     login.anonymous_user=Guest
     migrate=Migrate(app,db,render_as_batch=True)
 
