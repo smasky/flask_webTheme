@@ -41,5 +41,7 @@ def loading_post(filename=''):
                         abstract=Info['abstract'],
                         comments=0,
                         timestamp=datetime.strptime(Info['time'].strip(),'%Y-%m-%d'))
+        if('url' in Info.keys()):
+            post.url=Info['url']
         db.session.add(post)
         db.session.commit()
