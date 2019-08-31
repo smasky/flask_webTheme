@@ -6,18 +6,17 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flask-sqlalchemy = "*"
-faker = "*"
-flask-bootstrap = "*"
+click = "*"
+sqlalchemy = "*"
 flask = "*"
-flask-moment = "*"
-markdown = "*"
-flask-wtf = "*"
-requests = "*"
-flask-login = "*"
-flask-script = "*"
-flask-pjax = "*"
 flask-migrate = "*"
+flask-bootstrap = "*"
+flask-moment = "*"
+flask-wtf = "*"
+flask-login = "*"
+flask-pjax = "*"
+werobot = "*"
+flask-script = "*"
 
 [requires]
 python_version = "3.6"

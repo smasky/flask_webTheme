@@ -80,7 +80,13 @@ def register_commands(app):
         click.echo(filename)
         loading_post(filename)
         click.echo('done.')
-
+    @app.cli.command()
+    @click.option('--filename',help='add new question')
+    def addque(filename):
+        from .utils import loadque
+        click.echo(filename)
+        loadque(filename)
+        click.echo('done.')
 
     @app.cli.command()
     @click.option('--post', default=50, help='Quantity of posts, default is 50.')

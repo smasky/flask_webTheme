@@ -6,12 +6,13 @@
 """
 
 from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request
-from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment
+from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,itembox
 from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm,SpeakForm
-from SmaBlog.extensions import db
+from SmaBlog.extensions import db,csrf
 from flask_login import login_user,logout_user,login_required,current_user
 from SmaBlog.utils import redirect_back,sum_comment
 from datetime import datetime
+import json
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
 
@@ -210,3 +211,33 @@ def login_admin():
             html=str(render_template('login_fail.html',adminForm=adminform))
             return html
     return make_response("")
+@csrf.exempt
+@blog_bp.route('/weixin',methods=['POST','GET'])
+def weixincx():
+    if request.method=='POST':
+        data=request.get_data()
+        json_data = json.loads(data.decode("utf-8"))
+        papercode=json_data['papercode']
+        print(papercode)
+        items=itembox.query.filter(itembox.papercode==int(papercode)).all()
+        Que=[]
+        if(items):
+            for item in items:
+                qnaire={}
+                answer={}
+                question=item.question
+                answers=item.answers
+                right=item.right
+                qnaire['question']=question
+                print(answers)
+                options=answers.split('/')
+                answer['a']=options[0]
+                answer['b']=options[1]
+                answer['c']=options[2]
+                answer['d']=options[3]
+                qnaire['option']=answer
+                qnaire['answer']=right
+                Que.append(qnaire)
+        else:
+            Que={'error':'不存在该试题码'}
+    return json.dumps(Que,ensure_ascii=False)

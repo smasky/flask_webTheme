@@ -40,6 +40,13 @@ class SelfComment(db.Model):
     admin_id=db.Column(db.Integer,db.ForeignKey('admin.id'))
     admin=db.relationship('Admin',back_populates='selfcomments')
 
+class itembox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    papercode=db.Column(db.Integer)
+    question=db.Column(db.String)
+    answers=db.Column(db.String)#ssss\sss\sss\sss
+    right=db.Column(db.String)
+
 class Admin(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(20))
