@@ -6,13 +6,14 @@
 """
 
 from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request
-from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,itembox
+from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,Itembox
 from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm,SpeakForm
 from SmaBlog.extensions import db,csrf
 from flask_login import login_user,logout_user,login_required,current_user
 from SmaBlog.utils import redirect_back,sum_comment
 from datetime import datetime
 import json
+import requests
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
 
@@ -219,7 +220,7 @@ def weixincx():
         json_data = json.loads(data.decode("utf-8"))
         papercode=json_data['papercode']
         print(papercode)
-        items=itembox.query.filter(itembox.papercode==int(papercode)).all()
+        items=Itembox.query.filter(Itembox.papercode==int(papercode)).all()
         Que=[]
         if(items):
             for item in items:
@@ -241,3 +242,17 @@ def weixincx():
         else:
             Que={'error':'不存在该试题码'}
     return json.dumps(Que,ensure_ascii=False)
+@csrf.exempt
+@blog_bp.route('/loginweixin',methods=['POST','GET'])
+def loginweixin():
+    if request.method=='POST':
+        appID='wxd7def1e0e031ba47'
+        appSecret='ec2b6482408a8c8e9d0ed36a743acbd4'
+        data=request.get_data()
+        json_data = json.loads(data.decode("utf-8"))
+        code=json_data['code']
+        url='https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'.format(appID,appSecret,code)
+        req=requests.get(url)
+        openid=req.json()['openid']
+        print(openid)
+    return data

@@ -39,14 +39,31 @@ class SelfComment(db.Model):
     secret=db.Column(db.Boolean,default=False)
     admin_id=db.Column(db.Integer,db.ForeignKey('admin.id'))
     admin=db.relationship('Admin',back_populates='selfcomments')
-
-class itembox(db.Model):
+'''
+微信部分数据库
+'''
+class Itembox(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     papercode=db.Column(db.Integer)
     question=db.Column(db.String)
     answers=db.Column(db.String)#ssss\sss\sss\sss
     right=db.Column(db.String)
+    itemboxs=db.relationship('Weiitem',back_populates='itembox')
+class Weiadmin(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    openid=db.Column(db.String,unique=True)
+    weiitems=db.relationship('Weiitem',back_populates='weiadmin')
+class Weiitem(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    weiadmin_id=db.Column(db.Integer,db.ForeignKey('weiadmin.id'))
+    weiadmin=db.relationship('Weiadmin',back_populates='weiitems')
+    itembox_id=db.Column(db.Integer,db.ForeignKey('itembox.id'))
+    itembox=db.relationship('Itembox',back_populates='itemboxs')
+    rank=db.Column(db.Integer)
+    answers=db.Column(db.String)
 
+'''
+'''
 class Admin(db.Model,UserMixin):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(20))
