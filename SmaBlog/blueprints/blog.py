@@ -6,14 +6,16 @@
 """
 
 from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request
-from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,Itembox
+from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,Itembox,Weiadmin,Weiitem,Dati,Paperday
 from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm,SpeakForm
 from SmaBlog.extensions import db,csrf
 from flask_login import login_user,logout_user,login_required,current_user
-from SmaBlog.utils import redirect_back,sum_comment
+from SmaBlog.utils import redirect_back,sum_comment,encrypt,decrypt
 from datetime import datetime
+from sqlalchemy import and_
 import json
 import requests
+
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
 
@@ -221,7 +223,9 @@ def weixincx():
         papercode=json_data['papercode']
         print(papercode)
         items=Itembox.query.filter(Itembox.papercode==int(papercode)).all()
-        Que=[]
+        Que={}
+        answerid=[]
+        Que['shiti']=[]
         if(items):
             for item in items:
                 qnaire={}
@@ -236,12 +240,15 @@ def weixincx():
                 answer['b']=options[1]
                 answer['c']=options[2]
                 answer['d']=options[3]
+                answerid.append(item.id)
                 qnaire['option']=answer
                 qnaire['answer']=right
-                Que.append(qnaire)
+                Que['shiti'].append(qnaire)
+            Que['answerid']=answerid
         else:
             Que={'error':'不存在该试题码'}
     return json.dumps(Que,ensure_ascii=False)
+
 @csrf.exempt
 @blog_bp.route('/loginweixin',methods=['POST','GET'])
 def loginweixin():
@@ -251,8 +258,87 @@ def loginweixin():
         data=request.get_data()
         json_data = json.loads(data.decode("utf-8"))
         code=json_data['code']
-        url='https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'.format(appID,appSecret,code)
-        req=requests.get(url)
-        openid=req.json()['openid']
+        try:
+            url='https://api.weixin.qq.com/sns/jscode2session?appid={}&secret={}&js_code={}&grant_type=authorization_code'.format(appID,appSecret,code)
+            req=requests.get(url)
+            openid=req.json()['openid']
+        except BaseException as e:
+            if(json_data['hash']):
+                openid=decrypt(5,hash)
+        weixin=Weiadmin.query.filter(Weiadmin.openid==openid).first()
+        code=encrypt(5,openid)
         print(openid)
-    return data
+        if(not weixin):
+            data={'message':1,'code':code}
+        else:
+            data={'message':0,'code':code}
+    json_data=json.dumps(data)
+    print(json_data)
+    return json_data
+@csrf.exempt
+@blog_bp.route('/registerweixin',methods=['POST','GET'])
+def registerweixin():
+    if request.method=='POST':
+        data=request.get_data()
+        data= json.loads(data.decode("utf-8"))
+        username=data.get('username')
+        truename=data.get('truename')
+        code=data.get('code')
+        openid=decrypt(5,code)
+        print(openid)
+        years=data.get('years')
+        ifstudent=data.get('ifstudent')
+        weixin=Weiadmin(openid=openid,username=username,truename=truename,year=years,ifstudent=ifstudent)
+        db.session.add(weixin)
+        db.session.commit()
+    data={'message':1}
+    return json.dumps(data)
+
+@csrf.exempt
+@blog_bp.route('/datiweixin',methods=['POST','GET'])
+def datiweixin():
+    if request.method=='POST':
+        data=request.get_data()
+        data= json.loads(data.decode("utf-8"))
+        ranks=data.get('rank')
+        answers=data.get('answers')
+        papercode=data.get('paperid')
+        answerid=data.get('answerid')
+        right=data.get('right')
+        code=data.get('code')
+        openid=decrypt(5,code)
+        admin_id=Weiadmin.query.filter(Weiadmin.openid==openid).first().id
+
+        stranswer=' '.join(answers)
+
+        num=len(answerid)
+    
+        paperday_id=Paperday.query.filter(Paperday.paperdaycode==papercode).first().id
+        weiitem=Weiitem.query.filter(and_(Weiitem.weiadmin_id==admin_id,Weiitem.paperday_id==paperday_id)).first()
+        if(not weiitem):
+            weiitem=Weiitem(weiadmin_id=admin_id,paperday_id=paperday_id,answers=stranswer,rank=ranks)
+            db.session.add(weiitem)
+            db.session.commit()
+            weiitem=Weiitem.query.filter(and_(Weiitem.weiadmin_id==admin_id,Weiitem.paperday_id==paperday_id)).first()
+            weiitem_id=weiitem.id
+            for i in range(num):
+                answer_id=answerid[i]
+                subanswerid=answerid[i]
+                itembox=Itembox.query.filter(Itembox.id==subanswerid).first()
+                itembox_id=itembox.id
+                subanswer=answers[i]
+                subright=right[i]
+                if(subright):
+                    subright=True
+                else:
+                    subright=False
+                dati=Dati(itembox_id=itembox_id,right=subright,answer=subanswer,weiitem_id=weiitem_id)
+                db.session.add(dati)
+            db.session.commit()
+            data={'message':'今日答题成功！','suc':True}
+        else:
+            data={'message':'请勿重复答题哦！','suc':False}
+    return json.dumps(data)
+    
+
+

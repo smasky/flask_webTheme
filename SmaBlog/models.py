@@ -48,20 +48,41 @@ class Itembox(db.Model):
     question=db.Column(db.String)
     answers=db.Column(db.String)#ssss\sss\sss\sss
     right=db.Column(db.String)
-    itemboxs=db.relationship('Weiitem',back_populates='itembox')
+    paperday_id=db.Column(db.Integer,db.ForeignKey('paperday.id'))
+    paperday=db.relationship('Paperday',back_populates='itemboxs')
+    dati=db.relationship('Dati',back_populates='itembox')
+class Paperday(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    paperdaycode=db.Column(db.Integer,unique=True)
+    content=db.Column(db.String)
+    weiitems=db.relationship('Weiitem',back_populates='paperday')
+    itemboxs=db.relationship('Itembox',back_populates='paperday')
+class Dati(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    itembox_id=db.Column(db.Integer,db.ForeignKey('itembox.id'))
+    itembox=db.relationship('Itembox',back_populates='dati')
+    right=db.Column(db.Boolean)
+    answer=db.Column(db.String)
+    weiitem_id=db.Column(db.Integer,db.ForeignKey('weiitem.id'))
+    weiitem=db.relationship('Weiitem',back_populates='datis')
+    
 class Weiadmin(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     openid=db.Column(db.String,unique=True)
+    truename=db.Column(db.String)
+    username=db.Column(db.String)
+    year=db.Column(db.String)
+    ifstudent=db.Column(db.Boolean)
     weiitems=db.relationship('Weiitem',back_populates='weiadmin')
 class Weiitem(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     weiadmin_id=db.Column(db.Integer,db.ForeignKey('weiadmin.id'))
     weiadmin=db.relationship('Weiadmin',back_populates='weiitems')
-    itembox_id=db.Column(db.Integer,db.ForeignKey('itembox.id'))
-    itembox=db.relationship('Itembox',back_populates='itemboxs')
+    paperday_id=db.Column(db.Integer,db.ForeignKey('paperday.id'))
+    paperday=db.relationship('Paperday',back_populates='weiitems')
+    datis=db.relationship('Dati',back_populates='weiitem')
     rank=db.Column(db.Integer)
     answers=db.Column(db.String)
-
 '''
 '''
 class Admin(db.Model,UserMixin):
