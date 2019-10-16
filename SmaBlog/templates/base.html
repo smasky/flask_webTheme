@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename='css/smasky.css')}}">
     <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
@@ -213,7 +214,13 @@
             autoplay: false,
             audio: []
         });
-        find_playlist('2720539934')
+        //find_playlist('2720539934')
+        ap.list.add([{
+            name: '年少有为',
+            artist: '李荣浩',
+            url: 'http://127.0.0.1:5000/music/music',
+            cover: './static/img/music-back.jpg',
+        }]);
     </script>
     <script>
         var audioStatus;
@@ -267,7 +274,7 @@
                                 color: 'dark',
                                 icon: 'icon-photo',
                                 title: 'OK',
-                                message: '好的哦，一首凉凉送给你',
+                                message: '好的哦',
                                 position: 'topRight',
                             });
 
@@ -318,13 +325,14 @@
         $(document).on('pjax:end', function() {
             audioStatus = ap.audio.paused;
             console.log(audioStatus);
-            var music = $("#sub-aplayer").attr("musicID")
+            var music = $("#sub-aplayer").attr("musicUrl")
             if (typeof(music) == "undefined") {
                 if (!audioStatus) {
                     ap.play();
                 }
             } else {
                 playPostMusic(music);
+
             }
             $('#toc').empty();
             if ($('#blog-post').length > 0) {

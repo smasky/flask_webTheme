@@ -9,7 +9,7 @@
 {% if Post%}
 <div class='blog-post post-main' data-toc="#toc" id='blog-post' style="margin-bottom:20px;">
     {% if Post.url %}
-    <div id="sub-aplayer" musicID={{Post.url}}></div>
+    <div id="sub-aplayer" musicName={{Music.name}} musicArtist={{Music.artist}} musicUrl={{Music.url}}></div>
     {% endif %} {{ Post.body|safe }}
 </div>
 {% endif %}

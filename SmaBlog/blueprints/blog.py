@@ -5,8 +5,8 @@
     :license: MIT, see LICENSE for more details.
 """
 
-from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request
-from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,Itembox,Weiadmin,Weiitem,Dati,Paperday
+from flask import Blueprint,request,render_template,current_app,redirect,url_for,flash,make_response,request,Response
+from SmaBlog.models import Post,Message,Admin,PostComment,SelfComment,Itembox,Weiadmin,Weiitem,Dati,Paperday,Music
 from SmaBlog.forms import MessageForm,AdminForm,RegisterForm,PostCommentForm,SpeakForm
 from SmaBlog.extensions import db,csrf
 from flask_login import login_user,logout_user,login_required,current_user
@@ -92,7 +92,12 @@ def show_post(post_id):
             return res
         return redirect(url_for('blog.show_post',post_id=post_id))
     db.session.commit()
-    return render_template('blog/post.html',Post=post,adminForm=admin_form,PostCom=post_coms,Form=form)
+    if(post.url):
+        music=Music.query.filter(Music.id==post.url).first() 
+        return render_template('blog/post.html',Post=post,adminForm=admin_form,PostCom=post_coms,Form=form,Music=music)
+    else:
+        return render_template('blog/post.html',Post=post,adminForm=admin_form,PostCom=post_coms,Form=form)
+
 #注册视图
 @blog_bp.route('/register',methods=['GET','POST'])
 def register():
@@ -180,7 +185,14 @@ def logout():
     adminform=AdminForm()
     html=str(render_template('login_fail.html',adminForm=adminform))
     return html
-
+#####################################获取音乐
+@blog_bp.route('/music/<string:name>',methods=['GET','POST'])
+def Music1(name):
+    url='SmaBlog/static/music/{}.mp3'.format(name)
+    with open(url,'rb') as f:
+       content=f.read()
+    return Response(content,mimetype="audio/mpeg3") 
+###############################################此处为微信小程序的内容
 def login(admin_form):
     if admin_form.validate_on_submit():
         user_name=admin_form.username.data

@@ -32,16 +32,26 @@ function playPostMusic(id) {
         autoplay: false,
         audio: []
     });
-    var url = 'https://api.itooi.cn/music/netease/song?key=579621905&id=' + id
-    $.post(url, function(data1) {
-        console.log(data1.data);
-        subap.list.add([{
-            name: data1.data.name,
-            artist: data1.data.singer,
-            url: data1.data.url,
-            cover: data1.data.pic,
-        }]);
-    }, 'json');
+    //var url = 'https://api.itooi.cn/music/netease/song?key=579621905&id=' + id
+    //$.post(url, function(data1) {
+    //   console.log(data1.data);
+    //  subap.list.add([{
+    //       name: '过客',
+    //      artist: '周思涵',
+    //      url: 'https://127.0.0.1:5000/music/music/guoke',
+    //      cover: './static/img/guoke.jpg',
+    //  }]);
+    // }, 'json');
+    var name = $("#sub-aplayer").attr("musicName")
+    var artist = $("#sub-aplayer").attr("musicName")
+    var url = 'http://127.0.0.1:5000/music/' + id
+    var url1 = '../static/img/' + id + '.jpg'
+    subap.list.add([{
+        name: name,
+        artist: artist,
+        url: url,
+        cover: url1,
+    }]);
     subap.play();
 }
 
@@ -53,18 +63,6 @@ function find_music(id, name, work, cover) {
     //var url3 = baseUrl + 'lyric?id=' + id;
     $.getJSON(url1, function(data1) {
         var url_m = data1.url;
-
-        //if (data.hasOwnProperty("lrc")) {
-        //  console.log('歌拉取成功！');
-        // var lrc1 = data.lrc.lyric;
-        //ap.list.add([{
-        //    name: String(name),
-        //   artist: String(work),
-        //  url: url_m,
-        // cover: String(cover),
-        // lrc: lrc1,
-        // }]);
-        //   } else {
         console.log('歌拉取成功！');
         ap.list.add([{
             name: String(name),
@@ -72,7 +70,6 @@ function find_music(id, name, work, cover) {
             url: url_m,
             cover: String(cover),
         }]);
-        // }
     });
 };
 

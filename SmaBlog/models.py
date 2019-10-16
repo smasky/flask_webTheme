@@ -13,6 +13,12 @@ class Post(db.Model):
     timestamp=db.Column(db.DateTime,default=datetime.utcnow,index=True)
     comments=db.Column(db.Integer,default=0)
     postcomments=db.relationship('PostComment',back_populates='post',cascade='all')
+    
+class Music(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    name=db.Column(db.String(20))
+    artist=db.Column(db.String(20))
+    url=db.Column(db.String(20))
 
 class Message(db.Model):
     id=db.Column(db.Integer,primary_key=True)
