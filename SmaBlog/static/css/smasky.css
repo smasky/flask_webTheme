@@ -25,6 +25,30 @@
         src: url('iconfont.eot?#iefix') format('embedded-opentype'), url('iconfont.woff2') format('woff2'), url('iconfont.woff') format('woff'), url('iconfont.ttf') format('truetype'), url('iconfont.svg#iconfont') format('svg');
     }
     
+    @font-face {
+        font-family: 'weblight';
+        font-display: swap;
+        src: url('//at.alicdn.com/t/webfont_vf43h649wf.eot');
+        /* IE9*/
+        src: url('//at.alicdn.com/t/webfont_vf43h649wf.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('//at.alicdn.com/t/webfont_vf43h649wf.woff2') format('woff2'), url('//at.alicdn.com/t/webfont_vf43h649wf.woff') format('woff'), /* chrome、firefox */
+        url('//at.alicdn.com/t/webfont_vf43h649wf.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('//at.alicdn.com/t/webfont_vf43h649wf.svg#Alibaba-PuHuiTi-Regular') format('svg');
+        /* iOS 4.1- */
+    }
+    
+    @font-face {
+        font-family: 'webmedium';
+        font-display: swap;
+        src: url('//at.alicdn.com/t/webfont_qt45u3q17r.eot');
+        /* IE9*/
+        src: url('//at.alicdn.com/t/webfont_qt45u3q17r.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('//at.alicdn.com/t/webfont_qt45u3q17r.woff2') format('woff2'), url('//at.alicdn.com/t/webfont_qt45u3q17r.woff') format('woff'), /* chrome、firefox */
+        url('//at.alicdn.com/t/webfont_qt45u3q17r.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('//at.alicdn.com/t/webfont_qt45u3q17r.svg#AlibabaPuHuiTiM') format('svg');
+        /* iOS 4.1- */
+    }
+    
     h1,
     h2,
     h3,
@@ -38,6 +62,10 @@
     
     p {
         font-size: 15px;
+    }
+    
+    .font-big {
+        font-size: 20px !important;
     }
     
     .post-main img {
@@ -55,12 +83,12 @@
     }
     
     .post-meta span {
-        font-size: 15px;
+        font-size: 12px;
     }
     
     body {
         line-height: 2;
-        font-family: 'sans-bold';
+        font-family: 'weblight';
     }
     
     .app-main {
@@ -159,7 +187,7 @@
     }
     
     .post-meta-icon {
-        font-size: 20px !important;
+        font-size: 15px !important;
     }
     
     .container {
@@ -300,7 +328,7 @@
     }
     
     .text-muted {
-        color: #a0a0a0;
+        color: #a0a0a0 !important;
     }
     
     .bg-white {
@@ -499,12 +527,18 @@
     }
     
     .panel-body {
-        padding: 30px;
+        padding: 10px;
+        padding-left: 30px;
+        padding-top: 30px;
     }
     
     .panel-body h2 {
         font-size: 18px;
         margin-top: 0px !important;
+    }
+    
+    .panel-body p {
+        margin: 10px 0px !important;
     }
     
     .main-head-img {
@@ -755,12 +789,14 @@
     
     footer {
         text-align: center;
-        padding: 10px 0px;
+        padding: 0px;
         color: #0f0f0f;
+        margin-top: 30px;
+        font-size: 10px !important;
     }
     
     footer div {
-        padding: 5px 0px;
+        padding: 0px;
     }
     /* blog post的字体 */
     
