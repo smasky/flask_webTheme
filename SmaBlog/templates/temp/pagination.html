@@ -1,0 +1,19 @@
+{% macro render_pagination(pagination, endpoint=None, prev=('&laquo;')|safe, next=('&raquo;')|safe, size=None, ellipses='…', args={} ) -%}
+<nav>
+    <ul class="pagination{% if size %} pagination-{{size}}{% endif %}" {{kwargs|xmlattr}}>
+        {# prev and next are only show if a symbol has been passed. #} {% if prev != None -%}
+        <li{% if not pagination.has_prev %} class="disabled" {% endif %}><a data-pjax='#main-content' href="{{url_for(endpoint, page_item=pagination.prev_num) if pagination.has_prev else '#'}}">{{prev}}</a>
+            </li>
+            {%- endif -%} {%- for page in pagination.iter_pages() %} {% if page %} {% if page != pagination.page %}
+            <li><a data-pjax='#main-content' href="{{url_for(endpoint, page_item=page)}}">{{page}}</a></li>
+            {% else %}
+            <li class="active"><a data-pjax='#main-content' href="#">{{page}} <span class="sr-only">(current)</span></a></li>
+            {% endif %} {% elif ellipses != None %}
+            <li class="disabled"><a data-pjax='#main-content' href="#">{{ellipses}}</a></li>
+            {% endif %} {%- endfor %} {% if next != None -%}
+            <li{% if not pagination.has_next %} class="disabled" {% endif %}><a data-pjax='#main-content' href="{{url_for(endpoint, page_item=pagination.next_num) if pagination.has_next else '#'}}">{{next}}</a>
+                </li>
+                {%- endif -%}
+    </ul>
+</nav>
+{% endmacro %}

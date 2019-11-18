@@ -18,6 +18,8 @@
     <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src="{{ url_for('static',filename='js/jquery.pagination.js') }}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/pagination.css')}}">
     <script type='text/javascript' src="{{ url_for('static',filename='js/jquery.pjax.js') }}"></script>
     {% endblock head %}
 </head>
@@ -130,22 +132,6 @@
                 <div class="line bg-white"></div>
                 <ul class="nav nav-stacked">
                     <li class="aside-nav-head"><span>功能:</span></li>
-                    <!---<li><a ui-toggle="active" ui-toggle-target="sub-liOne"><i class="iconfont icon-fenlei aside-icon"></i><span
-                                href="#">分类</span></a></li>
-                    <ul id="sub-liOne" class="sub-li nav-sub">
-                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">个人生活</span></a></li>
-                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">水力学</span></a></li>
-                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">代码</span></a></li>
-                        <li><a><i class="iconfont icon-jiachang_woderenwu aside-icon"></i><span href="#">学习笔记</span></a></li>
-                    </ul>
-                    <li><a ui-toggle='active' ui-toggle-target='sub-liTwo'><i class="iconfont icon-iconset0335 aside-icon"></i><span
-                                href="#">页面</span></a></li>
-                    <ul id="sub-liTwo" class="sub-li nav-sub">
-                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">推荐页</span></a></li>
-                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">文章页</span></a></li>
-                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">留言板</span></a></li>
-                        <li><a><i class="iconfont icon-fuhaolei-yemian aside-icon"></i><span href="#">关于我</span></a></li>
-                    </ul>-->
                     <li class='left'><a ui-toggle='active' ui-toggle-target='sub-liThree'><i
                                 class="iconfont icon-youlian aside-icon"></i><span href="#">友链</span></a></li>
                     <ul id="sub-liThree" class="sub-li nav-sub">
@@ -218,7 +204,7 @@
         ap.list.add([{
             name: '年少有为',
             artist: '李荣浩',
-            url: 'http://127.0.0.1:5000/music/music',
+            url: 'https://www.smaskyer.com/music/music',
             cover: './static/img/music-back.jpg',
         }]);
     </script>
@@ -249,6 +235,7 @@
 
         });
         $(document).ready(function() {
+            $('.box').pagination();
             $().fancybox({
                 selector: '[data-fancybox="images"]',
                 loop: true,

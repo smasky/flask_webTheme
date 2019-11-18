@@ -152,14 +152,32 @@ def register_template_context(app):
     @app.context_processor
     def inject_right():
         from SmaBlog.utils import cal_days
+        import random
         post_info={}
         hot_posts=Post.query.order_by(Post.comments.desc())[:5]
         rand_posts=Post.query.order_by(Post.views.desc())[:5]
+        HotPost=[]
+        RandPost=[]
+        for i in range(5):
+            hot_item={}
+            hot_item['id']=hot_posts[i].id
+            hot_item['comments']=hot_posts[i].comments
+            hot_item['title']=hot_posts[i].title
+            hot_item['avater']='img/s-1-{}.png'.format(random.randint(1,11))
+
+            rand_item={}
+            rand_item['id']=rand_posts[i].id
+            rand_item['views']=rand_posts[i].views
+            rand_item['title']=rand_posts[i].title
+            rand_item['avater']='img/s-1-{}.png'.format(random.randint(1,11))
+
+            HotPost.append(hot_item)
+            RandPost.append(rand_item)
         post_info['number']=Post.query.count()
         post_info['num']=sum_comment(Post.query.all())
         post_info['days_from_s']=str(cal_days())+'天'
         post_info['modify']=datetime.utcnow()
-        return dict(Post_info=post_info,hot_posts=hot_posts,rand_posts=rand_posts)
+        return dict(Post_info=post_info,hot_posts=HotPost,rand_posts=RandPost)
 
 
 def do_remove(string):

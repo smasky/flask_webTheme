@@ -18,19 +18,37 @@ import requests
 
 #在app上注册一个叫blog的蓝本
 blog_bp=Blueprint('blog',__name__)
-
+###主页666
 @blog_bp.route('/',methods=['GET','POST'])
 def index():
-    page=request.args.get('page',1,type=int)
+    '''
+    #page=request.args.get('page',1,type=int)
+    page=1
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
     pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page, per_page=per_page)
     posts=pagination.items
     admin_form=AdminForm()
     login(admin_form)
-
     return render_template('blog/index.html',Posts=posts,pagination=pagination,adminForm=admin_form)
-
-
+    '''
+    page_item=1
+    per_page=current_app.config['BLUELOG_POST_PER_PAGE']
+    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page_item, per_page=per_page)
+    posts=pagination.items
+    admin_form=AdminForm()
+    login(admin_form)
+    return render_template('blog/index.html',Posts=posts,pagination=pagination,adminForm=admin_form)
+    #return redirect(url_for('blog.indexPage', page_item=1))
+####主页 page
+@blog_bp.route('/page/<int:page_item>',methods=['GET','POST'])
+def indexPage(page_item):
+    per_page=current_app.config['BLUELOG_POST_PER_PAGE']
+    pagination = Post.query.order_by(Post.timestamp.desc()).paginate(page_item, per_page=per_page)
+    posts=pagination.items
+    admin_form=AdminForm()
+    login(admin_form)
+    return render_template('blog/index.html',Posts=posts,pagination=pagination,adminForm=admin_form)
+####关于我
 @blog_bp.route('/aboutme',methods=['GET','POST'])
 def aboutme():
 
@@ -38,6 +56,7 @@ def aboutme():
     login(admin_form)
     return render_template('blog/aboutMe.html',adminForm=admin_form)
 
+####文章页面
 @blog_bp.route('/posts/<int:post_id>',methods=['GET','POST'])
 def show_post(post_id):
 
@@ -146,7 +165,7 @@ def register():
 #留言板视图
 @blog_bp.route('/MessageBoard',methods=['GET','POST'])
 def MessageBoard():
-    page=request.args.get('page',1,type=int)
+    page=1
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
     pagination = Message.query.order_by(Message.timestamp.desc()).paginate(page, per_page=per_page)
     messages=pagination.items
@@ -160,10 +179,27 @@ def MessageBoard():
         db.session.commit()
         return redirect(url_for('blog.MessageBoard'))
     return render_template('blog/MessageBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
-#我的动态视图
+    #return redirect(url_for('blog.MessageBoardPage',page_item=1))
+@blog_bp.route('/MessageBoard/page/<int:page_item>',methods=['GET','POST'])
+def MessageBoardPage(page_item):
+    page=page_item
+    per_page=current_app.config['BLUELOG_POST_PER_PAGE']
+    pagination = Message.query.order_by(Message.timestamp.desc()).paginate(page, per_page=per_page)
+    messages=pagination.items
+    form=MessageForm()
+    admin_form=AdminForm()
+    login(admin_form)
+    if form.validate_on_submit():
+        Body=form.body.data
+        message=Message(body=Body,admin_id=current_user.id)
+        db.session.add(message)
+        db.session.commit()
+        return redirect(url_for('blog.MessageBoard'))
+    return render_template('blog/MessageBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
+#我的动态视图 自言自语
 @blog_bp.route('/speakself',methods=['GET','POST'])
 def SpeakSelf():
-    page=request.args.get('page',1,type=int)
+    page=1
     per_page=current_app.config['BLUELOG_POST_PER_PAGE']
     pagination = SelfComment.query.order_by(SelfComment.timestamp.desc()).paginate(page, per_page=per_page)
     messages=pagination.items
@@ -178,6 +214,26 @@ def SpeakSelf():
         db.session.commit()
         return redirect(url_for('blog.SpeakSelf'))
     return render_template('blog/speakBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
+    #return redirect(url_for('blog.SpeakSelfPage',page_item=1))
+@blog_bp.route('/speakself/page/<int:page_item>',methods=['GET','POST'])
+def SpeakSelfPage(page_item):
+    page=page_item
+    per_page=current_app.config['BLUELOG_POST_PER_PAGE']
+    pagination = SelfComment.query.order_by(SelfComment.timestamp.desc()).paginate(page, per_page=per_page)
+    messages=pagination.items
+    form=SpeakForm()
+    admin_form=AdminForm()
+    login(admin_form)
+    if form.validate_on_submit() and current_user.test_right():
+        Body=form.body.data
+        secret=form.secret.data
+        message=SelfComment(body=Body,admin_id=current_user.id,secret=secret)
+        db.session.add(message)
+        db.session.commit()
+        return redirect(url_for('blog.SpeakSelf'))
+    return render_template('blog/speakBoard.html',Form=form,Messages=messages,adminForm=admin_form,pagination=pagination)
+
+#登出页面
 @blog_bp.route('/logout',methods=['GET'])
 @login_required
 def logout():
@@ -185,6 +241,8 @@ def logout():
     adminform=AdminForm()
     html=str(render_template('login_fail.html',adminForm=adminform))
     return html
+
+
 #####################################获取音乐
 @blog_bp.route('/music/<string:name>',methods=['GET','POST'])
 def Music1(name):
@@ -192,6 +250,7 @@ def Music1(name):
     with open(url,'rb') as f:
        content=f.read()
     return Response(content,mimetype="audio/mpeg3") 
+
 ###############################################此处为微信小程序的内容
 def login(admin_form):
     if admin_form.validate_on_submit():

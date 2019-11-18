@@ -1,7 +1,9 @@
 $(function() {
 
     // Set up PJAX.
+    $('ul.pagination li a').attr('data-pjax', '#main-content');
     $('a[data-pjax]').pjax();
+
 })
 
 function reloadLatex() {
@@ -32,16 +34,6 @@ function playPostMusic(id) {
         autoplay: false,
         audio: []
     });
-    //var url = 'https://api.itooi.cn/music/netease/song?key=579621905&id=' + id
-    //$.post(url, function(data1) {
-    //   console.log(data1.data);
-    //  subap.list.add([{
-    //       name: '过客',
-    //      artist: '周思涵',
-    //      url: 'https://127.0.0.1:5000/music/music/guoke',
-    //      cover: './static/img/guoke.jpg',
-    //  }]);
-    // }, 'json');
     var name = $("#sub-aplayer").attr("musicName")
     var artist = $("#sub-aplayer").attr("musicName")
     var url = 'http://127.0.0.1:5000/music/' + id
