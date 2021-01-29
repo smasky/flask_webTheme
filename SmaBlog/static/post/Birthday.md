@@ -1,6 +1,6 @@
 @-------------------------
 title:: Birthday
-top_img:: 'https://ws1.sinaimg.cn/large/e4e313f5gy1fwkja4xm3vj21hc0u010x.jpg'
+top_img:: 'http://image.smaskyer.com/e4e313f5gy1fwkja4xm3vj21hc0u010x.jpg'
 abstract:: 自言自语
 time:: 2018-10-24
 @-------------------------
@@ -10,27 +10,27 @@ time:: 2018-10-24
 
 今天拉着女朋友去吃了给她种草很久的水林间，有点贵178元每人。但是还是比较值的，有牛肉有海鲜有刺身非常好吃，有点偏日料的火锅。服务员一直在推荐寿喜锅，但是我们没有点，选择菌菇锅和番茄锅，也是很好吃。而且在吃的过程中，还有服务员不断拿着东西来问你，要不要吃这个要不要吃那个，服务相当周到。最后吃的也是横着肚子，走出水林间。果断决定明天去健身。
 
-![甜虾](https://ws1.sinaimg.cn/large/e4e313f5gy1fwkin3e1vtj20u0140qdg.jpg)
+![甜虾](http://image.smaskyer.com/e4e313f5gy1fwkin3e1vtj20u0140qdg.jpg)
 
 甜虾可以蘸芥末生吃，最关键的是这个虾有虾籽，虾籽是蓝色的超级神奇。生吃口感很像三文鱼，大部分时间还是扔到锅里面煮了吃。
 
-![天妇罗炸虾](https://ws1.sinaimg.cn/large/e4e313f5gy1fwkino71k8j20u0140gsw.jpg)
+![天妇罗炸虾](http://image.smaskyer.com/e4e313f5gy1fwkino71k8j20u0140gsw.jpg)
 
 这个天妇罗炸虾墙裂推荐，配上特有的蘸酱，超级好吃。大概吃了七八根。
 
-![生牛肉](https://ws1.sinaimg.cn/large/e4e313f5gy1fwkirtrhf0j20u0140q9q.jpg)
+![生牛肉](http://image.smaskyer.com/e4e313f5gy1fwkirtrhf0j20u0140q9q.jpg)
 
 这个生牛肉更好吃，感觉牛肉外面是熟，里面是生的。配上一种日式的叫不出名字的酱，还有洋葱，口感就像煮熟的生牛肉一模一样。
 
-![虾滑](https://ws1.sinaimg.cn/large/e4e313f5gy1fwkirs2tmoj20u0140k05.jpg)
+![虾滑](http://image.smaskyer.com/e4e313f5gy1fwkirs2tmoj20u0140k05.jpg)
 
 虾滑和甜虾大概是我们吃的最多的东西了，其实量很少，三勺就没有。但是里面的原料是真虾。
 
-![甜品](https://ws1.sinaimg.cn/large/e4e313f5gy1fwkivps9imj20u01400z9.jpg)
+![甜品](http://image.smaskyer.com/e4e313f5gy1fwkivps9imj20u01400z9.jpg)
 
 水林间的甜品也想给个赞，前前后后吃了大概四五份甜品，有芒果奶酪，草莓奶酪，抹茶奶酪，都是相当好吃。
 
-![蛋糕](https://ws1.sinaimg.cn/large/e4e313f5gy1fwkix8xlo1j21400u0n3f.jpg)
+![蛋糕](http://image.smaskyer.com/e4e313f5gy1fwkix8xlo1j21400u0n3f.jpg)
 
 
 

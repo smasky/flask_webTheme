@@ -18,33 +18,33 @@
             </li>
         </ul>
         <div class='tab-content'>
-            <div id='link-nav-One' class="tab-pane active">
-                <h4 style="padding-left:15px;padding-top:15px;color:#707474;">热门文章</h4>
+            <div id='link-nav-One' class="tab-pane active" style="margin:0px 20px;">
+                <h4 class='right-h4'>热门文章</h4>
                 <ul class="list-group">
                     {% if hot_posts %} {% for post in hot_posts %}
                     <li class="list-group-item">
-                        <a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
+                        <a class="pull-left thumb-sm"><img src="{{url_for('static',filename=post.avater) }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
                         <div class="clear" style="display:block;margin-left:60px;">
-                            <h4  style='font-size: 15px;'><a href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.comments }}</small></div>
+                            <h4 style='font-size: 15px;'><a data-pjax="#main-content" href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4> <small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='margin-right: 5px;'></i><span style="vertical-align:super;">{{ post.comments }}</span></small></div>
                     </li>
                     {% endfor %} {% endif %}
                 </ul>
 
             </div>
-            <div id='link-nav-Two' class="tab-pane ">
-                <h4 style="padding-left:15px;padding-top:15px;color:#707474;">随机文章</h4>
+            <div id='link-nav-Two' class="tab-pane" style="margin:0px 20px;">
+                <h4 class='right-h4'>随机文章</h4>
                 <ul class="list-group ">
                     {% if rand_posts %}{% for post in rand_posts %}
                     <li class="list-group-item">
-                        <a class="pull-left thumb-sm"><img src="{{url_for('static',filename='img/avatar.jpg') }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
-                        <div  class="clear" style="display:block;margin-left:60px;">
-                           <h4  style='font-size: 15px;'><a href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4><small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='font-size:7px;'></i>{{ post.views }}</small></div>
+                        <a class="pull-left thumb-sm"><img src="{{url_for('static',filename=post.avater) }}" style='width:40px!important;height:40px!important;border-radius: 500px;'></a>
+                        <div class="clear" style="display:block;margin-left:60px;">
+                            <h4 style='font-size: 15px;'><a data-pjax="#main-content" href="{{ url_for('blog.show_post',post_id=post.id) }}" style='float:none;color:#333'>{{ post.title }}</a></h4><small style='line-height: 0.9;'><i class="iconfont icon-icon_fill_2" style='margin-right: 5px;'></i><span style="vertical-align:super;">{{ post.views }}</span></small></div>
                     </li>
                     {% endfor %}{% endif %}
                 </ul>
 
             </div>
-            <div id='link-nav-Three' class="tab-pane ">
+            <div id='link-nav-Three' class="tab-pane" style="margin:0px 20px;">
                 <h4 style="padding-left:15px;padding-top:15px;color:#707474;">广而告之</h4>
                 <ul class="list-group">
                     <li class="list-group-item">暂时没有</li>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="tab-info" style="margin:0px 20px;">
-            <h4 style="padding-left:15px;padding-top:15px;color:#707474;">博客信息</h4>
+            <h4 class='right-h4'>博客信息</h4>
             <ul class="list-group" style='line-height: 0.9;'>
                 <li class="list-group-item"><i class="iconfont icon-icon_fill_5"></i>文章数量<span class="badge" style='line-height: 1;'>{{ Post_info.number }}</span></li>
                 <li class="list-group-item"><i class="iconfont icon-icon_fill_1"></i>评论数目<span class="badge" style='line-height: 1;'>{{ Post_info.num }}</span></li>
@@ -66,5 +66,7 @@
             </ul>
 
         </div>
+        <!-----<div id="mulu" class='mulu-move' style="margin:0px 20px;"></div>-->
+        <div id='toc' class='visible-lg-*'></div>
     </div>
 </div>

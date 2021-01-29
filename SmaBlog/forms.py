@@ -1,9 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField,TextAreaField,PasswordField,IntegerField
+from wtforms import StringField,SubmitField,TextAreaField,PasswordField,IntegerField,BooleanField
 from wtforms.validators import DataRequired,Length,Email,ValidationError
 
 class MessageForm(FlaskForm):
     body=TextAreaField('评论:',validators=[DataRequired(),Length(1,200)])
+    submit=SubmitField('提交评论')
+
+class SpeakForm(FlaskForm):
+    body=TextAreaField('评论:',validators=[DataRequired(),Length(1,200)])
+    secret=BooleanField('私密动态')
     submit=SubmitField('提交评论')
 
 class AdminForm(FlaskForm):

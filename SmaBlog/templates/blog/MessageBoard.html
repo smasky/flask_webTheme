@@ -1,12 +1,51 @@
-{% extends 'base.html' %} {% block main_content %}
+{% extends pjax('base.html') %} {% from 'temp/pagination.html' import render_pagination %} {% block main_content %}
 <div class=" content-header info-color-pure-white boder-bottom ">
     <h1 style="font-family:'ABC';font-style: normal;">Smasky</h1>
     <small>不困于情，不畏将来，不念过往。</small>
 </div>
 <div class="main-head-img">
-    <img src="https://ws1.sinaimg.cn/large/e837aa80gy1g15tn8vl6fj21ao0si7wh.jpg" style='background-size:contain; width:100%;'>
+    <img src="http://image.smaskyer.com/liuyanban.jpg!s" style='background-size:contain; width:100%;'>
 </div>
-<ol class="comment-list " style="list-style:none; ">
+
+<div style="padding-left:20px">
+    <div class='wrap-comment'>
+        <ol class="comment-list ">
+            {% for message in Messages %}
+
+            <li class="comment-parent b-l">
+                <a class='comment-avater' style='float: left; border-radius: 50px;display:inline-block;margin-left: -20px;'>
+                    <img src="{{ message.admin.avater }} " style="height:40px!important; width: 40px!important; ">
+                </a>
+                <div class="comment-body b-a info-color-pure-white">
+                    <div class="comment-name b-b">
+                        <span class="arrow left">
+                                </span>
+                        <span>
+                                        <b><a href="{{ message.admin.web }}" style='text-decoration: none' target="_blank">
+                                            {{ message.admin.name }}
+                                        </a></b>
+                                        {% if message.admin.right==1 %}
+                                        <label class="label bg-blue-info">博主</label>
+                                        {% else %}
+                                        <label class="label bg-blue-info">友人</label>
+                                        {% endif %}
+                                    </span>
+                        <span class="comment-meta pull-right ">
+                                    <small class='time-font' style='padding: 8px 0px;' data-toggle="tooltip " data-placement="top " data-timestamp="{{ message.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} " data-delay="500 ">
+                                        {{ moment(message.timestamp).fromNow(refresh=True) }}
+                                    </small>
+                                </span>
+                    </div>
+                    <div class="comment-content ">
+                        <p>
+                            {{message.body}}
+                        </p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+        <!----<ol class="comment-list " style="list-style:none; ">
     {% for message in Messages %}
     <li class="comment-parent ">
         <a class='comment-avater' style='float: left; border-radius: 50px;'>
@@ -15,9 +54,14 @@
         <div class="comment-body ">
             <div class="comment-name ">
                 <span>
-                    <a href="{{ message.admin.web }}" style='text-decoration: none' target="_blank">
+                    <b><a href="{{ message.admin.web }}" style='text-decoration: none' target="_blank">
                         {{ message.admin.name }}
-                    </a>
+                    </a></b>
+                    {% if message.admin.right==1 %}
+                    <label class="label bg-blue-info">博主</label>
+                    {% else %}
+                    <label class="label bg-blue-info">友人</label>
+                    {% endif %}
                 </span>
                 <div class="comment-meta ">
                     <small class='time-font' style='padding: 8px 0px;' data-toggle="tooltip " data-placement="top " data-timestamp="{{ message.timestamp.strftime( '%Y-%m-%dT%H:%M:%SZ') }} " data-delay="500 ">
@@ -34,25 +78,29 @@
         </div>
     </li>
     {% endfor %}
-</ol>
-{% if current_user.can() %}
-<div class='form-info'>
-    <h4 class='grey-info-g'>发表评论:</h4>
-    <form method="POST">
-        {{ Form.csrf_token }}
-        <div class="form-group ">
-            {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
-        </div>
-        <h5>欢迎{{ current_user.name }}归来</h5>
-        {{ Form.submit(class='btn btn-primary') }}
-    </form>
-</div>
-{% else %}
-<div class='form-info'>
-    <h4 class='grey-info-g'>发表评论:</h3>
-        <h5 class='grey-info'>请先登录！</h5>
-        <div class='login-panel'>
-            <form method="POST">
+</ol>-->
+    </div>
+    <div class="page-footer text-center">{{ render_pagination(pagination,'blog.MessageBoardPage') }}
+    </div>
+    {% if current_user.can() %}
+    <div class='form-info'>
+        <h4 class='grey-info-g'>发表评论:</h4>
+        <form method="POST" action='/MessageBoard'>
+            {{ Form.csrf_token }}
+            <div class="form-group ">
+                {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
+            </div>
+            <h5>欢迎{{ current_user.name }}归来</h5>
+            {{ Form.submit(class='btn btn-primary') }}
+        </form>
+    </div>
+    {% else %}
+    <div class='form-info'>
+        <h4 class='grey-info-g'>发表评论:</h3>
+            <h5 class='grey-info'>请先登录！</h5>
+            <button type="button" class="btn btn-primary right" onclick="login()">登录</button>
+            <!-- <div class='login-panel'>
+            <form method="POST" action='/MessageBoard'>
                 {{ adminForm.csrf_token }}
                 <div class="form-group ">
                     {{ adminForm.username.label(class='grey-info form-font-info')}} {{ adminForm.username(class='form-control') }}
@@ -72,6 +120,6 @@
 
 
             </form>
-        </div>
-</div>
-{% endif %} {% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
+        </div>-->
+    </div>
+    {% endif %} {% endblock %}

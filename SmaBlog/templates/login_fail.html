@@ -1,0 +1,28 @@
+<a data-toggle='dropdown' class="login dropdown-toggle white-info" href='#'>
+    <span>登录</span>
+    <b class="caret white-info"></b>
+</a>
+<div class='dropdown-menu animated rubberBand login-panel lg' style="background-color:white;position:absolute;">
+    <form method="POST">
+        {{ adminForm.csrf_token }}
+        <div class="form-group ">
+            {{ adminForm.username.label(class='grey-info-g form-font-info') }} {{ adminForm.username(class='login_name form-control') }} {% for message in adminForm.username.errors %}
+            <small class="error" style="color:red">{{ message }}</small> {% endfor %}
+        </div>
+        <div class="form-group ">
+            {{ adminForm.password.label(class='grey-info-g form-font-info')}} {{ adminForm.password(class='login_pwd form-control') }}
+        </div>
+        <div class='row'>
+            <div class='col-xs-6'>
+                <!--{{ adminForm.submit(class='btn btn-primary') }}-->
+                <button type="button" class="btn btn-primary right" onclick="ajaxForm()">登录</button>
+            </div>
+            <div class="col-xs-6">
+                <a href="{{ url_for('blog.register') }}" style='float:right;'>
+                    <button type='button' class="btn btn-primary right">注册</button></a>
+            </div>
+        </div>
+
+
+    </form>
+</div>

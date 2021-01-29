@@ -1,22 +1,22 @@
  {% for post in Posts %}
 <div class="panel panel-post panel-default">
     <div class="index-post-img-wrap panel-heading">
-        <a href="{{ url_for('blog.show_post',post_id=post.id)}}">
+        <a data-pjax="#main-content" href="{{ url_for('blog.show_post',post_id=post.id)}}">
             <div class='post-img' style="background-image:url({{ post.post_img }})"></div>
         </a>
     </div>
     <div class="panel-body post-meta">
-        <h2 class="index-post-title text-muted">
+        <h2 class="index-post-title font-big">
             {{ post.title }}
         </h2>
         <p class='summary text-muted'>{{ post.abstract }}</p>
         <div class="post-line bg-white"></div>
         <div class='post-meta'>
-            <i class="iconfont icon-gouxiao1 post-meta-icon"></i>
+            <i class="iconfont icon-icon-test5 post-meta-icon"></i>
             <span class="text-muted">smasky</span>
-            <i class="iconfont icon-icon-test1 post-meta-icon"></i>
+            <i class="iconfont icon-icon-test4 post-meta-icon"></i>
             <span class="text-muted"> {{ moment(post.timestamp).format('LL') }}</span>
-            <i class="iconfont icon-pinglun post-meta-icon"></i>
+            <i class="iconfont icon-icon-test3 post-meta-icon"></i>
             <span class="text-muted">{{ post.comments }}</span>
         </div>
 

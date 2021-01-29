@@ -28,14 +28,20 @@ def loading_post(filename=''):
                     info=line.strip('\n').split('::')
                     Info[info[0]]=info[1]
         html=markdown.markdown(''.join(content))
-
-        post=Post(title=Info['title'],
-                    body=html,
-                    views=0,
-                    post_img=Info['top_img'],
-                    abstract=Info['abstract'],
-                    comments=0,
-                    timestamp=datetime.strptime(Info['time'].strip(),'%Y-%m-%d'))
-        print('aa')
+#Admin.query.filter(Admin.email==email).first()
+        post=Post.query.filter(Post.title==Info['title']).first()
+        if(post):
+            post.body=html
+            post.post_img=Info['top_img']
+        else:
+            post=Post(title=Info['title'],
+                        body=html,
+                        views=0,
+                        post_img=Info['top_img'],
+                        abstract=Info['abstract'],
+                        comments=0,
+                        timestamp=datetime.strptime(Info['time'].strip(),'%Y-%m-%d'))
+        if('url' in Info.keys()):
+            post.url=Info['url']
         db.session.add(post)
         db.session.commit()

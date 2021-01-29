@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
+{% extends pjax('base.html') %} {% from 'bootstrap/pagination.html' import render_pagination %} {% block main_content %}
 <div class="content-header info-color-pure-white boder-bottom">
     <h1 style="font-family:'ABC';font-style: normal;">{{ Post.title }}</h1>
     <small>{{ Post.abstract }}</small>
@@ -7,17 +7,21 @@
     <img src="{{ Post.post_img|removeurl }}" style='background-size:contain; width:100%;'>
 </div>
 {% if Post%}
-<div class='blog-post post-main'>{{ Post.body|safe }}</div>
+<div class='blog-post post-main' data-toc="#toc" id='blog-post' style="margin-bottom:20px;">
+    {% if Post.url %}
+    <div id="sub-aplayer" musicName={{Music.name}} musicArtist={{Music.artist}} musicUrl={{Music.url}}></div>
+    {% endif %} {{ Post.body|safe }}
+</div>
 {% endif %}
 <ol class="comment-list " style="list-style:none; ">
     {% for postcomment in PostCom %}
     <li class="comment-parent ">
-        <a class='comment-avater' style='float: left; border-radius: 50px;'>
+        <a class='comment-avater' style='float: left; border-radius: 50px;margin-top:10px;'>
 
             <img src="{{ postcomment.admin.avater }} " style="height:40px!important; width: 40px!important; ">
 
         </a>
-        <div class="comment-body ">
+        <div class="comment-body " style="margin-left:45px!important;">
             <div class="comment-name ">
                 <span>
                         <a style='text-decoration: none;'>
@@ -31,7 +35,7 @@
 
                 </div>
             </div>
-            <div class="comment-content ">
+            <div class="comment-content " style='padding: 0px 10px!important;'>
                 <p>
                     {{postcomment.body}}
                 </p>
@@ -42,7 +46,7 @@
 </ol>
 <div class='form-info'>
     <h4 class='grey-info-g'>发表评论:</h4>
-    <form method="POST">
+    <form method="POST" action='/posts/{{ Post.id }}'>
         {{ Form.csrf_token }}
         <div class="form-group ">
             {{ Form.body.label(class='grey-info form-font-info') }} {{ Form.body(class='form-control body-info') }}
@@ -68,4 +72,4 @@
     </form>
 </div>
 
-{% endblock %} {% block app_right_aside %} {% include 'blog/_rightAside.html' %} {% endblock %}
+{% endblock %}

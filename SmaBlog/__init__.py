@@ -5,13 +5,16 @@
     :license: MIT, see LICENSE for more details.
 """
 import click
+from sqlalchemy import MetaData
 from flask import Flask,render_template
+from flask_migrate import Migrate
 from .models import Admin,Post
 from .blueprints.blog import blog_bp
 from .settings import config
 from .utils import sum_comment
 from datetime import datetime
-from .extensions import db,bootstrap,moment,csrf,login,Guest
+from .extensions import db,bootstrap,moment,csrf,login,Guest,pjax,robot
+from werobot.contrib.flask import make_view
 '''
 创建app主体文件
 '''
@@ -43,7 +46,16 @@ def register_extensions(app):
     moment.init_app(app)
     csrf.init_app(app)
     login.init_app(app)
+    pjax.init_app(app)
+    view_robot=make_view(robot)
+    app.add_url_rule(rule='/robot/', # WeRoBot 挂载地址
+                 endpoint='werobot', # Flask 的 endpoint
+                 view_func=view_robot,
+                 methods=['GET', 'POST'])
+
+    csrf.exempt(view_robot)
     login.anonymous_user=Guest
+    migrate=Migrate(app,db,render_as_batch=True)
 
 
 def register_commands(app):
@@ -68,7 +80,13 @@ def register_commands(app):
         click.echo(filename)
         loading_post(filename)
         click.echo('done.')
-
+    @app.cli.command()
+    @click.option('--filename',help='add new question')
+    def addque(filename):
+        from .utils import loadque
+        click.echo(filename)
+        loadque(filename)
+        click.echo('done.')
 
     @app.cli.command()
     @click.option('--post', default=50, help='Quantity of posts, default is 50.')
@@ -80,6 +98,19 @@ def register_commands(app):
         fake_posts(post)
 
         click.echo('Done.')
+    @app.cli.command()
+    @click.option('--avater',default=50)
+    def modifyAv(avater):
+        from .models import Admin
+        admins=Admin.query.filter(Admin.avater=="https://ws1.sinaimg.cn/large/007G9tRkgy1g15xb7y323j3074074q3a.jpg")
+        for admin in admins:
+            admin.avater='http://image.smaskyer.com/fangke.jpg'
+            db.session.add(admin)
+            db.session.commit()
+        admin=Admin.query.filter(Admin.avater=="https://ws1.sinaimg.cn/large/eaad02bagy1g17cqc16onj205i04dt8h.jpg").first()
+        admin.avater="http://image.smaskyer.com/7f920e462ea065035f8bd386e04a2e1.jpg"
+        db.session.add(admin)
+        db.session.commit()
 
     @app.cli.command()
     @click.option('--message',default=50,help='Quantity of message,default is 50.')
@@ -113,18 +144,40 @@ def register_commands(app):
             db.session.add(admin)
         db.session.commit()
         click.echo('Done')
+    @app.cli.command()
+    def test():
+        admin=Admin.query.filter(Admin.name=='smasky').first()
+        print(admin.right)
 def register_template_context(app):
     @app.context_processor
     def inject_right():
         from SmaBlog.utils import cal_days
+        import random
         post_info={}
         hot_posts=Post.query.order_by(Post.comments.desc())[:5]
         rand_posts=Post.query.order_by(Post.views.desc())[:5]
+        HotPost=[]
+        RandPost=[]
+        for i in range(5):
+            hot_item={}
+            hot_item['id']=hot_posts[i].id
+            hot_item['comments']=hot_posts[i].comments
+            hot_item['title']=hot_posts[i].title
+            hot_item['avater']='img/s-1-{}.png'.format(random.randint(1,11))
+
+            rand_item={}
+            rand_item['id']=rand_posts[i].id
+            rand_item['views']=rand_posts[i].views
+            rand_item['title']=rand_posts[i].title
+            rand_item['avater']='img/s-1-{}.png'.format(random.randint(1,11))
+
+            HotPost.append(hot_item)
+            RandPost.append(rand_item)
         post_info['number']=Post.query.count()
         post_info['num']=sum_comment(Post.query.all())
         post_info['days_from_s']=str(cal_days())+'天'
         post_info['modify']=datetime.utcnow()
-        return dict(Post_info=post_info,hot_posts=hot_posts,rand_posts=rand_posts)
+        return dict(Post_info=post_info,hot_posts=HotPost,rand_posts=RandPost)
 
 
 def do_remove(string):
